@@ -1,0 +1,5 @@
+/* Изменить шрифт */
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('./normalize.css');
+@import url('./style.css');
+@import url('./media.css');
