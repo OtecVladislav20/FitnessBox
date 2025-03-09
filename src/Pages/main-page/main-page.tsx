@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import ReactPlayer from 'react-player';
+import { AppRoute } from '../../const';
 
 export default function MainPage(): JSX.Element {
+  const navigate = useNavigate();
+
   return (
     <>
       <header className="header flex">
@@ -17,7 +21,7 @@ export default function MainPage(): JSX.Element {
         </nav>
         <div>
           <button className='nav-btn'>Заказать звонок</button>
-          <button className='nav-btn'>Вход</button>
+          <button className='nav-btn' onClick={() => navigate(AppRoute.SignIn)}>Вход</button>
         </div>
       </header>
 
@@ -152,18 +156,25 @@ export default function MainPage(): JSX.Element {
         </section>
 
         <section className='video'>
-          {/* <video width="1427" height="826" controls className='video-block'>
-            <source src="https://www.youtube.com/watch?v=RYY2gPzhEOM" type="video/mp4"/>
-          </video> */}
-          <iframe className='video'
-            title='Youtube player'
-            src='https://www.youtube.com/embed/watch?v=RYY2gPzhEOM'
-          >
-          </iframe>
+          <ReactPlayer url="https://www.youtube.com/watch?v=RYY2gPzhEOM" width="100%" height="826px"/>
         </section>
       </main>
 
-      <footer>
+      <footer className='footer flex'>
+        <div className='footer-wrapper flex'>
+          <div>
+            <h3 className='footer-title'>Контакты</h3>
+          </div>
+          <div>
+            <h3 className='footer-title'>Ресурсы</h3>
+          </div>
+          <div>
+            <h3 className='footer-title'>Клиентам</h3>
+          </div>
+          <div>
+            <h3 className='footer-title'>Приложения</h3>
+          </div>
+        </div>
       </footer>
     </>
   );
