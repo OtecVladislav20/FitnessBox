@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import ReactPlayer from 'react-player';
 import { AppRoute } from '../../const';
 
@@ -156,24 +157,102 @@ export default function MainPage(): JSX.Element {
         </section>
 
         <section className='video'>
-          <ReactPlayer url="https://www.youtube.com/watch?v=RYY2gPzhEOM" width="100%" height="826px"/>
+          <ReactPlayer url="https://rutube.ru/video/e9057de0f3f1c91d054293a664383729/?utm_source=embed&utm_medium=referral&utm_campaign=e9057de0f3f1c91d054293a664383729&utm_content=yastatic.net" width="100%" height="826px"/>
+        </section>
+
+        <section className='review'>
+          <Splide
+            options={ {
+              autoStart: true,
+              arrows: false,
+              pagination: false,
+              drag   : 'free',
+              type: 'loop',
+              focus  : 'center',
+              perPage: 3,
+              autoScroll: {
+                speed: 1,
+              },
+            } }
+            // extensions={{ AutoScroll }}
+          >
+            <SplideSlide>
+              {/* <div className='slider-item'>
+                <div className='flex slider-wrapper-title'>
+                  <div>
+                    <p className='review-text review-name'>Владислав</p>
+                    <div>
+                      <img src="../img/Star.svg" alt="star" />
+                      <img src="../img/Star.svg" alt="star" />
+                      <img src="../img/Star.svg" alt="star" />
+                      <img src="../img/Star.svg" alt="star" />
+                      <img src="../img/Star.svg" alt="star" />
+                    </div>
+                  </div>
+                  <img src="../img/ya_symbol.svg" alt="яндекс" className='slider-logo'/>
+                </div>
+                <div>
+                  <p className='review-text'>ывафывафывавылаоываоывфоадфыводаывоаждыфвоалывфоадыводлалывдаждлоывфдлаыовфдлалдывждаоывдлаождл</p>
+                </div>
+              </div> */}
+            </SplideSlide>
+            <SplideSlide>
+              <div className='slide-item'>
+                <p>
+                  ывафывафывавылаоываоывфоадфыводаы
+                  воаждыфвоалывфоадыводлалывдаждлоывфдлаыовфдлалдывждаоывдлаождл
+                </p>
+              </div>
+            </SplideSlide>
+            <SplideSlide>
+            </SplideSlide>
+            <SplideSlide>
+            </SplideSlide>
+          </Splide>
         </section>
       </main>
 
       <footer className='footer flex'>
         <div className='footer-wrapper flex'>
-          <div>
+          <div className='footer-contacts flex'>
             <h3 className='footer-title'>Контакты</h3>
+            <a href="tel:89068006808" className='footer-text'>+7 906 800 68 08</a>
+            <a href="mailto:maslakov20@mail.ru" className='footer-text'>maslakov20@mail.ru</a>
+            <div>
+              <a href="">
+                <img src="" alt="" />
+              </a>
+              <a href="">
+                <img src="" alt="" />
+              </a>
+            </div>
           </div>
-          <div>
+          <div className='footer-contacts flex'>
             <h3 className='footer-title'>Ресурсы</h3>
+            <a href="#" className='footer-text'>Пользовательское соглашение</a>
+            <a href="#" className='footer-text'>Договор оферты</a>
+            <a href="#" className='footer-text'>Политика конфиденциальноси</a>
+            <a href="#" className='footer-text'>Правила клуба</a>
           </div>
-          <div>
+          <div className='footer-contacts flex'>
             <h3 className='footer-title'>Клиентам</h3>
+            <a href="#" className='footer-text'>Вакансии</a>
+            <a href="#" className='footer-text'>Тренеры</a>
+            <a href="#" className='footer-text'>Каталог</a>
+            <a href="#" className='footer-text'>Техническая поддержка</a>
           </div>
-          <div>
+          <div className='footer-contacts flex'>
             <h3 className='footer-title'>Приложения</h3>
+            <a href="">
+              <img src="" alt="" />
+            </a>
+            <a href="">
+              <img src="" alt="" />
+            </a>
           </div>
+        </div>
+        <div>
+          <p className='footer-p'>© 2018-2025 FitnessBox. Все права защищены</p>
         </div>
       </footer>
     </>
