@@ -4,3 +4,14 @@ export enum AppRoute {
   LogIn = '/login',
   Code = '/code',
 }
+
+export enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}
+
+export enum NameSpace {
+  User = 'USER',
+  Data = 'DATA',
+}

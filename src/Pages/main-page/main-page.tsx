@@ -1,12 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-import ReactPlayer from 'react-player';
 import { AppRoute } from '../../const';
+import ReactPlayer from 'react-player';
+import Footer from '../../components/footer/footer';
+import { useState } from 'react';
+
 
 export default function MainPage(): JSX.Element {
   const navigate = useNavigate();
+
+  const [isBurger, setBurger] = useState(false);
+  function handlerBurger() {
+    setBurger(!isBurger);
+  }
 
   return (
     <>
@@ -14,15 +22,19 @@ export default function MainPage(): JSX.Element {
         <a href="#">
           <img src="../img/logoFitnessBox.svg" alt="FitnessBox"/>
         </a>
-        <nav className='flex'>
-          <Link to='/' className='nav-link'>Начать заниматься</Link>
-          <Link to='/' className='nav-link'>Подписка</Link>
-          <Link to='/' className='nav-link'>Контакты</Link>
-          <Link to='/' className='nav-link'>Вакансии</Link>
+        <nav className={`nav ${isBurger ? 'flex' : ''}`}>
+          <a href='#start' className='nav-link'>Начать заниматься</a>
+          <a href='#sub' className='nav-link'>Подписка</a>
+          <a href='#footer' className='nav-link'>Контакты</a>
+          <a href='#' className='nav-link'>Вакансии</a>
         </nav>
         <div>
           <button className='nav-btn'>Заказать звонок</button>
           <button className='nav-btn' onClick={() => navigate(AppRoute.SignIn)}>Вход</button>
+        </div>
+
+        <div className={`burger ${isBurger ? 'active' : ''}`} onClick={() => handlerBurger()}>
+          <span />
         </div>
       </header>
 
@@ -89,16 +101,43 @@ export default function MainPage(): JSX.Element {
           <div className='h2-wrapper h2-wrapper-l'>
             <h2 className='h2-title'>Сделай шаг в сторону комфорта!</h2>
           </div>
-          <div className='achivments-wrapper'>
+          <div className='achivments-wrapper flex'>
             <div className='achivment-block'>
               <img src="" alt="" />
-              <p>Доступно 24 часа в сутки</p>
+              <div className='achivments-text-wrapper flex'>
+                <p className='achivments-text'>Доступно 24 часа в сутки</p>
+              </div>
             </div>
-            <div>Доступно 24 часа в сутки </div>
-            <div>Доступно 24 часа в сутки </div>
-            <div>Доступно 24 часа в сутки </div>
-            <div>Доступно 24 часа в сутки </div>
-            <div>Доступно 24 часа в сутки </div>
+            <div className='achivment-block'>
+              <img src="" alt="" />
+              <div className='achivments-text-wrapper flex'>
+                <p className='achivments-text'>Занимайся индивидуально</p>
+              </div>
+            </div>
+            <div className='achivment-block'>
+              <img src="" alt="" />
+              <div className='achivments-text-wrapper flex'>
+                <p className='achivments-text'>Плати только при использовании</p>
+              </div>
+            </div>
+            <div className='achivment-block'>
+              <img src="" alt="" />
+              <div className='achivments-text-wrapper flex'>
+                <p className='achivments-text'>Тренажеры для всех групп мышц</p>
+              </div>
+            </div>
+            <div className='achivment-block'>
+              <img src="" alt="" />
+              <div className='achivments-text-wrapper flex'>
+                <p className='achivments-text'>Персональныйе тренировки</p>
+              </div>
+            </div>
+            <div className='achivment-block'>
+              <img src="" alt="" />
+              <div className='achivments-text-wrapper flex'>
+                <p className='achivments-text'>Простота использования</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -123,19 +162,19 @@ export default function MainPage(): JSX.Element {
             <div className='equipment-text flex'>
               <ul className='equipment-list'>
                 <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
-                <li className='equipment-item'>Гантели</li>
+                <li className='equipment-item'>Блины</li>
+                <li className='equipment-item'>Кривой и прямой гриф</li>
+                <li className='equipment-item'>Беговая дорожка</li>
+                <li className='equipment-item'>Эллипс</li>
+                <li className='equipment-item'>Универсальная скамья</li>
+                <li className='equipment-item'>Машина смита</li>
+                <li className='equipment-item'>Нижний и верхний блок</li>
+                <li className='equipment-item'>Присед</li>
+                <li className='equipment-item'>Жим лежа</li>
+                <li className='equipment-item'>Баттерфлай</li>
+                <li className='equipment-item'>Турник</li>
+                <li className='equipment-item'>Эластичные ленты</li>
+                <li className='equipment-item'>Коврик</li>
               </ul>
             </div>
           </div>
@@ -157,10 +196,97 @@ export default function MainPage(): JSX.Element {
         </section>
 
         <section className='video'>
-          <ReactPlayer url="https://rutube.ru/video/e9057de0f3f1c91d054293a664383729/?utm_source=embed&utm_medium=referral&utm_campaign=e9057de0f3f1c91d054293a664383729&utm_content=yastatic.net" width="100%" height="826px"/>
+          <div className='player-wrapper'>
+            <ReactPlayer className='react-player' url="https://www.youtube.com/watch?v=ESMmH-JfPCY" width="100%" height="826px" controls volume={0.2}/>
+          </div>
         </section>
 
-        <section className='review'>
+        <section className='sub' id='sub'>
+          <div className='h2-wrapper h2-wrapper-sub'>
+            <h2 className='h2-title'>Подписка</h2>
+          </div>
+          <div className='sub-block-l flex'>
+            <p className='sub-text'>Бронирование на 5 дней вперед</p>
+            <p className='sub-text'>Возможность бронирования на 6 сеансов</p>
+            <p className='sub-text'>Изменить время бронирования за 1 день</p>
+          </div>
+          <div className='sub-block-r flex'>
+            <p className='sub-title-r'>С подпиской</p>
+            <div>
+              <p className='sub-text'>Бронирование на 5 дней вперед</p>
+              <p className='sub-text'>Возможность бронирования на 6 сеансов</p>
+              <p className='sub-text'>Изменить время бронирования за 1 день</p>
+              <p className='sub-text'>Возможность бронирования на 6 сеансов</p>
+              <p className='sub-text'>Изменить время бронирования за 1 день</p>
+            </div>
+            <button className='sub-btn'>Оформить подписку</button>
+          </div>
+        </section>
+
+        <section className='start' id='start'>
+          <div className='h2-wrapper-start flex'>
+            <h2 className='h2-title'>Как начать заниматься?</h2>
+          </div>
+          <div className='start-wrapper'>
+            <div className='start-block flex'>
+              <p className='start-number-text mr-20'>Зарегистрируйся на сайте или в мобильном приложении</p>
+              <div>
+                <img src="../img/start-2.png" alt="" />
+              </div>
+              <div className='start-number flex'>
+                <p className='start-number-text'>1</p>
+              </div>
+            </div>
+            <div className='start-block flex'>
+              <p className='start-number-text mr-20'>Зарегистрируйся на сайте или в мобильном приложении</p>
+              <div>
+                <img src="../img/start-2.png" alt="" />
+              </div>
+              <div className='start-number flex'>
+                <p className='start-number-text'>1</p>
+              </div>
+            </div>
+            <div className='start-block flex'>
+              <p className='start-number-text mr-20'>Зарегистрируйся на сайте или в мобильном приложении</p>
+              <div>
+                <img src="../img/start-2.png" alt="" />
+              </div>
+              <div className='start-number flex'>
+                <p className='start-number-text'>1</p>
+              </div>
+            </div>
+            <div className='start-block flex'>
+              <p className='start-number-text mr-20'>Зарегистрируйся на сайте или в мобильном приложении</p>
+              <div>
+                <img src="../img/start-2.png" alt="" />
+              </div>
+              <div className='start-number flex'>
+                <p className='start-number-text'>1</p>
+              </div>
+            </div>
+            <div className='start-block flex'>
+              <p className='start-number-text mr-20'>Зарегистрируйся на сайте или в мобильном приложении</p>
+              <div>
+                <img src="../img/start-2.png" alt="" />
+              </div>
+              <div className='start-number flex'>
+                <p className='start-number-text'>1</p>
+              </div>
+            </div>
+            <div className='start-block flex'>
+              <p className='start-number-text mr-20'>Зарегистрируйся на сайте или в мобильном приложении</p>
+              <div>
+                <img src="../img/start-2.png" alt="" />
+              </div>
+              <div className='start-number flex'>
+                <p className='start-number-text'>1</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className='finish'>
+          <img src="../img/lines1.png" alt="" />
           <Splide
             options={ {
               autoStart: true,
@@ -169,92 +295,172 @@ export default function MainPage(): JSX.Element {
               drag   : 'free',
               type: 'loop',
               focus  : 'center',
-              perPage: 3,
+              gap: '10px',
+              perPage: 2,
               autoScroll: {
                 speed: 1,
               },
             } }
-            // extensions={{ AutoScroll }}
+            extensions={{ AutoScroll }}
           >
             <SplideSlide>
-              {/* <div className='slider-item'>
-                <div className='flex slider-wrapper-title'>
-                  <div>
-                    <p className='review-text review-name'>Владислав</p>
-                    <div>
-                      <img src="../img/Star.svg" alt="star" />
-                      <img src="../img/Star.svg" alt="star" />
-                      <img src="../img/Star.svg" alt="star" />
-                      <img src="../img/Star.svg" alt="star" />
-                      <img src="../img/Star.svg" alt="star" />
-                    </div>
-                  </div>
-                  <img src="../img/ya_symbol.svg" alt="яндекс" className='slider-logo'/>
-                </div>
-                <div>
-                  <p className='review-text'>ывафывафывавылаоываоывфоадфыводаывоаждыфвоалывфоадыводлалывдаждлоывфдлаыовфдлалдывждаоывдлаождл</p>
-                </div>
-              </div> */}
+              <p className='finish-text'>Становись лучше вместе с  FITNESSBOX!</p>
             </SplideSlide>
             <SplideSlide>
-              <div className='slide-item'>
-                <p>
-                  ывафывафывавылаоываоывфоадфыводаы
-                  воаждыфвоалывфоадыводлалывдаждлоывфдлаыовфдлалдывждаоывдлаождл
-                </p>
-              </div>
+              <p className='finish-text'>Становись лучше вместе с  FITNESSBOX!</p>
             </SplideSlide>
             <SplideSlide>
+              <p className='finish-text'>Становись лучше вместе с  FITNESSBOX!</p>
             </SplideSlide>
             <SplideSlide>
+              <p className='finish-text'>Становись лучше вместе с  FITNESSBOX!</p>
             </SplideSlide>
           </Splide>
+          <img src="../img/lines1.png" alt="" />
+        </section>
+
+        <section className='review'>
+          <div className='review-wrapper flex'>
+            <div className='slide-item score-block'>
+              <div className='flex slide-title-wrapper'>
+                <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-score-img'/>
+                <p className='slide-score-text'>4.2</p>
+                <div>
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                </div>
+              </div>
+              <p className='slide-text'>Рейтинг организации в Яндексе</p>
+            </div>
+
+            <div className='slide-item score-block'>
+              <div className='flex slide-title-wrapper'>
+                <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-score-img'/>
+                <p className='slide-score-text'>4.2</p>
+                <div>
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                </div>
+              </div>
+              <p className='slide-text'>Рейтинг организации в Яндексе</p>
+            </div>
+
+            <div className='slide-item score-block'>
+              <div className='flex slide-title-wrapper'>
+                <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-score-img'/>
+                <p className='slide-score-text'>4.2</p>
+                <div>
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                  <img src="../img/Star.svg" alt="" />
+                </div>
+              </div>
+              <p className='slide-text'>Рейтинг организации в Яндексе</p>
+            </div>
+          </div>
+          <div>
+            <Splide
+              options={ {
+                autoStart: true,
+                arrows: false,
+                pagination: false,
+                drag   : 'free',
+                type: 'loop',
+                focus  : 'center',
+                gap: '50px',
+                perPage: 3,
+                autoScroll: {
+                  speed: 1,
+                },
+              } }
+              extensions={{ AutoScroll }}
+            >
+              <SplideSlide>
+                <div className='slide-item'>
+                  <div className='flex slide-title-wrapper'>
+                    <div>
+                      <p className='slide-text mb-10'>Владислав</p>
+                      <div>
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                      </div>
+                    </div>
+                    <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                  </div>
+                  <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+                </div>
+              </SplideSlide>
+              <SplideSlide>
+                <div className='slide-item'>
+                  <div className='flex slide-title-wrapper'>
+                    <div>
+                      <p className='slide-text mb-10'>Владислав</p>
+                      <div>
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                      </div>
+                    </div>
+                    <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                  </div>
+                  <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+                </div>
+              </SplideSlide>
+              <SplideSlide>
+                <div className='slide-item'>
+                  <div className='flex slide-title-wrapper'>
+                    <div>
+                      <p className='slide-text mb-10'>Владислав</p>
+                      <div>
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                      </div>
+                    </div>
+                    <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                  </div>
+                  <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+                </div>
+              </SplideSlide>
+              <SplideSlide>
+                <div className='slide-item'>
+                  <div className='flex slide-title-wrapper'>
+                    <div>
+                      <p className='slide-text mb-10'>Владислав</p>
+                      <div>
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                        <img src="../img/Star.svg" alt="" />
+                      </div>
+                    </div>
+                    <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                  </div>
+                  <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+                </div>
+              </SplideSlide>
+            </Splide>
+          </div>
         </section>
       </main>
 
-      <footer className='footer flex'>
-        <div className='footer-wrapper flex'>
-          <div className='footer-contacts flex'>
-            <h3 className='footer-title'>Контакты</h3>
-            <a href="tel:89068006808" className='footer-text'>+7 906 800 68 08</a>
-            <a href="mailto:maslakov20@mail.ru" className='footer-text'>maslakov20@mail.ru</a>
-            <div>
-              <a href="">
-                <img src="" alt="" />
-              </a>
-              <a href="">
-                <img src="" alt="" />
-              </a>
-            </div>
-          </div>
-          <div className='footer-contacts flex'>
-            <h3 className='footer-title'>Ресурсы</h3>
-            <a href="#" className='footer-text'>Пользовательское соглашение</a>
-            <a href="#" className='footer-text'>Договор оферты</a>
-            <a href="#" className='footer-text'>Политика конфиденциальноси</a>
-            <a href="#" className='footer-text'>Правила клуба</a>
-          </div>
-          <div className='footer-contacts flex'>
-            <h3 className='footer-title'>Клиентам</h3>
-            <a href="#" className='footer-text'>Вакансии</a>
-            <a href="#" className='footer-text'>Тренеры</a>
-            <a href="#" className='footer-text'>Каталог</a>
-            <a href="#" className='footer-text'>Техническая поддержка</a>
-          </div>
-          <div className='footer-contacts flex'>
-            <h3 className='footer-title'>Приложения</h3>
-            <a href="">
-              <img src="" alt="" />
-            </a>
-            <a href="">
-              <img src="" alt="" />
-            </a>
-          </div>
-        </div>
-        <div>
-          <p className='footer-p'>© 2018-2025 FitnessBox. Все права защищены</p>
-        </div>
-      </footer>
+      <Footer/>
     </>
   );
 }
