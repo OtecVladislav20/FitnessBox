@@ -784,3 +784,58 @@ button {
     top: 50%;
     transform: rotate(45deg) translate(0, 50%);
 }
+
+.card-fitnessbox {
+    justify-content: space-between;
+    position: relative;
+    background-color: #CC6F32;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+
+    width: 465px;
+    height: 126px;
+
+    margin: 10px;
+}
+
+.card-fitnessbox-img {
+    position: absolute;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.card-fitnessbox-text {
+    padding: 10px;
+    padding-left: 180px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-fitnessbox-btns {
+    padding: 10px;
+    padding-right: 25px;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.card-fitnessbox-title {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+}
+.card-fitnessbox-p {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+    margin: 0;
+}
+
+.catalog {
+    background-color: #202F39;
+    padding: 50px 200px;
+}
