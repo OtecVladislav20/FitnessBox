@@ -6,6 +6,7 @@ import { AppRoute } from '../../const';
 import ReactPlayer from 'react-player';
 import Footer from '../../components/footer/footer';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 
 export default function MainPage(): JSX.Element {
@@ -18,6 +19,10 @@ export default function MainPage(): JSX.Element {
 
   return (
     <>
+      <Helmet>
+        <title>Твой персональный тренажерный зал!</title>
+      </Helmet>
+
       <header className="header flex">
         <a href="#">
           <img src="../img/logoFitnessBox.svg" alt="FitnessBox"/>

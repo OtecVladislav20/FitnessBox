@@ -3,6 +3,7 @@ export enum AppRoute {
   SignIn = '/signin',
   LogIn = '/login',
   Code = '/code',
+  Catalog = 'catalog',
 }
 
 export enum AuthorizationStatus {
