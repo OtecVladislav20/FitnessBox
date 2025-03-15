@@ -10,6 +10,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import BoxPage from './Pages/box-page/box-page';
 import TrainersPage from './Pages/trainers-page/trainers-page';
 import TrainerPage from './Pages/trainer-page/trainer-page';
+import SubscribePage from './Pages/subscribe-page/subscribe-page';
+import SessionPage from './Pages/session-page/session-page';
 
 
 export default function App(): JSX.Element {
@@ -21,6 +23,15 @@ export default function App(): JSX.Element {
           <Route path={AppRoute.SignIn} element={<SignInPage/>} />
           <Route path={AppRoute.LogIn} element={<LogInPage/>} />
           <Route path={AppRoute.Code} element={<CodePage/>} />
+
+          <Route
+            path={AppRoute.Session}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <SessionPage/>
+              </PrivateRoute>
+            }
+          />
           <Route
             path={AppRoute.Catalog}
             element={
@@ -50,6 +61,14 @@ export default function App(): JSX.Element {
             element={
               <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
                 <TrainerPage/>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={AppRoute.Subcribe}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <SubscribePage/>
               </PrivateRoute>
             }
           />

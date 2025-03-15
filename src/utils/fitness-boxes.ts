@@ -5,6 +5,14 @@ export type TFitnessBox = {
   idLock: string;
   adress: string;
   location: number[];
+  equipment: string[];
+  bookedTime: TBookedTime[];
+  boxScore: number;
+  boxVisited: number;
+}
+
+export type TBookedTime = {
+  [key: string]: string[];
 }
 
 export type TFitnessBoxes = TFitnessBox[];
@@ -23,6 +31,8 @@ export const fitnessBoxes = [
       '1 сентября': ['12:00', '12:30', '14:00', '14:30'],
       '2 сентября': ['12:00', '12:30', '14:00', '14:30'],
     },
+    visited: 562,
+    score: 4.5,
   },
   {
     id: '2',
@@ -31,7 +41,13 @@ export const fitnessBoxes = [
     idLock: '',
     adress: 'Менделеева 11',
     location: [55.641574, 37.573856],
-    reviews: ['Норм', 'Норм', 'Норм', 'Норм', 'Норм'],
+    equipment: ['', ''],
+    bookedTime: {
+      '1 сентября': ['12:00', '12:30', '14:00', '14:30'],
+      '2 сентября': ['12:00', '12:30', '14:00', '14:30'],
+    },
+    visited: 562,
+    score: 4.5,
   },
   {
     id: '3',
@@ -40,7 +56,13 @@ export const fitnessBoxes = [
     idLock: '',
     adress: 'Менделеева 11',
     location: [55.641574, 37.673856],
-    reviews: ['Норм', 'Норм', 'Норм', 'Норм', 'Норм'],
+    equipment: ['', ''],
+    bookedTime: {
+      '1 сентября': ['12:00', '12:30', '14:00', '14:30'],
+      '2 сентября': ['12:00', '12:30', '14:00', '14:30'],
+    },
+    visited: 562,
+    score: 4.5,
   },
   {
     id: '4',
@@ -49,7 +71,13 @@ export const fitnessBoxes = [
     idLock: '',
     adress: 'Менделеева 11',
     location: [55.741574, 37.673856],
-    reviews: ['Норм', 'Норм', 'Норм', 'Норм', 'Норм'],
+    equipment: ['', ''],
+    bookedTime: {
+      '1 сентября': ['12:00', '12:30', '14:00', '14:30'],
+      '2 сентября': ['12:00', '12:30', '14:00', '14:30'],
+    },
+    visited: 562,
+    score: 4.5,
   },
   {
     id: '5',
@@ -58,7 +86,13 @@ export const fitnessBoxes = [
     idLock: '',
     adress: 'Менделеева 11',
     location: [55.441574, 37.673856],
-    reviews: ['Норм', 'Норм', 'Норм', 'Норм', 'Норм'],
+    equipment: ['', ''],
+    bookedTime: {
+      '1 сентября': ['12:00', '12:30', '14:00', '14:30'],
+      '2 сентября': ['12:00', '12:30', '14:00', '14:30'],
+    },
+    visited: 562,
+    score: 4.5,
   },
   {
     id: '6',
@@ -67,6 +101,12 @@ export const fitnessBoxes = [
     idLock: '',
     adress: 'Менделеева 11',
     location: [55.741574, 37.473856],
-    reviews: ['Норм', 'Норм', 'Норм', 'Норм', 'Норм'],
+    equipment: ['', ''],
+    bookedTime: {
+      '1 сентября': ['12:00', '12:30', '14:00', '14:30'],
+      '2 сентября': ['12:00', '12:30', '14:00', '14:30'],
+    },
+    visited: 562,
+    score: 4.5,
   },
 ];

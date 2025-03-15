@@ -1091,3 +1091,10 @@ button {
     margin: 0;
     margin-left: 20px;
 }
+
+
+
+.subscribe {
+    padding: 50px 200px;
+    background-color: #202F39;
+}

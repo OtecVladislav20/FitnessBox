@@ -5,6 +5,7 @@ import { trainers } from '../../utils/trainers';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import styled from 'styled-components';
 import { fitnessBoxes } from '../../utils/fitness-boxes';
+import FitnessBoxCard from '../../components/fitness-box-card/fitness-box-card';
 
 
 const MapStyled = styled(Map)`
@@ -19,8 +20,6 @@ export default function TrainersPage(): JSX.Element {
   const workFitnessBoxes = trainer?.workFitmessBoxes.map((workFitnessBox) => (
     fitnessBoxes.find((box) => (workFitnessBox === box.id))
   ));
-
-  const navigate = useNavigate();
 
   if (!id) {
     throw Error;
@@ -38,8 +37,8 @@ export default function TrainersPage(): JSX.Element {
                 <p className='trainer-name'>{trainer?.name}</p>
               </div>
               <div className='trainer-contact flex'>
-                <a href="tel:89068006808" className='footer-text'>+7 906 800 68 08</a>
-                <a href="mailto:maslakov20@mail.ru" className='footer-text'>maslakov20@mail.ru</a>
+                <a href={`tel:${trainer?.phone}`} className='footer-text'>{trainer?.phone}</a>
+                <a href={`mailto:${trainer?.mail}`} className='footer-text'>{trainer?.mail}</a>
                 <div>
                   <a href="" className='contact-link'>
                     <img src="../img/user-img.svg" alt="" />
@@ -80,38 +79,16 @@ export default function TrainersPage(): JSX.Element {
 
           <div className='trainer-payment flex'>
             <div>
-              <button className='trainer-payment-btn flex'>
-                <div className=''>
-                  <p className='trainer-payment-text'>2 сеанса</p>
-                </div>
-                <div className='flex trainer-payment-price-wrapper'>
-                  <p className='trainer-payment-price'>1000 р</p>
-                </div>
-              </button>
-              <button className='trainer-payment-btn flex'>
-                <div className=''>
-                  <p className='trainer-payment-text'>2 сеанса</p>
-                </div>
-                <div className='flex trainer-payment-price-wrapper'>
-                  <p className='trainer-payment-price'>1000 р</p>
-                </div>
-              </button>
-              <button className='trainer-payment-btn flex'>
-                <div className=''>
-                  <p className='trainer-payment-text'>2 сеанса</p>
-                </div>
-                <div className='flex trainer-payment-price-wrapper'>
-                  <p className='trainer-payment-price'>1000 р</p>
-                </div>
-              </button>
-              <button className='trainer-payment-btn flex'>
-                <div className=''>
-                  <p className='trainer-payment-text'>2 сеанса</p>
-                </div>
-                <div className='flex trainer-payment-price-wrapper'>
-                  <p className='trainer-payment-price'>1000 р</p>
-                </div>
-              </button>
+              {Object.keys(trainer?.price).map((i) => (
+                <button key={i} className='trainer-payment-btn flex'>
+                  <div className=''>
+                    <p className='trainer-payment-text'>{i} пт</p>
+                  </div>
+                  <div className='flex trainer-payment-price-wrapper'>
+                    <p className='trainer-payment-price'>{trainer?.price[i]}</p>
+                  </div>
+                </button>
+              ))}
             </div>
             <button className='payment-btn'>Оплатить</button>
           </div>
@@ -133,23 +110,7 @@ export default function TrainersPage(): JSX.Element {
 
             <div className='flex cards-fitnessbox'>
               {workFitnessBoxes?.map((box) => (
-                <div key={box.id} className='card-fitnessbox flex' onClick={() => navigate(`/catalog/${box.id}`)}>
-                  <img src="../img/FitnessBox.png" alt="" className='card-fitnessbox-img'/>
-                  <div className='card-fitnessbox-text flex'>
-                    <h2 className='card-fitnessbox-title'>{box.name}</h2>
-                    <p className='card-fitnessbox-p'>{box.adress}</p>
-                    <p className='card-fitnessbox-p'>Количество посещений: 568</p>
-                  </div>
-                  <div className='card-fitnessbox-btns flex'>
-                    <button>
-                      <img src="../img/Star.svg" alt="" />
-                    </button>
-                    <div>
-                      <img src="" alt="" />
-                      <p className='card-fitnessbox-p'>4/5</p>
-                    </div>
-                  </div>
-                </div>
+                <FitnessBoxCard key={box?.id} boxId={box?.id} boxName={box?.name} boxAdress={box?.adress} boxScore={box?.score} boxVisited={box?.visited}/>
               ))}
             </div>
           </div>
@@ -157,7 +118,7 @@ export default function TrainersPage(): JSX.Element {
             <YMaps query={{apikey: '65d0ebaf-f042-415a-9b10-cdf7666352f0'}}>
               <MapStyled defaultState={{ center: [55.75, 37.57], zoom: 9 }}>
                 {workFitnessBoxes?.map((box) => (
-                  <Placemark key={box.id} defaultGeometry={box.location}/>
+                  <Placemark key={box?.id} defaultGeometry={box?.location}/>
                 ))}
               </MapStyled>
             </YMaps>
