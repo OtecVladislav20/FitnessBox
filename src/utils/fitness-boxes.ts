@@ -1,3 +1,4 @@
+// Добавить новые значение
 export type TFitnessBox = {
   id: string;
   name: string;
@@ -25,6 +26,8 @@ export const fitnessBoxes = [
     imagePreview: '',
     idLock: '',
     adress: 'Менделеева 11',
+    description: 'Бокс был поставлен 22 февраля 2022 года. Расположен близко в торговому центру ПаркХаус. ',
+    imagesBox: ['', '', '', ''],
     location: [55.751574, 37.573856],
     equipment: ['', ''],
     bookedTime: {
@@ -40,6 +43,8 @@ export const fitnessBoxes = [
     imagePreview: '',
     idLock: '',
     adress: 'Менделеева 11',
+    description: 'Бокс был поставлен 22 февраля 2022 года. Расположен близко в торговому центру ПаркХаус. ',
+    imagesBox: ['', '', '', ''],
     location: [55.641574, 37.573856],
     equipment: ['', ''],
     bookedTime: {
@@ -55,6 +60,8 @@ export const fitnessBoxes = [
     imagePreview: '',
     idLock: '',
     adress: 'Менделеева 11',
+    description: 'Бокс был поставлен 22 февраля 2022 года. Расположен близко в торговому центру ПаркХаус. ',
+    imagesBox: ['', '', '', ''],
     location: [55.641574, 37.673856],
     equipment: ['', ''],
     bookedTime: {
@@ -70,6 +77,8 @@ export const fitnessBoxes = [
     imagePreview: '',
     idLock: '',
     adress: 'Менделеева 11',
+    description: 'Бокс был поставлен 22 февраля 2022 года. Расположен близко в торговому центру ПаркХаус. ',
+    imagesBox: ['', '', '', ''],
     location: [55.741574, 37.673856],
     equipment: ['', ''],
     bookedTime: {
@@ -85,6 +94,8 @@ export const fitnessBoxes = [
     imagePreview: '',
     idLock: '',
     adress: 'Менделеева 11',
+    description: 'Бокс был поставлен 22 февраля 2022 года. Расположен близко в торговому центру ПаркХаус. ',
+    imagesBox: ['', '', '', ''],
     location: [55.441574, 37.673856],
     equipment: ['', ''],
     bookedTime: {
@@ -100,6 +111,8 @@ export const fitnessBoxes = [
     imagePreview: '',
     idLock: '',
     adress: 'Менделеева 11',
+    description: 'Бокс был поставлен 22 февраля 2022 года. Расположен близко в торговому центру ПаркХаус. ',
+    imagesBox: ['', '', '', ''],
     location: [55.741574, 37.473856],
     equipment: ['', ''],
     bookedTime: {

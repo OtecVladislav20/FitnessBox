@@ -14,8 +14,44 @@ export default function BoxPage(): JSX.Element {
   return (
     <>
       <HeaderAuth/>
-      <main>
-        <p>{box?.name}</p>
+      <main className='booked'>
+        <section>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+          <button>пятница, 1 мая</button>
+        </section>
+        <section className='flex'>
+          <div>Ячейки</div>
+          <div>Оплата</div>
+        </section>
+        <section>
+          <img src="" alt="" />
+          <div>
+            <p>{box?.name}</p>
+            <p>{box?.adress}</p>
+            <p>{box?.description}</p>
+          </div>
+        </section>
+        <section>
+          <div></div>
+          <div>
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <img src="" alt="" />
+            <img src="" alt="" />
+          </div>
+        </section>
       </main>
       <Footer/>
     </>

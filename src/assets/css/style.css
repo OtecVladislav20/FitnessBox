@@ -1098,3 +1098,50 @@ button {
     padding: 50px 200px;
     background-color: #202F39;
 }
+
+.subscribe-block {
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+    background-color: #20282E;
+
+    justify-content: space-between;
+}
+
+.subscribe-btn {
+    width: 100%;
+}
+
+.subscribe-left {
+    width: 100%;
+    margin-right: 20px;
+    background-color: #E06C20;
+    border-radius: 20px;
+    background-image: url('../../../public/img/sub-bg-man.png');
+    background-position: 100% 10%;
+    background-repeat: no-repeat;
+}
+.subscribe-payment {
+    min-width: 380px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sub-list {
+    margin-bottom: 50px;
+}
+
+.subscribe-info {
+    flex-direction: column;
+    background-color: #E06C20;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.subcribe-days {
+    justify-content: center;
+}
+
+.booked {
+    padding: 0px 200px;
+    background-color: #202F39;
+}

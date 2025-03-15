@@ -20,6 +20,7 @@ export const trainers = [
       16: '1000 р',
       24: '1000 р',
     },
+    acceptOrders: true,
   },
   {
     id: '2',
@@ -42,6 +43,7 @@ export const trainers = [
       16: '1000 р',
       24: '1000 р',
     },
+    acceptOrders: true,
   },
   {
     id: '3',
@@ -64,6 +66,7 @@ export const trainers = [
       16: '1000 р',
       24: '1000 р',
     },
+    acceptOrders: true,
   },
   {
     id: '4',
@@ -86,5 +89,6 @@ export const trainers = [
       16: '1000 р',
       24: '1000 р',
     },
+    acceptOrders: true,
   },
 ];

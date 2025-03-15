@@ -6,6 +6,13 @@ import { trainers } from '../../utils/trainers';
 export default function TrainersPage(): JSX.Element {
   const navigate = useNavigate();
 
+  // Добавить тип для тренера
+  const handlerChooseTrainer = (trainer) => {
+    if (trainer.acceptOrders === true) {
+      navigate(`/trainers/${trainer.id}`);
+    }
+  };
+
   return (
     <>
       <HeaderAuth/>
@@ -15,7 +22,7 @@ export default function TrainersPage(): JSX.Element {
           <button>Избранное</button>
         </section>
         <section className='trainers-cards'>
-          {trainers.map((trainer) => (
+          {trainers.map((trainer) => (trainer.acceptOrders &&
             <div key={trainer.id} className='trainers-card'>
               <div className='trainers-img-wrapper'>
                 <img src="../img/trainer-img.png" alt="" className='trainers-img'/>
@@ -31,7 +38,7 @@ export default function TrainersPage(): JSX.Element {
                   </ul>
                 </div>
                 {/* Если у пользователя куплена  тренировка, то показать сколько тренировок осталось до конца */}
-                <button className='trainres-btn' onClick={() => navigate(`/trainers/${trainer.id}`)}>Выбрать</button>
+                <button className='trainres-btn' onClick={() => handlerChooseTrainer(trainer)}>Выбрать</button>
               </div>
             </div>
           ))}

@@ -12,6 +12,8 @@ export const users = [
     subscribe: true,
     subscribeEnd: '20 сентября 2025',
 
+    favoutieFitnessBox: ['1', '2'],
+
     session: [
       {
         boxId: '1',
@@ -20,7 +22,7 @@ export const users = [
           '2 сентября': ['12:00', '12:30',],
         },
         friend: false,
-        trainer: false,
+        trainerId: '1', //id тренера
       },
       {
         boxId: '1',
@@ -29,7 +31,7 @@ export const users = [
           '2 сентября': ['12:00', '12:30',],
         },
         friend: false,
-        trainer: false,
+        trainerId: '',
       },
     ],
 
