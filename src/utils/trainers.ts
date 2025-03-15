@@ -1,3 +1,28 @@
+export type TTrainer = {
+  id: string;
+  imagePreview: string;
+  name: string;
+  password: string;
+  phone: string;
+  mail: string;
+  telegram: string;
+  whatsup: string;
+  specialization: string[];
+  education: string[];
+  merits: string[];
+  workDate: string[];
+  workTime: string[];
+  workFitmessBoxes: string[];
+  price: TPrice;
+  acceptOrders: boolean;
+  sessionAccept: string[];
+  sessionWaiting: string[];
+}
+
+type TPrice = {
+  [key: string]: string;
+}
+
 export const trainers = [
   {
     id: '1',
@@ -20,7 +45,14 @@ export const trainers = [
       16: '1000 р',
       24: '1000 р',
     },
+    //Показывается в поиске тренеров
     acceptOrders: true,
+
+    // Все сессии, у которых acceptWorkout == true
+    sessionAccept: ['1', '2'],
+
+    //Все сессии, у которых acceptWorkout == false
+    sessionWaiting: ['1', '2'],
   },
   {
     id: '2',
@@ -44,6 +76,12 @@ export const trainers = [
       24: '1000 р',
     },
     acceptOrders: true,
+
+    // Все сессии, у которых acceptWorkout == true
+    sessionAccept: ['1', '2'],
+
+    //Все сессии, у которых acceptWorkout == false
+    sessionWaiting: ['1', '2'],
   },
   {
     id: '3',
@@ -67,6 +105,12 @@ export const trainers = [
       24: '1000 р',
     },
     acceptOrders: true,
+
+    // Все сессии, у которых acceptWorkout == true
+    sessionAccept: ['1', '2'],
+
+    //Все сессии, у которых acceptWorkout == false
+    sessionWaiting: ['1', '2'],
   },
   {
     id: '4',
@@ -90,5 +134,11 @@ export const trainers = [
       24: '1000 р',
     },
     acceptOrders: true,
+
+    // Все сессии, у которых acceptWorkout == true
+    sessionAccept: ['1', '2'],
+
+    //Все сессии, у которых acceptWorkout == false
+    sessionWaiting: ['1', '2'],
   },
 ];

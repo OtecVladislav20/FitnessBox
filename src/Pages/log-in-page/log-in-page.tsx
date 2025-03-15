@@ -11,6 +11,7 @@ export default function LogInPage(): JSX.Element {
         <input type="text" className="form-input" placeholder="Иванов Иван Иванович"/>
         <input type="email" className="form-input" placeholder="Электронная почта"/>
         <input type="phone" className="form-input" placeholder="Номер телефона"/>
+        <input type="text" className="form-input" placeholder="Дата рождения"/>
         <div className="flex password-block">
           <input type="password" className="form-input" placeholder="Пароль"/>
           <input type="password" className="form-input" placeholder="Пароль"/>

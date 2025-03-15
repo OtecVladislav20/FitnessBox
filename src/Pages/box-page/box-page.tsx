@@ -52,6 +52,10 @@ export default function BoxPage(): JSX.Element {
             <img src="" alt="" />
           </div>
         </section>
+        <section>
+          <div></div>
+          <div></div>
+        </section>
       </main>
       <Footer/>
     </>

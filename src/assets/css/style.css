@@ -379,10 +379,11 @@ ul {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 20px;
 }
 
 .formSignIn {
-    padding: 60px;
+    padding: 20px 60px;
     margin-bottom: 30px;
     background-color: #20282E;
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);

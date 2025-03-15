@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
-import { trainers } from '../../utils/trainers';
+import { trainers, TTrainer } from '../../utils/trainers';
 
 export default function TrainersPage(): JSX.Element {
   const navigate = useNavigate();
 
-  // Добавить тип для тренера
-  const handlerChooseTrainer = (trainer) => {
+  const handlerChooseTrainer = (trainer: TTrainer) => {
     if (trainer.acceptOrders === true) {
       navigate(`/trainers/${trainer.id}`);
     }

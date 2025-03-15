@@ -8,32 +8,13 @@ export const users = [
     mail: 'maslakov20@mail.ru',
     balance: 200,
 
-    // Как отображать подписку у пользователя / отображать дату окончания
-    subscribe: true,
+    subscribe: false,
     subscribeEnd: '20 сентября 2025',
 
-    favoutieFitnessBox: ['1', '2'],
+    favouriteFitnessBox: ['1', '2'],
 
-    session: [
-      {
-        boxId: '1',
-        time: {
-          '1 сентября': ['12:00', '12:30',],
-          '2 сентября': ['12:00', '12:30',],
-        },
-        friend: false,
-        trainerId: '1', //id тренера
-      },
-      {
-        boxId: '1',
-        time: {
-          '1 сентября': ['12:00', '12:30',],
-          '2 сентября': ['12:00', '12:30',],
-        },
-        friend: false,
-        trainerId: '',
-      },
-    ],
+    //id сессий юзера
+    sessions: ['1', '2', '3'],
 
     personalTrainer: [
       {
@@ -48,7 +29,6 @@ export const users = [
 
     notification: [
       'Поздравляем! Ваш аккаунт создан!',
-      '',
     ]
   }
 ];
