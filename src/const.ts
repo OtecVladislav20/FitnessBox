@@ -3,7 +3,11 @@ export enum AppRoute {
   SignIn = '/signin',
   LogIn = '/login',
   Code = '/code',
-  Catalog = 'catalog',
+
+  Catalog = '/catalog',
+  Box = '/catalog/:id',
+  Trainers = '/trainers',
+  Trainer = 'trainers/:id',
 }
 
 export enum AuthorizationStatus {

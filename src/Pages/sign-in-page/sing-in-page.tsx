@@ -14,7 +14,7 @@ export default function SignInPage(): JSX.Element {
           <input type="password" className="form-input" placeholder="Пароль"/>
           <button className="form-btn-text">Забыли пароль?</button>
         </div>
-        <button className="form-btn">Войти</button>
+        <button className="form-btn" onClick={() => navigate(AppRoute.Catalog)}>Войти</button>
         <button className="form-btn-text" onClick={() => navigate(AppRoute.LogIn)}>Зарегистрироваться, если у вас еще нет аккаунта</button>
       </form>
       <p className="equipment-item">© 2025 FitnessBox. Все права защищены</p>

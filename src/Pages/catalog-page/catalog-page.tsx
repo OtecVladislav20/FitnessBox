@@ -1,10 +1,13 @@
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
 import GeocodeMap from '../../components/geocode-map.tsx/geocode-map';
-import { fitnessBoxes } from '../../utils/mock';
+import { fitnessBoxes } from '../../utils/fitness-boxes';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function CatalogPage(): JSX.Element {
+  const navigate = useNavigate();
+
   return (
     <>
       <HeaderAuth/>
@@ -13,14 +16,14 @@ export default function CatalogPage(): JSX.Element {
           <input type="text" placeholder='Поиск'/>
           <button>Избранное</button>
         </section>
-        <section className='flex'>
-          <div>
-            {Object.keys(fitnessBoxes).map((box) => (
-              <div key={box} className='card-fitnessbox flex'>
+        <section className='flex catalog-block'>
+          <div className='cards-fitnessbox flex'>
+            {fitnessBoxes.map((box) => (
+              <div key={box.id} className='card-fitnessbox flex' onClick={() => navigate(`/catalog/${box.id}`)}>
                 <img src="../img/FitnessBox.png" alt="" className='card-fitnessbox-img'/>
                 <div className='card-fitnessbox-text flex'>
-                  <h2 className='card-fitnessbox-title'>{fitnessBoxes[box].name}</h2>
-                  <p className='card-fitnessbox-p'>{fitnessBoxes[box].adress}</p>
+                  <h2 className='card-fitnessbox-title'>{box.name}</h2>
+                  <p className='card-fitnessbox-p'>{box.adress}</p>
                   <p className='card-fitnessbox-p'>Количество посещений: 568</p>
                 </div>
                 <div className='card-fitnessbox-btns flex'>

@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+import { AppRoute } from '../../const';
+
 export default function CodePage(): JSX.Element {
+  const navigate = useNavigate();
   return (
     <main className="signin-wrapper flex">
       <form action="" className="formSignIn flex">
@@ -8,7 +12,7 @@ export default function CodePage(): JSX.Element {
           <input type="text" className="form-input" placeholder="Код"/>
           <button className="form-btn-text">Отправить код еще раз?</button>
         </div>
-        <button className="form-btn">Отправить</button>
+        <button className="form-btn" onClick={() => navigate(AppRoute.Catalog)}>Отправить</button>
       </form>
       <p className="equipment-item">© 2025 FitnessBox. Все права защищены</p>
     </main>

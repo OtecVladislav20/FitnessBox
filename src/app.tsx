@@ -7,6 +7,9 @@ import CodePage from './Pages/code-page/code-page';
 import CatalogPage from './Pages/catalog-page/catalog-page';
 import PrivateRoute from './components/private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
+import BoxPage from './Pages/box-page/box-page';
+import TrainersPage from './Pages/trainers-page/trainers-page';
+import TrainerPage from './Pages/trainer-page/trainer-page';
 
 
 export default function App(): JSX.Element {
@@ -23,6 +26,30 @@ export default function App(): JSX.Element {
             element={
               <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
                 <CatalogPage/>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={AppRoute.Box}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <BoxPage/>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={AppRoute.Trainers}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <TrainersPage/>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={AppRoute.Trainer}
+            element={
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <TrainerPage/>
               </PrivateRoute>
             }
           />

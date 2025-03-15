@@ -792,10 +792,8 @@ button {
     border-radius: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
-    width: 465px;
     height: 126px;
-
-    margin: 10px;
+    width: 465px;
 }
 
 .card-fitnessbox-img {
@@ -843,6 +841,253 @@ button {
     height: 700px;
 }
 
+.catalog-block {
+    gap: 30px;
+}
+
 .catalog-map {
     width: 100%;
+}
+
+.qr-header {
+    height: 46px;
+}
+.header-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.header-user-text {
+    text-decoration: none;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #E06C20;
+    margin: 0;
+}
+
+.trainers {
+    background-color: #202F39;
+    padding: 50px 200px;
+}
+
+.trainers-cards {
+    display: grid;
+    grid-template-columns: 725px 725px;
+    gap: 30px;
+}
+.trainers-card {
+    height: 480px;
+    position: relative;
+    background-color: #20282E;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+}
+.trainers-img-wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+}
+.trainers-img {
+    position: relative;
+    height: 100%;
+    border-radius: 20px;
+}
+.trainers-name {
+    position: absolute;
+    bottom: 20px;
+    left: 45px;
+    margin: 0;
+
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+}
+
+.trainers-text-wrapper {
+    padding-left: 400px;
+    padding-right: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+}
+
+.trainers-title {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    color: #fff;
+
+    margin: 0;
+    margin-top: 20px;
+}
+.trainers-item {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #fff;
+}
+.trainres-btn {
+    border-radius: 20px;
+    background-color: #E06C20;
+    color: #fff;
+
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    color: #fff;
+
+    border: none;
+    padding: 10px;
+
+    margin-bottom: 20px;
+}
+
+.trainer-card {
+    min-height: 610px;
+    min-width: 1040px;
+    background-color: #20282E;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+}
+.trainer-card-left {
+    position: relative;
+}
+.trainer-image-wrapper {
+    position: absolute;
+    top: 0; left: 0;
+    height: 515px;
+}
+.trainer-img {
+    height: 100%;
+    border-radius: 20px;
+}
+.trainer-name {
+    position: absolute;
+    bottom: 20px;
+    left: 45px;
+
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+
+}
+.trainer-contact {
+    padding-top: 530px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    flex-direction: column;
+}
+
+.trainer-card-right {
+    padding-left: 250px;
+    padding-right: 30px;
+}
+
+.contact-link {
+    margin-right: 10px;
+}
+
+.trainer-payment {
+    width: 100%;
+    min-height: 610px;
+    background-color: #20282E;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 20px;
+
+    padding: 20px;
+
+    flex-direction: column;
+    justify-content: space-between;
+}
+.trainer-payment-btn {
+    background-color: #E06C20;
+    border-radius: 20px;
+    border: none;
+
+    height: 110px;
+    width: 100%;
+    padding: 10px;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+.trainer-block-top {
+    width: 100%;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.trainer-payment-text {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #fff;
+    margin: 0;
+}
+
+.trainer-payment-price-wrapper {
+    height: 100%;
+    justify-content: end;
+    align-items: end;
+}
+.trainer-payment-price {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+    margin: 0;
+}
+
+.payment-btn {
+    background-color: #E06C20;
+    color: #fff;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+}
+
+.trainer-block-bottom {
+    gap: 30px;
+}
+
+.trainer-work-time {
+    height: 126px;
+    width: 465px;
+    background-color: #20282E;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 10px;
+
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cards-fitnessbox {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.trainer-date {
+    margin: 0;
+    margin-left: 20px;
 }
