@@ -1,23 +1,21 @@
-// Добавить новые значение
+import { TSessions } from './sessions';
+
+
 export type TFitnessBox = {
   id: string;
   name: string;
   imagePreview: string;
   idLock: string;
   adress: string;
+  description: string;
+  imagesBox: string[];
   location: number[];
   equipment: string[];
-  bookedTime: TBookedTime[];
-  boxScore: number;
-  boxVisited: number;
+  sessions: TSessions[];
+  visited: number;
+  score: number;
+  reviews: string[];
 }
-
-export type TBookedTime = {
-  [key: string]: string[];
-}
-
-export type TFitnessBoxes = TFitnessBox[];
-
 
 export const fitnessBoxes = [
   {
@@ -30,11 +28,9 @@ export const fitnessBoxes = [
     imagesBox: ['', '', '', ''],
     location: [55.751574, 37.573856],
     equipment: ['', ''],
-    //id всех сессий этого бокса
     sessions: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    // TODO: сделать отзыв, как отдельную сущность
     reviews: ['1', '2', '3'],
   },
   {

@@ -1,3 +1,17 @@
+export type TSessions = {
+  id: string;
+  boxId: string;
+  userId: string;
+  trainerId: string;
+  acceptWorkout: boolean;
+  time: TTime;
+  friend: boolean;
+}
+
+type TTime = {
+  [key: string] : string;
+}
+
 export const sessions = [
   {
     id: '1',
