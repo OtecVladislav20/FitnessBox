@@ -29,6 +29,8 @@ export const users = [
 
     notification: [
       'Поздравляем! Ваш аккаунт создан!',
-    ]
+    ],
+
+    reviews: ['1', '2', '3']
   }
 ];
