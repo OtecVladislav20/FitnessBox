@@ -1,11 +1,21 @@
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
-import { trainers, TTrainer } from '../../utils/trainers';
+import { TTrainer } from '../../utils/trainers';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { fetchTrainers } from '../../store/action';
+import { useEffect } from 'react';
+
 
 export default function TrainersPage(): JSX.Element {
-  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchTrainers());
+  }, [dispatch]);
 
+  const trainers = useAppSelector((state) => state.trainers);
+
+  const navigate = useNavigate();
   const handlerChooseTrainer = (trainer: TTrainer) => {
     if (trainer.acceptOrders === true) {
       navigate(`/trainers/${trainer.id}`);

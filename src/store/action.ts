@@ -1,9 +1,10 @@
 import {createAction} from '@reduxjs/toolkit';
-import { TFitnessBox } from '../utils/fitness-boxes';
-import { TTrainer } from '../utils/trainers';
 
-export const fetchFitnessBoxes = createAction('data/fetchFitessBoxes');
-export const fetchFitnessBox = createAction<TFitnessBox['id']>('data/fetchFitnessBox');
+export const fetchFitnessBoxes = createAction('data/fetchFitnessBoxes');
 
 export const fetchTrainers = createAction('data/fetchTrainers');
-export const fetchTrainer = createAction<TTrainer['id']>('data/fetchFitnessBox');
+
+export const fetchReviews = createAction('data/fetchReviews');
+
+export const fetchSessions = createAction('data/fetchSessions');
+

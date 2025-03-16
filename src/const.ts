@@ -18,7 +18,3 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum NameSpace {
-  User = 'USER',
-  Data = 'DATA',
-}

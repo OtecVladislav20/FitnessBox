@@ -12,7 +12,7 @@ type TTime = {
   [key: string] : string;
 }
 
-export const sessions = [
+export const sessions: TSessions[] = [
   {
     id: '1',
 

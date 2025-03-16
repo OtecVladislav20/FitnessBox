@@ -1,6 +1,3 @@
-import { TSessions } from './sessions';
-
-
 export type TFitnessBox = {
   id: string;
   name: string;
@@ -11,13 +8,13 @@ export type TFitnessBox = {
   imagesBox: string[];
   location: number[];
   equipment: string[];
-  sessions: TSessions[];
+  sessions: string[];
   visited: number;
   score: number;
   reviews: string[];
 }
 
-export const fitnessBoxes = [
+export const fitnessBoxes: TFitnessBox[] = [
   {
     id: '1',
     name: 'FitnessBox-1',

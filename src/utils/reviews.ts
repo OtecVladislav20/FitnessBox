@@ -1,4 +1,11 @@
-export const reviews = [
+export type TReview = {
+  id: string;
+  userId: string;
+  score: number;
+  comment: string;
+}
+
+export const reviews: TReview[] = [
   {
     id: '1',
     userId: '1',

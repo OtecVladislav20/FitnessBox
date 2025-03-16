@@ -23,7 +23,7 @@ type TPrice = {
   [key: string]: string;
 }
 
-export const trainers = [
+export const trainers: TTrainer[] = [
   {
     id: '1',
     imagePreview: '',
