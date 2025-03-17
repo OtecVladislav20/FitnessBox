@@ -1,6 +1,29 @@
-export const users = [
+type TUser = {
+  userId: string;
+  name: string;
+  bithDate: string;
+  password: string;
+  phone: string;
+  mail: string;
+  balance: number;
+
+  subscribe: boolean;
+  subscribeEnd: string;
+
+  favouriteFitnessBoxId: string[];
+
+  sessionsId: string[];
+
+  personalWorkoutsId: string[];
+
+  notification: string[];
+
+  reviewsId: string[];
+};
+
+export const users: TUser[] = [
   {
-    id: '1',
+    userId: '1',
     name: 'Иван Иванов Иванович',
     bithDate: '17.09.2003',
     password: '',
@@ -11,26 +34,16 @@ export const users = [
     subscribe: false,
     subscribeEnd: '20 сентября 2025',
 
-    favouriteFitnessBox: ['1', '2'],
+    favouriteFitnessBoxId: ['1', '2'],
 
-    //id сессий юзера
-    sessions: ['1', '2', '3'],
+    sessionsId: ['1', '2', '3'],
 
-    personalTrainer: [
-      {
-        trainerId: '1',
-        countWorkout: 5,
-      },
-      {
-        trainerId: '3',
-        countWorkout: 2,
-      }
-    ],
+    personalWorkoutsId: ['1', '2', '3'],
 
     notification: [
       'Поздравляем! Ваш аккаунт создан!',
     ],
 
-    reviews: ['1', '2', '3']
+    reviewsId: ['1', '2', '3'],
   }
 ];

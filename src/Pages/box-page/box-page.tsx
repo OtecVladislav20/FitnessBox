@@ -3,9 +3,10 @@ import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
 import { fitnessBoxes } from '../../utils/fitness-boxes';
 
+
 export default function BoxPage(): JSX.Element {
   const {id} = useParams();
-  const box = fitnessBoxes.find((i) => (i.id === id));
+  const box = fitnessBoxes.find((i) => (i.boxId === id));
 
   if (!id) {
     throw Error;

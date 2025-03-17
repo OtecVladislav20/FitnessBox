@@ -1,5 +1,5 @@
 export type TFitnessBox = {
-  id: string;
+  boxId: string;
   name: string;
   imagePreview: string;
   idLock: string;
@@ -8,15 +8,15 @@ export type TFitnessBox = {
   imagesBox: string[];
   location: number[];
   equipment: string[];
-  sessions: string[];
+  sessionsId: string[];
   visited: number;
   score: number;
-  reviews: string[];
+  reviewsId: string[];
 }
 
 export const fitnessBoxes: TFitnessBox[] = [
   {
-    id: '1',
+    boxId: '1',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -25,13 +25,13 @@ export const fitnessBoxes: TFitnessBox[] = [
     imagesBox: ['', '', '', ''],
     location: [55.751574, 37.573856],
     equipment: ['', ''],
-    sessions: ['1', '2', '3', '4'],
+    sessionsId: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    reviews: ['1', '2', '3'],
+    reviewsId: ['1', '2', '3'],
   },
   {
-    id: '2',
+    boxId: '2',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -40,13 +40,13 @@ export const fitnessBoxes: TFitnessBox[] = [
     imagesBox: ['', '', '', ''],
     location: [55.641574, 37.573856],
     equipment: ['', ''],
-    sessions: ['1', '2', '3', '4'],
+    sessionsId: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    reviews: ['1', '2', '3'],
+    reviewsId: ['1', '2', '3'],
   },
   {
-    id: '3',
+    boxId: '3',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -55,13 +55,13 @@ export const fitnessBoxes: TFitnessBox[] = [
     imagesBox: ['', '', '', ''],
     location: [55.641574, 37.673856],
     equipment: ['', ''],
-    sessions: ['1', '2', '3', '4'],
+    sessionsId: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    reviews: ['1', '2', '3'],
+    reviewsId: ['1', '2', '3'],
   },
   {
-    id: '4',
+    boxId: '4',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -70,13 +70,13 @@ export const fitnessBoxes: TFitnessBox[] = [
     imagesBox: ['', '', '', ''],
     location: [55.741574, 37.673856],
     equipment: ['', ''],
-    sessions: ['1', '2', '3', '4'],
+    sessionsId: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    reviews: ['1', '2', '3'],
+    reviewsId: ['1', '2', '3'],
   },
   {
-    id: '5',
+    boxId: '5',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -85,13 +85,13 @@ export const fitnessBoxes: TFitnessBox[] = [
     imagesBox: ['', '', '', ''],
     location: [55.441574, 37.673856],
     equipment: ['', ''],
-    sessions: ['1', '2', '3', '4'],
+    sessionsId: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    reviews: ['1', '2', '3'],
+    reviewsId: ['1', '2', '3'],
   },
   {
-    id: '6',
+    boxId: '6',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -100,9 +100,9 @@ export const fitnessBoxes: TFitnessBox[] = [
     imagesBox: ['', '', '', ''],
     location: [55.741574, 37.473856],
     equipment: ['', ''],
-    sessions: ['1', '2', '3', '4'],
+    sessionsId: ['1', '2', '3', '4'],
     visited: 562,
     score: 4.5,
-    reviews: ['1', '2', '3'],
+    reviewsId: ['1', '2', '3'],
   },
 ];

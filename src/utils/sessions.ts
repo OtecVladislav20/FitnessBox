@@ -1,5 +1,5 @@
 export type TSessions = {
-  id: string;
+  sessionId: string;
   boxId: string;
   userId: string;
   trainerId: string;
@@ -14,7 +14,7 @@ type TTime = {
 
 export const sessions: TSessions[] = [
   {
-    id: '1',
+    sessionId: '1',
 
     boxId: '1',
     userId: '1',

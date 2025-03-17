@@ -15,13 +15,17 @@ const MapStyled = styled(Map)`
 
 export default function TrainersPage(): JSX.Element {
   const {id} = useParams();
-  const trainer = trainers.find((i) => (i.id === id));
+  const trainer = trainers.find((i) => (i.trainerId === id));
 
-  const workFitnessBoxes = trainer?.workFitmessBoxes.map((workFitnessBox) => (
-    fitnessBoxes.find((box) => (workFitnessBox === box.id))
+  if (!trainer) {
+    throw Error;
+  }
+
+  const workFitnessBoxes = trainer.fitnessBoxesId.map((workFitnessBox) => (
+    fitnessBoxes.find((box) => (workFitnessBox === box.boxId))
   ));
 
-  if (!id) {
+  if (!workFitnessBoxes) {
     throw Error;
   }
 
@@ -37,8 +41,8 @@ export default function TrainersPage(): JSX.Element {
                 <p className='trainer-name'>{trainer?.name}</p>
               </div>
               <div className='trainer-contact flex'>
-                <a href={`tel:${trainer?.phone}`} className='footer-text'>{trainer?.phone}</a>
-                <a href={`mailto:${trainer?.mail}`} className='footer-text'>{trainer?.mail}</a>
+                <a href={`tel:${trainer.phone}`} className='footer-text'>{trainer.phone}</a>
+                <a href={`mailto:${trainer.mail}`} className='footer-text'>{trainer.mail}</a>
                 <div>
                   <a href="" className='contact-link'>
                     <img src="../img/user-img.svg" alt="" />
@@ -53,7 +57,7 @@ export default function TrainersPage(): JSX.Element {
               <div>
                 <p className='trainers-title'>Специализация</p>
                 <ul className='trainers-list'>
-                  {trainer?.specialization.map((i) => (
+                  {trainer.specialization.map((i) => (
                     <li key={i} className='trainers-item'>{i}</li>
                   ))}
                 </ul>
@@ -61,7 +65,7 @@ export default function TrainersPage(): JSX.Element {
               <div>
                 <p className='trainers-title'>Образование</p>
                 <ul className='trainers-list'>
-                  {trainer?.education.map((i) => (
+                  {trainer.education.map((i) => (
                     <li key={i} className='trainers-item'>{i}</li>
                   ))}
                 </ul>
@@ -69,7 +73,7 @@ export default function TrainersPage(): JSX.Element {
               <div>
                 <p className='trainers-title'>Заслуги в спорте</p>
                 <ul className='trainers-list'>
-                  {trainer?.merits.map((i) => (
+                  {trainer.merits.map((i) => (
                     <li key={i} className='trainers-item'>{i}</li>
                   ))}
                 </ul>
@@ -79,7 +83,7 @@ export default function TrainersPage(): JSX.Element {
 
           <div className='trainer-payment flex'>
             <div>
-              {Object.keys(trainer?.price).map((i) => (
+              {Object.keys(trainer.price).map((i) => (
                 <button key={i} className='trainer-payment-btn flex'>
                   <div className=''>
                     <p className='trainer-payment-text'>{i} пт</p>
@@ -109,16 +113,16 @@ export default function TrainersPage(): JSX.Element {
             </div>
 
             <div className='flex cards-fitnessbox'>
-              {workFitnessBoxes?.map((box) => (
-                <FitnessBoxCard key={box?.id} boxId={box?.id} boxName={box?.name} boxAdress={box?.adress} boxScore={box?.score} boxVisited={box?.visited}/>
+              {workFitnessBoxes.map((box) => (
+                <FitnessBoxCard key={box.boxId} boxId={box.boxId} boxName={box.name} boxAdress={box.adress} boxScore={box.score} boxVisited={box.visited}/>
               ))}
             </div>
           </div>
           <div className='catalog-map'>
             <YMaps query={{apikey: '65d0ebaf-f042-415a-9b10-cdf7666352f0'}}>
               <MapStyled defaultState={{ center: [55.75, 37.57], zoom: 9 }}>
-                {workFitnessBoxes?.map((box) => (
-                  <Placemark key={box?.id} defaultGeometry={box?.location}/>
+                {workFitnessBoxes.map((box) => (
+                  <Placemark key={box?.boxId} defaultGeometry={box?.location}/>
                 ))}
               </MapStyled>
             </YMaps>

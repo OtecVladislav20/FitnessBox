@@ -17,8 +17,8 @@ export default function TrainersPage(): JSX.Element {
 
   const navigate = useNavigate();
   const handlerChooseTrainer = (trainer: TTrainer) => {
-    if (trainer.acceptOrders === true) {
-      navigate(`/trainers/${trainer.id}`);
+    if (trainer.readyToWork === true) {
+      navigate(`/trainers/${trainer.trainerId}`);
     }
   };
 
@@ -28,11 +28,11 @@ export default function TrainersPage(): JSX.Element {
       <main className='trainers'>
         <section>
           <input type="text" placeholder='Поиск'/>
-          <button>Избранное</button>
+          <button>Мои персональные тренировки</button>
         </section>
         <section className='trainers-cards'>
-          {trainers.map((trainer) => (trainer.acceptOrders &&
-            <div key={trainer.id} className='trainers-card'>
+          {trainers.map((trainer) => (trainer.readyToWork &&
+            <div key={trainer.trainerId} className='trainers-card'>
               <div className='trainers-img-wrapper'>
                 <img src="../img/trainer-img.png" alt="" className='trainers-img'/>
                 <p className='trainers-name'>{trainer.name}</p>

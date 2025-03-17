@@ -18,3 +18,5 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
+export const COUNT_BOOKED_DEFAULT = 4;
+export const COUNT_BOOKED_SUSCRIBE = 8;

@@ -1,5 +1,5 @@
 export type TReview = {
-  id: string;
+  reviewId: string;
   userId: string;
   score: number;
   comment: string;
@@ -7,19 +7,19 @@ export type TReview = {
 
 export const reviews: TReview[] = [
   {
-    id: '1',
+    reviewId: '1',
     userId: '1',
     score: 5,
     comment: 'Хороший зал',
   },
   {
-    id: '2',
+    reviewId: '2',
     userId: '1',
     score: 5,
     comment: 'Хороший зал',
   },
   {
-    id: '3',
+    reviewId: '3',
     userId: '1',
     score: 5,
     comment: 'Хороший зал',

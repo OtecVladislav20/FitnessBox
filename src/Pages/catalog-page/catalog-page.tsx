@@ -26,7 +26,7 @@ export default function CatalogPage(): JSX.Element {
         <section className='flex catalog-block'>
           <div className='cards-fitnessbox flex'>
             {fitnessBoxes.map((box) => (
-              <FitnessBoxCard key={box?.id} boxId={box?.id} boxName={box?.name} boxAdress={box?.adress} boxScore={box?.score} boxVisited={box?.visited}/>
+              <FitnessBoxCard key={box?.boxId} boxId={box?.boxId} boxName={box?.name} boxAdress={box?.adress} boxScore={box?.score} boxVisited={box?.visited}/>
             ))}
           </div>
           <div className='catalog-map'>
