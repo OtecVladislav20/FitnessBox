@@ -5,7 +5,7 @@ import { fitnessBoxes } from '../../utils/fitness-boxes';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useEffect, useState } from 'react';
 import { fetchSessions } from '../../store/action';
-import { COUNT_DAYS_TO_BOOKED_DEFAULT } from '../../const';
+import { BOOKED_HOUR, COUNT_DAYS_TO_BOOKED_DEFAULT } from '../../const';
 import moment from 'moment';
 import 'moment/locale/ru';
 moment.locale('ru');
@@ -21,6 +21,8 @@ export default function BoxPage(): JSX.Element {
   const sessionsAll = useAppSelector((state) => state.sessions);
   const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
 
+  /////////////////////////////////////////////////////
+
   //Текущая дата
   const currentDate = moment();
   //Дата для создания массива
@@ -31,16 +33,21 @@ export default function BoxPage(): JSX.Element {
   //Все сессии забронированные на изначальное время
   const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === currentDate.format('DD.MM'));
 
+  /////////////////////////////////////////////////////
+
   //Какая дата сейчас выбрана
   const [bookedDate, setBookedDate] = useState(currentDate.format('DD.MM'));
   //Массив сессий на выбранное время
   const [sessionsCurrent, setsessionsCurrent] = useState(sessionsBookedDate);
+
 
   const handleChangeBookedDate = (date: moment.Moment) => {
     const changeSessionsDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
     setsessionsCurrent(changeSessionsDate);
     setBookedDate(date.format('DD.MM'));
   };
+
+  /////////////////////////////////////////////////////
 
   return (
     <>
@@ -57,199 +64,16 @@ export default function BoxPage(): JSX.Element {
         </section>
         <section className='flex mb-50'>
           <div className='booked-time'>
-            {}
-            <button className='booked-btn booked-btn--noactive flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
-            <button className='booked-btn flex'>
-              <div>
-                <p className='booked-time-info'>00:00</p>
-              </div>
-              <div className='flex booked-time-info-wrapper'>
-                <p className='booked-time-info'>75р</p>
-              </div>
-            </button>
+            {BOOKED_HOUR.map((i) => (
+              <button key={i.hour} className={`booked-btn flex ${sessionsCurrent.map((j) => (j.time[bookedDate] === i.hour)) ? 'booked-btn--noactive' : ''}`}>
+                <div>
+                  <p className='booked-time-info'>{i.hour}:00</p>
+                </div>
+                <div className='flex booked-time-info-wrapper'>
+                  <p className='booked-time-info'>{i.price}р</p>
+                </div>
+              </button>
+            ))}
           </div>
           <div>Оплата</div>
         </section>

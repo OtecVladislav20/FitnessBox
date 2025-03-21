@@ -1161,8 +1161,8 @@ button {
     padding: 20px;
     display: grid;
     grid-template-columns: 156px 156px 156px 156px 156px 156px;
-    row-gap: 5px;
-    column-gap: 30px;
+    row-gap: 20px;
+    column-gap: 5px;
 }
 
 .booked-btn {

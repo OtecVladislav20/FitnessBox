@@ -9,7 +9,7 @@ export type TSessions = {
 }
 
 type TTime = {
-  [key: string] : number;
+  [key: string] : string;
 }
 
 export const sessions: TSessions[] = [
@@ -22,7 +22,7 @@ export const sessions: TSessions[] = [
     trainerId: '1',
     acceptWorkout: true,
 
-    time: {'21.03': 12},
+    time: {'21.03': '12'},
     friend: false,
   },
   {
@@ -34,7 +34,19 @@ export const sessions: TSessions[] = [
     trainerId: undefined,
     acceptWorkout: false,
 
-    time: {'21.03': 14},
+    time: {'21.03': '14'},
+    friend: false,
+  },
+  {
+    sessionId: '2',
+
+    boxId: '1',
+    userId: '1',
+
+    trainerId: undefined,
+    acceptWorkout: false,
+
+    time: {'22.03': '14'},
     friend: false,
   },
 ];
