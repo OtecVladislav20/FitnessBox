@@ -1148,12 +1148,12 @@ button {
 }
 
 .booked-date {
-    width: 100%;
-    overflow-x: scroll;
+    /* width: 100%; */
+    /* overflow-x: scroll; */
 }
 
 .booked-date-wrapper {
-    width: 120%;
+    /* width: 120%; */
 }
 
 .booked-time {
@@ -1224,4 +1224,7 @@ button {
     font-size: 24px;
 
     width: 100px;
+}
+.booked-date-btn--active {
+    color: #E06C20;
 }
