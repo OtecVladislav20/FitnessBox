@@ -16,9 +16,6 @@ export type TTrainer = {
   fitnessBoxesId: string[];
   price: TPrice;
   readyToWork: boolean;
-  sessionAcceptId: string[];
-  sessionWaitingId: string[];
-  personalWorkoutsId: string[];
 }
 
 type TPrice = {
@@ -36,12 +33,12 @@ export const trainers: TTrainer[] = [
     mail: 'maslakov20@mail.ru',
     telegram: 'test',
     whatsapp: 'test',
-    specialization: ['Силовой тренининг','Бокс', 'Снижение массы', 'Набор мышц'],
+    specialization: ['Силовой тренининг', 'Бокс', 'Снижение массы', 'Набор мышц'],
     education: ['Северо-Казахстанский государственный университет', ''],
     merits: ['МС по гиревому двоеборью', 'МС по строгому подъему на бицепс'],
     workDate: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
-    workTime: ['9:00','21:00'],
-    fitnessBoxesId: ['1', '2', '4'],
+    workTime: ['9:00', '21:00'],
+    fitnessBoxesId: ['1', '2', '3'],
     price: {
       2: '1000 р',
       8: '1000 р',
@@ -50,14 +47,6 @@ export const trainers: TTrainer[] = [
     },
     //Показывается в поиске тренеров
     readyToWork: true,
-
-    // Все сессии, у которых acceptWorkout == true
-    sessionAcceptId: ['1', '2'],
-
-    //Все сессии, у которых acceptWorkout == false
-    sessionWaitingId: ['1', '2'],
-
-    personalWorkoutsId: ['1', '2'],
   },
   {
     trainerId: '2',
@@ -82,14 +71,6 @@ export const trainers: TTrainer[] = [
       24: '1000 р',
     },
     readyToWork: true,
-
-    // Все сессии, у которых acceptWorkout == true
-    sessionAcceptId: ['1', '2'],
-
-    //Все сессии, у которых acceptWorkout == false
-    sessionWaitingId: ['1', '2'],
-
-    personalWorkoutsId: ['1', '2'],
   },
   {
     trainerId: '3',
@@ -114,14 +95,6 @@ export const trainers: TTrainer[] = [
       24: '1000 р',
     },
     readyToWork: true,
-
-    // Все сессии, у которых acceptWorkout == true
-    sessionAcceptId: ['1', '2'],
-
-    //Все сессии, у которых acceptWorkout == false
-    sessionWaitingId: ['1', '2'],
-
-    personalWorkoutsId: ['1', '2'],
   },
   {
     trainerId: '4',
@@ -138,7 +111,7 @@ export const trainers: TTrainer[] = [
     merits: ['МС по гиревому двоеборью', ''],
     workDate: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'],
     workTime: ['9:00','21:00'],
-    fitnessBoxesId: ['1', '2'],
+    fitnessBoxesId: ['1', '2', '3'],
     price: {
       2: '1000 р',
       8: '1000 р',
@@ -146,13 +119,5 @@ export const trainers: TTrainer[] = [
       24: '1000 р',
     },
     readyToWork: true,
-
-    // Все сессии, у которых acceptWorkout == true
-    sessionAcceptId: ['1', '2'],
-
-    //Все сессии, у которых acceptWorkout == false
-    sessionWaitingId: ['1', '2'],
-
-    personalWorkoutsId: ['1', '2'],
   },
 ];

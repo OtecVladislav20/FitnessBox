@@ -1060,7 +1060,6 @@ button {
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
-    color: #fff;
     margin: 0;
     padding: 20px;
     border: none;
@@ -1144,5 +1143,85 @@ button {
 
 .booked {
     padding: 0px 200px;
+    padding-bottom: 50px;
     background-color: #202F39;
+}
+
+.booked-date {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.booked-date-wrapper {
+    width: 120%;
+}
+
+.booked-time {
+    background-color: #20282E;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 156px 156px 156px 156px 156px 156px;
+    row-gap: 5px;
+    column-gap: 30px;
+}
+
+.booked-btn {
+    height: 100px;
+    width: 156px;
+    padding: 10px;
+    background-color: #A5A5A5;
+    border: none;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.booked-time-info-wrapper {
+    height: 100%;
+    align-items: end;
+}
+
+.booked-time-info {
+    margin: 0;
+
+    color: #fff;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+}
+
+.booked-images {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    gap: 30px;
+}
+
+.booked-image {
+    width: 500px;
+    border-radius: 20px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.booked-btn--noactive {
+    background-color: #494949;
+}
+
+.booked-date-btn {
+    background-color: transparent;
+    border: none;
+
+    color: #fff;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+
+    width: 100px;
 }

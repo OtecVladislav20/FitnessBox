@@ -18,5 +18,8 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
+export const MONTHS = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+export const DAYS = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+
+export const COUNT_DAYS_TO_BOOKED = 7;
 export const COUNT_BOOKED_DEFAULT = 4;
-export const COUNT_BOOKED_SUSCRIBE = 8;

@@ -2,14 +2,14 @@ export type TSessions = {
   sessionId: string;
   boxId: string;
   userId: string;
-  trainerId: string;
+  trainerId: string | undefined;
   acceptWorkout: boolean;
   time: TTime;
   friend: boolean;
 }
 
 type TTime = {
-  [key: string] : string;
+  [key: string] : number;
 }
 
 export const sessions: TSessions[] = [
@@ -22,7 +22,19 @@ export const sessions: TSessions[] = [
     trainerId: '1',
     acceptWorkout: true,
 
-    time: {'1 сентября': '12:00'},
+    time: {'21март': 12},
+    friend: false,
+  },
+  {
+    sessionId: '2',
+
+    boxId: '1',
+    userId: '1',
+
+    trainerId: undefined,
+    acceptWorkout: false,
+
+    time: {'21март': 14},
     friend: false,
   },
 ];

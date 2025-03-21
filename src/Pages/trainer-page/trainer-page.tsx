@@ -1,11 +1,10 @@
 import { useParams } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
-import { trainers } from '../../utils/trainers';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import styled from 'styled-components';
-import { fitnessBoxes } from '../../utils/fitness-boxes';
 import FitnessBoxCard from '../../components/fitness-box-card/fitness-box-card';
+import { useAppSelector } from '../../hooks/hooks';
 
 
 const MapStyled = styled(Map)`
@@ -13,8 +12,10 @@ const MapStyled = styled(Map)`
   height: 100%;
 `;
 
-export default function TrainersPage(): JSX.Element {
+export default function TrainerPage(): JSX.Element {
   const {id} = useParams();
+  const trainers = useAppSelector((state) => state.trainers);
+  const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
   const trainer = trainers.find((i) => (i.trainerId === id));
 
   if (!trainer) {
