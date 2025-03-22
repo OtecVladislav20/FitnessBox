@@ -23,27 +23,20 @@ export default function BoxPage(): JSX.Element {
   }, [dispatch]);
 
   const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
+  const box = fitnessBoxes.find((i) => (i.boxId === id));
+
   const sessionsAll = useAppSelector((state) => state.sessions);
   const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
 
-  const box = fitnessBoxes.find((i) => (i.boxId === id));
+  const nowDate = moment();
+  const lastDate = moment().subtract(1, 'day');
+  const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone()); //Даты для бронирования
 
-  //Текущая дата
-  const currentDate = moment();
-  //Дата для создания массива
-  const totalDate = moment().subtract(1, 'day');
-  //Массив всех чисел для выбора
-  const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => totalDate.add(1, 'day').clone());
+  const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === nowDate.format('DD.MM')); //Первоначальные забронированные сессии
 
-  //Все сессии забронированные на изначальное время
-  const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === currentDate.format('DD.MM'));
-
-  //Какая дата сейчас выбрана
-  const [bookedDate, setBookedDate] = useState(currentDate.format('DD.MM'));
-  //Массив сессий на выбранное время
-  const [_, setsessionsCurrent] = useState(sessionsBookedDate);
-  //Массив всех забронированных часов
-  const [hoursBooked, setHoursBooked] = useState([]);
+  const [bookedDate, setBookedDate] = useState(nowDate.format('DD.MM')); //Выбранная дата
+  const [_, setsessionsCurrent] = useState(sessionsBookedDate); //Все сессии этого бокса на эту дату
+  const [hoursBooked, setHoursBooked] = useState([]); //Все заброннированные часы  этого бокса на эту дату
 
   useEffect(() => {
     const changeSessionsDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
@@ -60,8 +53,6 @@ export default function BoxPage(): JSX.Element {
     setBookedDate(date.format('DD.MM'));
   };
 
-  /////////////////////////////////////////////////////
-
   if (!box) {
     return <Error/>;
   }
@@ -71,8 +62,8 @@ export default function BoxPage(): JSX.Element {
       <main className='booked'>
         <section className='booked-date'>
           <div className='booked-date-wrapper'>
-            {bookedDates.map((day, index) => (
-              <button key={index} className={`booked-date-btn ${day.format('DD.MM') === bookedDate ? 'booked-date-btn--active' : ''}`} onClick={() => handleChangeBookedDate(day)}>
+            {bookedDates.map((day) => (
+              <button key={day.day()} className={`booked-date-btn ${day.format('DD.MM') === bookedDate ? 'booked-date-btn--active' : ''}`} onClick={() => handleChangeBookedDate(day)}>
                 {moment(day).format('dddd, D MMMM')}
               </button>
             ))}
