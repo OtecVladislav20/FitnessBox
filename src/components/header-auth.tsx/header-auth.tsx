@@ -9,7 +9,7 @@ export default function HeaderAuth(): JSX.Element {
         <img src="../img/logoFitnessBox.svg" alt="FitnessBox"/>
       </Link>
       <nav className='flex'>
-        <Link to='/' className='nav-link'>Мои сеансы</Link>
+        <Link to={AppRoute.Session} className='nav-link'>Мои сеансы</Link>
         <Link to={AppRoute.Catalog} className='nav-link'>Каталог</Link>
         <Link to={AppRoute.Trainers} className='nav-link'>Тренеры</Link>
         <Link to={AppRoute.Subcribe} className='nav-link'>Подписка</Link>

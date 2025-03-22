@@ -22,19 +22,7 @@ export const sessions: TSessions[] = [
     trainerId: '1',
     acceptWorkout: true,
 
-    time: {'21.03': '12'},
-    friend: false,
-  },
-  {
-    sessionId: '2',
-
-    boxId: '1',
-    userId: '1',
-
-    trainerId: undefined,
-    acceptWorkout: false,
-
-    time: {'21.03': '14'},
+    time: {'22.03': '12'},
     friend: false,
   },
   {
@@ -47,6 +35,30 @@ export const sessions: TSessions[] = [
     acceptWorkout: false,
 
     time: {'22.03': '14'},
+    friend: false,
+  },
+  {
+    sessionId: '3',
+
+    boxId: '1',
+    userId: '1',
+
+    trainerId: undefined,
+    acceptWorkout: false,
+
+    time: {'23.03': '14'},
+    friend: false,
+  },
+  {
+    sessionId: '4',
+
+    boxId: '1',
+    userId: '1',
+
+    trainerId: undefined,
+    acceptWorkout: false,
+
+    time: {'24.03': '20'},
     friend: false,
   },
 ];

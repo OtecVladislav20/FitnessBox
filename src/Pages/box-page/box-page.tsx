@@ -1,27 +1,32 @@
 import { useParams } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
-import { fitnessBoxes } from '../../utils/fitness-boxes';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useEffect, useState } from 'react';
-import { fetchSessions } from '../../store/action';
 import { BOOKED_HOUR, COUNT_DAYS_TO_BOOKED_DEFAULT } from '../../const';
 import moment from 'moment';
 import 'moment/locale/ru';
+import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
+import Error from '../error/error';
+import { fetchFitnessBoxes, fetchSessions } from '../../store/action';
+
 moment.locale('ru');
+
 
 export default function BoxPage(): JSX.Element {
   const {id} = useParams();
-  const box = fitnessBoxes.find((i) => (i.boxId === id));
-
   const dispatch = useAppDispatch();
+
   useEffect(() => {
+    dispatch(fetchFitnessBoxes());
     dispatch(fetchSessions());
   }, [dispatch]);
+
+  const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
   const sessionsAll = useAppSelector((state) => state.sessions);
   const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
 
-  /////////////////////////////////////////////////////
+  const box = fitnessBoxes.find((i) => (i.boxId === id));
 
   //Текущая дата
   const currentDate = moment();
@@ -33,22 +38,33 @@ export default function BoxPage(): JSX.Element {
   //Все сессии забронированные на изначальное время
   const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === currentDate.format('DD.MM'));
 
-  /////////////////////////////////////////////////////
-
   //Какая дата сейчас выбрана
   const [bookedDate, setBookedDate] = useState(currentDate.format('DD.MM'));
   //Массив сессий на выбранное время
-  const [sessionsCurrent, setsessionsCurrent] = useState(sessionsBookedDate);
+  const [_, setsessionsCurrent] = useState(sessionsBookedDate);
+  //Массив всех забронированных часов
+  const [hoursBooked, setHoursBooked] = useState([]);
 
-
-  const handleChangeBookedDate = (date: moment.Moment) => {
+  useEffect(() => {
     const changeSessionsDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
     setsessionsCurrent(changeSessionsDate);
+
+    const newHoursBooked: string[] = [];
+    changeSessionsDate.map((i) => (
+      newHoursBooked.push(i.time[bookedDate])
+    ));
+    setHoursBooked(newHoursBooked);
+  }, [bookedDate]);
+
+  const handleChangeBookedDate = (date: moment.Moment) => {
     setBookedDate(date.format('DD.MM'));
   };
 
   /////////////////////////////////////////////////////
 
+  if (!box) {
+    return <Error/>;
+  }
   return (
     <>
       <HeaderAuth/>
@@ -65,14 +81,7 @@ export default function BoxPage(): JSX.Element {
         <section className='flex mb-50'>
           <div className='booked-time'>
             {BOOKED_HOUR.map((i) => (
-              <button key={i.hour} className={`booked-btn flex ${sessionsCurrent.map((j) => (j.time[bookedDate] === i.hour)) ? 'booked-btn--noactive' : ''}`}>
-                <div>
-                  <p className='booked-time-info'>{i.hour}:00</p>
-                </div>
-                <div className='flex booked-time-info-wrapper'>
-                  <p className='booked-time-info'>{i.price}р</p>
-                </div>
-              </button>
+              <BookedTimeButton key={i.hour} hour={i.hour} price={i.price} hoursBooked={hoursBooked}/>
             ))}
           </div>
           <div>Оплата</div>

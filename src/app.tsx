@@ -12,6 +12,7 @@ import TrainersPage from './Pages/trainers-page/trainers-page';
 import TrainerPage from './Pages/trainer-page/trainer-page';
 import SubscribePage from './Pages/subscribe-page/subscribe-page';
 import SessionPage from './Pages/session-page/session-page';
+import Error from './Pages/error/error';
 
 
 export default function App(): JSX.Element {
@@ -72,6 +73,7 @@ export default function App(): JSX.Element {
               </PrivateRoute>
             }
           />
+          <Route path={AppRoute.Error} element={<Error/>} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>

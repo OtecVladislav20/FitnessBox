@@ -4,13 +4,14 @@ import GeocodeMap from '../../components/geocode-map.tsx/geocode-map';
 import FitnessBoxCard from '../../components/fitness-box-card/fitness-box-card';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useEffect } from 'react';
-import { fetchFitnessBoxes } from '../../store/action';
+import { fetchFitnessBoxes, fetchSessions } from '../../store/action';
 
 
 export default function CatalogPage(): JSX.Element {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchFitnessBoxes());
+    dispatch(fetchSessions());
   }, [dispatch]);
 
   const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);

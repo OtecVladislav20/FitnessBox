@@ -10,6 +10,8 @@ export enum AppRoute {
   Trainers = '/trainers',
   Trainer = '/trainers/:id',
   Subcribe = '/subcribe',
+
+  Error = '*',
 }
 
 export enum AuthorizationStatus {

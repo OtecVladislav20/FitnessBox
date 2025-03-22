@@ -5,7 +5,7 @@ export default function SessionPage(): JSX.Element {
   return (
     <>
       <HeaderAuth/>
-      <main className='subscribe'>
+      <main className='my-session'>
       </main>
       <Footer/>
     </>
