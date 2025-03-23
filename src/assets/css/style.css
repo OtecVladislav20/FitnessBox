@@ -1288,6 +1288,15 @@ button {
 .session-indicator-waiting {
     background-color: #EFF455;
 }
+
+.session-wrapper {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.session-text-wrapper {
+    width: 100%;
+}
 .session-text {
     color: #fff;
     font-family: 'Alumni Sans';
@@ -1295,6 +1304,8 @@ button {
     font-weight: 700;
     font-size: 24px;
     margin: 0;
+
+    width: 100%;
 }
 
 
