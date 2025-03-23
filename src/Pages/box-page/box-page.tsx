@@ -30,14 +30,15 @@ export default function BoxPage(): JSX.Element {
 
   const nowDate = moment();
   const lastDate = moment().subtract(1, 'day');
-  const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone()); //Даты для бронирования
+  const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone());
 
-  const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === nowDate.format('DD.MM')); //Первоначальные забронированные сессии
+  const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === nowDate.format('MM.DD'));
 
-  const [bookedDate, setBookedDate] = useState(nowDate.format('DD.MM')); //Выбранная дата
-  const [_, setsessionsCurrent] = useState(sessionsBookedDate); //Все сессии этого бокса на эту дату
-  const [hoursBooked, setHoursBooked] = useState([]); //Все заброннированные часы  этого бокса на эту дату
+  const [bookedDate, setBookedDate] = useState(nowDate.format('MM.DD'));
+  const [_, setsessionsCurrent] = useState(sessionsBookedDate);
+  const [hoursBooked, setHoursBooked] = useState([]);
 
+  //Отрефакторить//////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     const changeSessionsDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
     setsessionsCurrent(changeSessionsDate);
@@ -50,7 +51,7 @@ export default function BoxPage(): JSX.Element {
   }, [bookedDate]);
 
   const handleChangeBookedDate = (date: moment.Moment) => {
-    setBookedDate(date.format('DD.MM'));
+    setBookedDate(date.format('MM.DD'));
   };
 
   if (!box) {
@@ -63,7 +64,7 @@ export default function BoxPage(): JSX.Element {
         <section className='booked-date'>
           <div className='booked-date-wrapper'>
             {bookedDates.map((day) => (
-              <button key={day.day()} className={`booked-date-btn ${day.format('DD.MM') === bookedDate ? 'booked-date-btn--active' : ''}`} onClick={() => handleChangeBookedDate(day)}>
+              <button key={day.unix()} className={`booked-date-btn ${day.format('MM.DD') === bookedDate ? 'booked-date-btn--active' : ''}`} onClick={() => handleChangeBookedDate(day)}>
                 {moment(day).format('dddd, D MMMM')}
               </button>
             ))}
@@ -75,7 +76,9 @@ export default function BoxPage(): JSX.Element {
               <BookedTimeButton key={i.hour} hour={i.hour} price={i.price} hoursBooked={hoursBooked}/>
             ))}
           </div>
-          <div>Оплата</div>
+          <div className='booked-payment'>
+            <button>Оплатить</button>
+          </div>
         </section>
 
         <section className='flex mb-50'>

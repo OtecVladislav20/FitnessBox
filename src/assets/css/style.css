@@ -1163,6 +1163,7 @@ button {
     grid-template-columns: 156px 156px 156px 156px 156px 156px;
     row-gap: 20px;
     column-gap: 5px;
+    margin-right: 30px;
 }
 
 .booked-btn {
@@ -1210,6 +1211,7 @@ button {
 }
 
 .booked-btn--noactive {
+    cursor: default;
     background-color: #494949;
 }
 
@@ -1227,4 +1229,89 @@ button {
 }
 .booked-date-btn--active {
     color: #E06C20;
+}
+
+.booked-payment {
+    background-color: #20282E;
+    height: 500px;
+    width: 100%;
+}
+.session-btn-open {
+    height: 100%;
+    width: 200px;
+    background-color: #60B663;
+    border: none;
+    border-radius: 20px;
+
+    color: #fff;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+}
+.session-btn-change {
+    background-color: #BD4848;
+}
+
+.session-time-p {
+    color: #fff;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    margin: 0;
+}
+.session-box-wrapper {
+    height: 100%;
+    width: 330px;
+    border-radius: 20px;
+    background-color: #E06C20;
+}
+.session-box-img {
+    height: 100%;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.session-indicator-wrapper {
+    padding: 10px 10px;
+}
+.session-indicator {
+    min-height: 12px;
+    min-width: 12px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.session-indicator-ready {
+    background-color: #60B663;
+}
+.session-indicator-waiting {
+    background-color: #EFF455;
+}
+.session-text {
+    color: #fff;
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0;
+}
+
+
+
+.my-session {
+    padding: 30px 200px;
+    background-color: #202F39;
+}
+.session {
+    height: 126px;
+    background-color: #20282E;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.session:last-child {
+    margin-bottom: 0px;
 }

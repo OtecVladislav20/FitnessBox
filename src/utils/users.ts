@@ -21,7 +21,7 @@ export const users: TUser[] = [
     phone: '89068006808',
     mail: 'maslakov20@mail.ru',
     balance: 200,
-    subscribe: false,
+    subscribe: true,
     subscribeEnd: '20 сентября 2025',
     favouriteFitnessBoxId: ['1', '2'],
     notification: [

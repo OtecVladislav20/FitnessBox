@@ -6,7 +6,7 @@ type TBookedTimeButton = {
 
 export default function BookedTimeButton({hour, price, hoursBooked}: TBookedTimeButton) {
   return (
-    <button className={`booked-btn flex ${hoursBooked.includes(hour) ? 'booked-btn--noactive' : ''}`}>
+    <button className={`booked-btn flex ${hoursBooked.includes(hour) ? 'booked-btn--noactive' : ''}`} disabled={hoursBooked.includes(hour)}>
       <div>
         <p className='booked-time-info'>{hour}:00</p>
       </div>
