@@ -32,27 +32,33 @@ export default function BoxPage(): JSX.Element {
   const lastDate = moment().subtract(1, 'day');
   const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone());
 
-  const sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === nowDate.format('MM.DD'));
+  let sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === nowDate.format('MM.DD'));
 
   const [bookedDate, setBookedDate] = useState(nowDate.format('MM.DD'));
   const [_, setsessionsCurrent] = useState(sessionsBookedDate);
   const [hoursBooked, setHoursBooked] = useState([]);
 
-  //Отрефакторить//////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
-    const changeSessionsDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
-    setsessionsCurrent(changeSessionsDate);
+    sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
+    setsessionsCurrent(sessionsBookedDate);
 
+    //Подумать что можно сделать с конструкцией
     const newHoursBooked: string[] = [];
-    changeSessionsDate.map((i) => (
+    sessionsBookedDate.map((i) => (
       newHoursBooked.push(i.time[bookedDate])
     ));
     setHoursBooked(newHoursBooked);
-  }, [bookedDate]);
+  }, [bookedDate, sessionsBoxId]);
 
   const handleChangeBookedDate = (date: moment.Moment) => {
     setBookedDate(date.format('MM.DD'));
   };
+
+  // Сделать бронирование по кнопке
+  // const [activeBookedTime, setActiveBookedTime] = useState([]);
+  // const handlerChooseActiveTime = (e) => {
+  //   setActiveBookedTime(e);
+  // };
 
   if (!box) {
     return <Error/>;

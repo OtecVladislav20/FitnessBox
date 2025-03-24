@@ -34,7 +34,9 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
             <div className='session-text-wrapper flex'>
               <p className='session-text'>Тренер не выбран</p>
               <div className='session-indicator-wrapper'>
-                <div className='session-indicator session-indicator-ready'></div>
+                {session.acceptWorkout ?
+                  <div className='session-indicator session-indicator-ready'></div> :
+                  <div className='session-indicator session-indicator-waiting'></div>}
               </div>
             </div>
             <button>Выбрать тренера</button>
@@ -58,7 +60,9 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
         <p className='session-time-p'>{Object.keys(session.time)[0]}</p>
         <p className='session-time-p'>Время: {session.time[Object.keys(session.time)[0]]}:00</p>
       </div>
-      <button className='session-btn-open'>Открыть</button>
+      {session.time[Object.keys(session.time)[0]] === nowDate.format('HH') ?
+        <button className='session-btn-open'>Открыть</button> :
+        <button className='session-btn-open session-btn-change'>Перенести</button>}
     </li>
   );
 }
