@@ -51,16 +51,16 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
                 <div className='session-indicator session-indicator-ready'></div>
               </div>
             </div>
-            {session.time[Object.keys(session.time)[0]] === nowDate.format('HH') ?
+            {session.time.hour === nowDate.format('HH') ?
               '' :
               <button>Отменить выбор</button>}
           </div>
         </div>}
       <div className='session-time'>
-        <p className='session-time-p'>{Object.keys(session.time)[0]}</p>
-        <p className='session-time-p'>Время: {session.time[Object.keys(session.time)[0]]}:00</p>
+        <p className='session-time-p'>{session.time.date}</p>
+        <p className='session-time-p'>Время: {session.time.hour}:00</p>
       </div>
-      {session.time[Object.keys(session.time)[0]] === nowDate.format('HH') ?
+      {session.time.hour === nowDate.format('HH') ?
         <button className='session-btn-open'>Открыть</button> :
         <button className='session-btn-open session-btn-change'>Перенести</button>}
     </li>

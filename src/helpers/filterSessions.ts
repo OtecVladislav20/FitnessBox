@@ -11,10 +11,10 @@ export function filterSessions(array: TSessions[], flag: string) {
   switch (flag) {
     case 'future':
       newArray = array.filter((i) => {
-        if (parseFloat(Object.keys(i.time)[0]) > parseFloat(nowDate.format('MM.DD'))) {
+        if (parseFloat(i.time.date) > parseFloat(nowDate.format('MM.DD'))) {
           return true;
-        } else if (parseFloat(Object.keys(i.time)[0]) === parseFloat(nowDate.format('MM.DD'))) {
-          if (Number(i.time[Object.keys(i.time)[0]]) > Number(nowDate.format('HH'))) {
+        } else if (parseFloat(i.time.date) === parseFloat(nowDate.format('MM.DD'))) {
+          if (Number(i.time.hour) > Number(nowDate.format('HH'))) {
             return true;
           } else {
             return false;
@@ -26,7 +26,7 @@ export function filterSessions(array: TSessions[], flag: string) {
       return newArray;
     case 'current':
       newArray = array.filter((i) => {
-        if (parseFloat(Object.keys(i.time)[0]) === parseFloat(nowDate.format('MM.DD')) && Number(i.time[Object.keys(i.time)[0]]) === Number(nowDate.format('HH'))) {
+        if (parseFloat(i.time.date) === parseFloat(nowDate.format('MM.DD')) && Number(i.time.hour) === Number(nowDate.format('HH'))) {
           return true;
         } else {
           return false;
@@ -35,10 +35,10 @@ export function filterSessions(array: TSessions[], flag: string) {
       return newArray;
     case 'past':
       newArray = array.filter((i) => {
-        if (parseFloat(Object.keys(i.time)[0]) < parseFloat(nowDate.format('MM.DD'))) {
+        if (parseFloat(i.time.date) < parseFloat(nowDate.format('MM.DD'))) {
           return true;
-        } else if (parseFloat(Object.keys(i.time)[0]) === parseFloat(nowDate.format('MM.DD'))) {
-          if (Number(i.time[Object.keys(i.time)[0]]) < Number(nowDate.format('HH'))) {
+        } else if (parseFloat(i.time.date) === parseFloat(nowDate.format('MM.DD'))) {
+          if (Number(i.time.hour) < Number(nowDate.format('HH'))) {
             return true;
           } else {
             return false;

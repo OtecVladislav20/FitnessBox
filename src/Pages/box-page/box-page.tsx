@@ -8,7 +8,7 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
 import Error from '../error/error';
-import { fetchFitnessBoxes, fetchSessions } from '../../store/action';
+import { fetchFitnessBoxes, fetchSessions, postSessions } from '../../store/action';
 
 moment.locale('ru');
 
@@ -19,7 +19,7 @@ export default function BoxPage(): JSX.Element {
 
   useEffect(() => {
     dispatch(fetchFitnessBoxes());
-    dispatch(fetchSessions());
+    // dispatch(fetchSessions());
   }, [dispatch]);
 
   const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
@@ -28,37 +28,54 @@ export default function BoxPage(): JSX.Element {
   const sessionsAll = useAppSelector((state) => state.sessions);
   const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
 
-  const nowDate = moment();
+  const now = moment();
+  const [currentDate, setBookedDate] = useState(now.format('MM.DD'));
+
   const lastDate = moment().subtract(1, 'day');
   const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone());
 
-  let sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === nowDate.format('MM.DD'));
-
-  const [bookedDate, setBookedDate] = useState(nowDate.format('MM.DD'));
-  const [_, setsessionsCurrent] = useState(sessionsBookedDate);
   const [hoursBooked, setHoursBooked] = useState([]);
 
   useEffect(() => {
-    sessionsBookedDate = sessionsBoxId.filter((i) => Object.keys(i.time)[0] === bookedDate);
-    setsessionsCurrent(sessionsBookedDate);
+    const sessionsBookedDate = sessionsBoxId.filter((i) => i.time.date === currentDate);
 
-    //Подумать что можно сделать с конструкцией
-    const newHoursBooked: string[] = [];
+    const hours: string[] = [];
     sessionsBookedDate.map((i) => (
-      newHoursBooked.push(i.time[bookedDate])
+      hours.push(i.time.hour)
     ));
-    setHoursBooked(newHoursBooked);
-  }, [bookedDate, sessionsBoxId]);
+    setHoursBooked(hours);
+  }, [currentDate]);
 
   const handleChangeBookedDate = (date: moment.Moment) => {
     setBookedDate(date.format('MM.DD'));
   };
 
   // Сделать бронирование по кнопке
-  // const [activeBookedTime, setActiveBookedTime] = useState([]);
-  // const handlerChooseActiveTime = (e) => {
-  //   setActiveBookedTime(e);
-  // };
+  const [activeBookedTime, setActiveBookedTime] = useState([]);
+  console.log(activeBookedTime);
+
+  const handleChooseActiveTime = (time: string) => {
+    const obj = {
+      sessionId: (Math.random() * 100).toString(),
+
+      boxId: box?.boxId,
+      userId: '1',
+
+      trainerId: undefined,
+      acceptWorkout: false,
+
+      time: {
+        date: currentDate,
+        hour: time,
+      },
+      friend: false,
+    };
+    setActiveBookedTime(e => [...e, obj]);
+  };
+
+  const handlePostSessions = () => {
+    dispatch(postSessions(activeBookedTime));
+  };
 
   if (!box) {
     return <Error/>;
@@ -70,7 +87,7 @@ export default function BoxPage(): JSX.Element {
         <section className='booked-date'>
           <div className='booked-date-wrapper'>
             {bookedDates.map((day) => (
-              <button key={day.unix()} className={`booked-date-btn ${day.format('MM.DD') === bookedDate ? 'booked-date-btn--active' : ''}`} onClick={() => handleChangeBookedDate(day)}>
+              <button key={day.unix()} className={`booked-date-btn ${day.format('MM.DD') === currentDate ? 'booked-date-btn--active' : ''}`} onClick={() => handleChangeBookedDate(day)}>
                 {moment(day).format('dddd, D MMMM')}
               </button>
             ))}
@@ -79,11 +96,11 @@ export default function BoxPage(): JSX.Element {
         <section className='flex mb-50'>
           <div className='booked-time'>
             {BOOKED_HOUR.map((i) => (
-              <BookedTimeButton key={i.hour} hour={i.hour} price={i.price} hoursBooked={hoursBooked}/>
+              <BookedTimeButton key={i.hour} hour={i.hour} price={i.price} hoursBooked={hoursBooked} handleChooseActiveTime={handleChooseActiveTime}/>
             ))}
           </div>
           <div className='booked-payment'>
-            <button>Оплатить</button>
+            <button onClick={() => handlePostSessions()}>Оплатить</button>
           </div>
         </section>
 

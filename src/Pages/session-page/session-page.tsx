@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
@@ -14,7 +14,7 @@ export default function SessionPage(): JSX.Element {
   useEffect(() => {
     dispatch(fetchFitnessBoxes());
     dispatch(fetchTrainers());
-    dispatch(fetchSessions()); //Когда будет BACKEND добавить. Пока что сделать action, который будем изменять состояние в сторе
+    // dispatch(fetchSessions()); //Когда будет BACKEND добавить. Пока что сделать action, который будем изменять состояние в сторе
   }, [dispatch]);
 
   const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
@@ -27,6 +27,7 @@ export default function SessionPage(): JSX.Element {
   const currentSessions = filterSessions(userSessions, CURRENT_FLAG);
   const futureSessions = filterSessions(userSessions, FUTURE_FLAG);
   const pastSessions = filterSessions(userSessions, PAST_FLAG);
+
 
   return (
     <>

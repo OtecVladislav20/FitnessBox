@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { fetchFitnessBoxes, fetchReviews, fetchSessions, fetchTrainers } from './action';
+import { fetchFitnessBoxes, fetchReviews, fetchSessions, fetchTrainers, postSessions } from './action';
 import { fitnessBoxes, TFitnessBox } from '../utils/fitness-boxes';
 import { trainers, TTrainer } from '../utils/trainers';
 import { reviews, TReview } from '../utils/reviews';
@@ -30,5 +30,10 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(fetchTrainers, (state) => {
       state.trainers = trainers;
+    })
+    .addCase(postSessions, (state, action) => {
+      action.payload.map((i) => {
+        state.sessions.push(i);
+      });
     });
 });
