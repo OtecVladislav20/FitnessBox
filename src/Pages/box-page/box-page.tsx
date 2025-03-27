@@ -50,7 +50,7 @@ export default function BoxPage(): JSX.Element {
     setBookedDate(date.format('MM.DD'));
   };
 
-  // Сделать бронирование по кнопке
+  // Бронирование спортаза при нажатии на кнопку
   const [activeBookedTime, setActiveBookedTime] = useState([]);
   console.log(activeBookedTime);
 
@@ -75,6 +75,7 @@ export default function BoxPage(): JSX.Element {
 
   const handlePostSessions = () => {
     dispatch(postSessions(activeBookedTime));
+    setActiveBookedTime([]);
   };
 
   if (!box) {
