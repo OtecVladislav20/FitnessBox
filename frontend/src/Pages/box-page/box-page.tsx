@@ -8,7 +8,7 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
 import Error from '../error/error';
-import { fetchFitnessBoxes, fetchSessions, postSessions } from '../../store/action';
+import { fetchFitnessBoxes, postSessions } from '../../store/action';
 
 moment.locale('ru');
 
@@ -34,7 +34,7 @@ export default function BoxPage(): JSX.Element {
   const lastDate = moment().subtract(1, 'day');
   const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone());
 
-  const [hoursBooked, setHoursBooked] = useState([]);
+  const [hoursBooked, setHoursBooked] = useState<string[]>([]);
 
   useEffect(() => {
     const sessionsBookedDate = sessionsBoxId.filter((i) => i.time.date === currentDate);
@@ -52,7 +52,6 @@ export default function BoxPage(): JSX.Element {
 
   // Бронирование спортаза при нажатии на кнопку
   const [activeBookedTime, setActiveBookedTime] = useState([]);
-  console.log(activeBookedTime);
 
   const handleChooseActiveTime = (time: string) => {
     const obj = {
@@ -70,7 +69,7 @@ export default function BoxPage(): JSX.Element {
       },
       friend: false,
     };
-    setActiveBookedTime(e => [...e, obj]);
+    setActiveBookedTime((e) => [...e, obj]);
   };
 
   const handlePostSessions = () => {

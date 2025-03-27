@@ -3,7 +3,7 @@ import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { users } from '../../utils/users';
-import { fetchFitnessBoxes, fetchSessions, fetchTrainers } from '../../store/action';
+import { fetchFitnessBoxes, fetchTrainers } from '../../store/action';
 import { CURRENT_FLAG, filterSessions, FUTURE_FLAG, PAST_FLAG } from '../../helpers/filterSessions';
 import SessionItem from '../../components/session-item/session-item';
 
