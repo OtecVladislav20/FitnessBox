@@ -1,4 +1,4 @@
-import { TSVFileReader } from '../../shared/file-reader/tsv-file-reader.js';
+import { TSVFileReader } from '../../shared/libs/file-reader/tsv-file-reader.js';
 import { Command } from './command.interface.js';
 
 
