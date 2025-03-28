@@ -1,4 +1,5 @@
 import { getErrorMessage } from '../../shared/helpers/common.js';
+import { TSVFileWriter } from '../../shared/libs/file-writer/tsv-file-writer.js';
 import { TSVFitnessBoxGenerator } from '../../shared/libs/fitness-box-generator/tsv-fitness-box-generator.js';
 import { MockServerData } from '../../shared/types/mock-server-data.type.js';
 import { Command } from './command.interface.js';

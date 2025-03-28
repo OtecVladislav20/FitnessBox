@@ -1,7 +1,10 @@
+import { createReadStream } from 'node:fs';
 import { FileReader } from './file-reader.interface.js';
+import EventEmitter from 'node:events';
 
+const CHUNK_SIZE = 16384;
 
-export class TSVFileReader implements FileReader {
+export class TSVFileReader extends EventEmitter implements FileReader {
   constructor(private readonly filename: string) {
     super();
   }
@@ -24,6 +27,7 @@ export class TSVFileReader implements FileReader {
         remainingData = remainingData.slice(++nextLinePosition);
         importedRowCount++;
 
+        // Создание события
         this.emit('line', completeRow);
       }
     }
