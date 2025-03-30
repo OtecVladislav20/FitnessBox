@@ -1,4 +1,4 @@
-type TPersonalWorkouts = {
+export type TPersonalWorkouts = {
   personalWorkoutId: string;
   trainerId: string;
   userId: string;
