@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: API сервер для проекта «FitnessBox».
+  description: |-
+    * Список ресурсов и маршрутов сервера «FitnessBox».
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: 2.0.0
+tags:
+  - name: fitness-box
+    description: Действия со спортивными залами.
+  - name: user
+    description: Действия с пользователями.
+  - name: trainer
+    description: Действия с тренерами.
+  - name: review
+    description: Действия с отзывами пользователя на спортивные залы.
+  - name: session
+    description: Действия с сессиями.
+  - name: personal-workout
+    description: Действия с купленными персональными тренировками.
+
+paths:
+  /user/register:
+    post:
+      tags:
+        - user
+      summary: Регистрация пользователя
+      description: Регистрация нового пользователя
+
+  /user/login:
+    post:
+      tags:
+        - user
+      summary: Авторизация пользователя
+      description: Авторизация пользователя на основе логина и пароля
+    get:
+      tags:
+        - user
+      summary: Проверка состояния пользователя
+      description: Возвраващет информация по авторизованному пользователю
+

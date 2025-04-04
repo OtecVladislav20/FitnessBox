@@ -1,9 +1,11 @@
+import { TFitnessBox } from './fitness-box.type';
+
 export type TPrice = {
   [key: string]: string;
 }
 
 export type TTrainer = {
-  trainerId: string;
+  // trainerId: string;
   imagePreview: string;
   name: string;
   bithDate: string;
@@ -17,7 +19,7 @@ export type TTrainer = {
   merits: string[];
   workDate: string[];
   workTime: string[];
-  fitnessBoxesId: string[];
+  // fitnessBoxesId: TFitnessBox[];
   price: TPrice;
   readyToWork: boolean;
 }

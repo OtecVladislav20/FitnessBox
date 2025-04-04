@@ -9,4 +9,16 @@ export const Component = {
 
   FitnessBoxService: Symbol.for('FitnessBoxService'),
   FitnessBoxModel: Symbol.for('FitnessBoxModel'),
+
+  PersonalWorkoutService: Symbol.for('PersonalWorkoutService'),
+  PersonalWorkoutModel: Symbol.for('PersonalWorkoutModel'),
+
+  ReviewService: Symbol.for('ReviewService'),
+  ReviewModel: Symbol.for('ReviewModel'),
+
+  SessionService: Symbol.for('SessionService'),
+  SessionModel: Symbol.for('SessionModel'),
+
+  TrainerService: Symbol.for('TrainerService'),
+  TrainerModel: Symbol.for('TrainerModel'),
 } as const;

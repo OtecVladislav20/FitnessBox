@@ -1,7 +1,7 @@
-import { defaultClasses, getModelForClass, prop, modelOptions, Ref } from '@typegoose/typegoose';
+import { defaultClasses, getModelForClass, prop, modelOptions } from '@typegoose/typegoose';
 import { TUser } from '../../types/user.type.js';
 import { createSHA256 } from '../../helpers/hash.js';
-import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity.js';
+// import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface UserEntity extends defaultClasses.Base {}
@@ -18,7 +18,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements TUser {
   // @prop({ unique: true, required: true })
   // public userId: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ unique: true, required: true})
   public name: string;
 
   @prop({ unique: false, required: true })
@@ -42,13 +42,13 @@ export class UserEntity extends defaultClasses.TimeStamps implements TUser {
   @prop({ required: false, default: '' })
   public subscribeEnd: string;
 
-  @prop({
-    ref: FitnessBoxEntity,
-    required: true,
-    default: [],
-    _id: false,
-  })
-  public favouriteFitnessBoxId: Ref<FitnessBoxEntity>[];
+  // @prop({
+  //   ref: FitnessBoxEntity,
+  //   required: true,
+  //   default: [],
+  //   _id: false,
+  // })
+  // public favouriteFitnessBoxId: Ref<FitnessBoxEntity>[];
 
   @prop({ required: false, default: [] })
   public notification: string[];
@@ -65,7 +65,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements TUser {
     this.balance = userData.balance;
     this.subscribe = userData.subscribe;
     this.subscribeEnd = userData.subscribeEnd;
-    this.favouriteFitnessBoxId = userData.favouriteFitnessBoxId;
+    // this.favouriteFitnessBoxId = userData.favouriteFitnessBoxId;
     this.notification = userData.notification;
   }
 

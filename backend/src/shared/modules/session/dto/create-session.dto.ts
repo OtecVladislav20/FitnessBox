@@ -1,7 +1,7 @@
 import { TTime } from '../../../types/session.type';
 
 export class CreateSessionDto {
-  public sessionId: string;
+  // public sessionId: string;
   public boxId: string;
   public userId: string;
   public trainerId: string | undefined;

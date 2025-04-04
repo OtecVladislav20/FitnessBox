@@ -9,4 +9,5 @@ export interface FitnessBoxService {
   findByName(name: string): Promise<DocumentType<FitnessBoxEntity> | null>;
   incVisited(fitnessBoxId: string): Promise<DocumentType<FitnessBoxEntity> | null>;
   updateScore(fitnessBoxId: string): Promise<DocumentType<FitnessBoxEntity> | null>;
+  find(): Promise<DocumentType<FitnessBoxEntity>[]>;
 }

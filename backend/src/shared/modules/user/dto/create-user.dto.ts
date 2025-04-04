@@ -8,6 +8,6 @@ export class CreateUserDto {
   public balance: number;
   public subscribe: boolean;
   public subscribeEnd: string;
-  public favouriteFitnessBoxId: string[];
+  // public favouriteFitnessBoxId: string[];
   public notification: string[];
 }

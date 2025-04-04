@@ -44,4 +44,8 @@ export class DefaultFitnessBoxService implements FitnessBoxService {
         score: 1,
       }}).exec();
   }
+
+  public async find(): Promise<DocumentType<FitnessBoxEntity>[]> {
+    return this.fitnessBoxModel.find();
+  }
 }

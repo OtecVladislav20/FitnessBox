@@ -11,4 +11,4 @@ export class CreateFitnessBoxDto {
   public visited: number;
   public score: number;
 }
-// Описываем все данные, которые мы хотим получить от пользователя
+

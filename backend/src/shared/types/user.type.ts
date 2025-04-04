@@ -12,6 +12,6 @@ export type TUser = {
   subscribe: boolean;
   subscribeEnd: string;
   // favouriteFitnessBoxId: string[];
-  favouriteFitnessBoxId: TFitnessBox[];
+  // favouriteFitnessBoxId: TFitnessBox[];
   notification: string[];
 }

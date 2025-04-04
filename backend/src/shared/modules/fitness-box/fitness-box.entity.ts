@@ -16,7 +16,7 @@ export class FitnessBoxEntity extends defaultClasses.TimeStamps implements TFitn
   // @prop({ unique: true, required: true })
   // public boxId: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ unique: true, required: true})
   public name: string;
 
   @prop({ required: false, default: '' })
