@@ -1,5 +1,5 @@
 export type TFitnessBox = {
-  boxId: string;
+  // boxId: string;
   name: string;
   imagePreview: string;
   idLock: string;

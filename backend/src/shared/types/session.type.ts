@@ -1,4 +1,4 @@
-type TTime = {
+export type TTime = {
   date: string;
   hour: string;
 }

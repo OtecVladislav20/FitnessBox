@@ -1,8 +1,13 @@
 export class CreateUserDto {
-  public email: string;
-  public avatarPath: string;
-  public firstname: string;
-  public lastname: string;
+  public userId: string;
+  public name: string;
+  public bithDate: string;
   public password: string;
+  public phone: string;
+  public mail: string;
+  public balance: number;
+  public subscribe: boolean;
+  public subscribeEnd: string;
+  public favouriteFitnessBoxId: string[];
+  public notification: string[];
 }
-// Описываем все данные, которые мы хотим получить от пользователя

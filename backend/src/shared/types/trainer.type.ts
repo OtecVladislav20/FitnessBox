@@ -1,4 +1,4 @@
-type TPrice = {
+export type TPrice = {
   [key: string]: string;
 }
 

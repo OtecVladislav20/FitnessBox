@@ -1,5 +1,8 @@
+import { TFitnessBox } from './fitness-box.type.js';
+
+
 export type TUser = {
-  userId: string;
+  // userId: string;
   name: string;
   bithDate: string;
   password: string;
@@ -8,6 +11,7 @@ export type TUser = {
   balance: number;
   subscribe: boolean;
   subscribeEnd: string;
-  favouriteFitnessBoxId: string[];
+  // favouriteFitnessBoxId: string[];
+  favouriteFitnessBoxId: TFitnessBox[];
   notification: string[];
 }
