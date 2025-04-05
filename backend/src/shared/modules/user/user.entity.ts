@@ -18,7 +18,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements TUser {
   // @prop({ unique: true, required: true })
   // public userId: string;
 
-  @prop({ unique: true, required: true})
+  @prop({ unique: false, required: true })
   public name: string;
 
   @prop({ unique: false, required: true })

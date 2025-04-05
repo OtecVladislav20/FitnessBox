@@ -16,6 +16,13 @@ export class DefaultReviewService implements ReviewService {
     return comment.populate('userId');
   }
 
+  public async find(): Promise<DocumentType<ReviewEntity>[]> {
+    return this.reviewModel
+      .find()
+      .populate(['userId', 'fitnessBoxId'])
+      .exec();
+  }
+
   public async findByReviewId(reviewId: string): Promise<DocumentType<ReviewEntity>[]> {
     return this.reviewModel
       .find({reviewId})

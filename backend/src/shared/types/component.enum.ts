@@ -3,9 +3,11 @@ export const Component = {
   Logger: Symbol.for('Logger'),
   Config: Symbol.for('Config'),
   DatabaseClient: Symbol.for('DatabaseClient'),
+  ExceptionFilter: Symbol.for('ExceptionFilter'),
 
   UserService: Symbol.for('UserService'),
   UserModel: Symbol.for('UserModel'),
+  UserController: Symbol.for('UserController'),
 
   FitnessBoxService: Symbol.for('FitnessBoxService'),
   FitnessBoxModel: Symbol.for('FitnessBoxModel'),
@@ -15,6 +17,7 @@ export const Component = {
 
   ReviewService: Symbol.for('ReviewService'),
   ReviewModel: Symbol.for('ReviewModel'),
+  ReviewController: Symbol.for('ReviewController'),
 
   SessionService: Symbol.for('SessionService'),
   SessionModel: Symbol.for('SessionModel'),

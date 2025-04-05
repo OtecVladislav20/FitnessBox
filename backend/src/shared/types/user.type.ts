@@ -11,7 +11,6 @@ export type TUser = {
   balance: number;
   subscribe: boolean;
   subscribeEnd: string;
-  // favouriteFitnessBoxId: string[];
   // favouriteFitnessBoxId: TFitnessBox[];
   notification: string[];
 }
