@@ -18,28 +18,28 @@ export class UserEntity extends defaultClasses.TimeStamps implements TUser {
   // @prop({ unique: true, required: true })
   // public userId: string;
 
-  @prop({ unique: false, required: true })
+  @prop({ type: String, required: true })
   public name: string;
 
-  @prop({ unique: false, required: true })
+  @prop({ type: String, required: true })
   public bithDate: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public password: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ type: String, unique: true, required: true })
   public phone: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ type: String, unique: true, required: true })
   public mail: string;
 
-  @prop({ required: false, default: 0 })
+  @prop({ type: Number, required: false, default: 0 })
   public balance: number;
 
-  @prop({ required: false, default: false })
+  @prop({ type: String, required: false, default: false })
   public subscribe: boolean;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public subscribeEnd: string;
 
   // @prop({
@@ -50,7 +50,7 @@ export class UserEntity extends defaultClasses.TimeStamps implements TUser {
   // })
   // public favouriteFitnessBoxId: Ref<FitnessBoxEntity>[];
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public notification: string[];
 
   constructor(userData: TUser) {

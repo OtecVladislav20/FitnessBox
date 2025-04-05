@@ -13,10 +13,10 @@ export interface ReviewEntity extends defaultClasses.Base {}
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class ReviewEntity extends defaultClasses.TimeStamps {
-  @prop({ trim: true, required: true })
+  @prop({ type: String, trim: true, required: true })
   public comment: string;
 
-  @prop({ required: true })
+  @prop({ type: String, required: true })
   public score: string;
 
   @prop({

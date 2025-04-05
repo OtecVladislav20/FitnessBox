@@ -1,9 +1,23 @@
 import { defaultClasses, getModelForClass, modelOptions, prop, Ref } from '@typegoose/typegoose';
-import { UserEntity } from '../user/user.entity';
-import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity';
-import { TTime } from '../../types/session.type';
-import { TrainerEntity } from '../trainer/trainer.entity';
+import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity.js';
+import { UserEntity } from '../user/user.entity.js';
+import { TrainerEntity } from '../trainer/trainer.entity.js';
 
+
+@modelOptions({ schemaOptions: { _id: false } }) // Отключаем _id для встроенного документа
+export class TimeEntity {
+  @prop({
+    type: String,
+    required: true,
+  })
+  public date!: string;
+
+  @prop({
+    type: String,
+    required: true,
+  })
+  public hour!: string;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface SessionEntity extends defaultClasses.Base {}
@@ -33,13 +47,13 @@ export class SessionEntity extends defaultClasses.TimeStamps {
   })
   public trainerId: Ref<TrainerEntity>;
 
-  @prop({ required: false, default: false })
+  @prop({ type: Boolean, required: false, default: false })
   public acceptWorkout: boolean;
 
-  @prop({ required: true })
-  public time: TTime;
+  @prop({ type: TimeEntity, required: true })
+  public time: TimeEntity;
 
-  @prop({ required: false, default: false })
+  @prop({ type: Boolean, required: false, default: false })
   public friend: boolean;
 }
 

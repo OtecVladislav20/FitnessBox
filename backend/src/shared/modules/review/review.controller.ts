@@ -1,13 +1,13 @@
 import { inject, injectable } from 'inversify';
 import { Request, Response } from 'express';
-import { BaseController } from '../../libs/rest/controller/base-controller.abstract';
-import { Logger } from '../../libs/logger/logger.interface';
-import { ReviewService } from './review-service.interface';
-import { Component } from '../../types/component.enum';
-import { HttpMethod } from '../../libs/rest/types/http-method.enum';
-import { ReviewRdo } from './rdo/review.rdo';
-import { CreateReviewDto } from './dto/create-review.dto';
 import { fillDTO } from '../../helpers/common.js';
+import { BaseController } from '../../libs/rest/controller/base-controller.abstract.js';
+import { Logger } from '../../libs/logger/logger.interface.js';
+import { ReviewService } from './review-service.interface.js';
+import { Component } from '../../types/component.enum.js';
+import { HttpMethod } from '../../libs/rest/types/http-method.enum.js';
+import { ReviewRdo } from './rdo/review.rdo.js';
+import { CreateReviewDto } from './dto/create-review.dto.js';
 
 
 @injectable()

@@ -16,34 +16,34 @@ export class FitnessBoxEntity extends defaultClasses.TimeStamps implements TFitn
   // @prop({ unique: true, required: true })
   // public boxId: string;
 
-  @prop({ unique: true, required: true})
+  @prop({ type: String, unique: true, required: true})
   public name: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public imagePreview: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ type: String, unique: true, required: true })
   public idLock: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public adress: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public description: string;
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public imagesBox: string[];
 
-  @prop({ required: true })
+  @prop({ type: [Number], required: true })
   public location: number[];
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public equipment: string[];
 
-  @prop({ required: false, default: 0 })
+  @prop({ type: Number, required: false, default: 0 })
   public visited: number;
 
-  @prop({ required: false, default: 0 })
+  @prop({ type: Number, required: false, default: 0 })
   public score: number;
 
   constructor(fitnessBoxData: TFitnessBox) {

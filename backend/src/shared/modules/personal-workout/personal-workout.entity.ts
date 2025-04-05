@@ -28,7 +28,7 @@ export class PersonalWorkoutEntity extends defaultClasses.TimeStamps {
   })
   public userId: Ref<UserEntity>;
 
-  @prop({default: 0})
+  @prop({type: Number, default: 0})
   public countWorkout: number;
 
 }

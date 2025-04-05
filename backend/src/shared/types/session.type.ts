@@ -1,6 +1,6 @@
-import { TFitnessBox } from './fitness-box.type';
-import { TTrainer } from './trainer.type';
-import { TUser } from './user.type';
+import { TFitnessBox } from './fitness-box.type.js';
+import { TTrainer } from './trainer.type.js';
+import { TUser } from './user.type.js';
 
 export type TTime = {
   date: string;

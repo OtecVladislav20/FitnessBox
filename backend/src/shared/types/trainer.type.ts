@@ -1,5 +1,3 @@
-import { TFitnessBox } from './fitness-box.type';
-
 export type TPrice = {
   [key: string]: string;
 }

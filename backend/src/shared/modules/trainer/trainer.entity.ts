@@ -1,7 +1,13 @@
-import { defaultClasses, getModelForClass, prop, modelOptions } from '@typegoose/typegoose';
+import { defaultClasses, getModelForClass, prop, modelOptions, mongoose } from '@typegoose/typegoose';
 import { createSHA256 } from '../../helpers/hash.js';
 // import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity.js';
-import { TPrice, TTrainer } from '../../types/trainer.type.js';
+import { TTrainer } from '../../types/trainer.type.js';
+
+
+@modelOptions({ schemaOptions: { _id: false } })
+export class PriceEntity {
+  [key: string]: string;
+}
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface TrainerEntity extends defaultClasses.Base {}
@@ -17,43 +23,43 @@ export interface TrainerEntity extends defaultClasses.Base {}
 export class TrainerEntity extends defaultClasses.TimeStamps implements TTrainer {
   // @prop({ unique: true, required: true })
   // public userId: string;
-  @prop({ required: false, default: ''})
+  @prop({ type: String, required: false, default: ''})
   public imagePreview: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ type: String, unique: true, required: true })
   public name: string;
 
-  @prop({ unique: false, required: true })
+  @prop({ type: String, unique: false, required: true })
   public bithDate: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public password: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ type: String, unique: true, required: true })
   public phone: string;
 
-  @prop({ unique: true, required: true })
+  @prop({ type: String, unique: true, required: true })
   public mail: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public telegram: string;
 
-  @prop({ required: false, default: '' })
+  @prop({ type: String, required: false, default: '' })
   public whatsapp: string;
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public specialization: string[];
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public education: string[];
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public merits: string[];
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public workDate: string[];
 
-  @prop({ required: false, default: [] })
+  @prop({ type: [String], required: false, default: [] })
   public workTime: string[];
 
   // @prop({
@@ -64,10 +70,10 @@ export class TrainerEntity extends defaultClasses.TimeStamps implements TTrainer
   // })
   // public fitnessBoxesId: Ref<FitnessBoxEntity>[];
 
-  @prop({ required: false, default: {} })
-  public price: TPrice;
+  @prop({ type: PriceEntity, required: false, default: {} })
+  public price: Record<string, string>;
 
-  @prop({ required: false, default: true })
+  @prop({ type: Boolean, required: false, default: true })
   public readyToWork: boolean;
 
   constructor(trainerData: TTrainer) {
