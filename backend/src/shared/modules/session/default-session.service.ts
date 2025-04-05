@@ -1,9 +1,9 @@
 import { inject, injectable } from 'inversify';
 import { DocumentType, types } from '@typegoose/typegoose';
-import { CreateSessionDto } from './dto/create-session.dto';
-import { SessionService } from './session-service.interface';
-import { Component } from '../../types/component.enum';
-import { SessionEntity } from './session.entity';
+import { SessionService } from './session-service.interface.js';
+import { SessionEntity } from './session.entity.js';
+import { CreateSessionDto } from './dto/create-session.dto.js';
+import { Component } from '../../types/component.enum.js';
 
 
 @injectable()
