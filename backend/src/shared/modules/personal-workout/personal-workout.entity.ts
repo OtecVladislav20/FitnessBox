@@ -7,7 +7,7 @@ export interface PersonalWorkoutEntity extends defaultClasses.Base {}
 
 @modelOptions({
   schemaOptions: {
-    collection: 'personal-workout',
+    collection: 'personal-workouts',
     timestamps: true,
   }
 })

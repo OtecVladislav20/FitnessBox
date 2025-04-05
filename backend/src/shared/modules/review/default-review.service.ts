@@ -3,7 +3,8 @@ import { DocumentType, types } from '@typegoose/typegoose';
 import { ReviewService } from './review-service.interface.js';
 import { Component } from '../../types/component.enum.js';
 import { CreateReviewDto } from './dto/create-review.dto.js';
-import { ReviewEntity } from './review.entity';
+import { ReviewEntity } from './review.entity.js';
+
 
 @injectable()
 export class DefaultReviewService implements ReviewService {
@@ -12,8 +13,8 @@ export class DefaultReviewService implements ReviewService {
   ) {}
 
   public async create(dto: CreateReviewDto): Promise<DocumentType<ReviewEntity>> {
-    const comment = await this.reviewModel.create(dto);
-    return comment.populate('userId');
+    const review = await this.reviewModel.create(dto);
+    return review.populate(['userId', 'fitnessBoxId']);
   }
 
   public async find(): Promise<DocumentType<ReviewEntity>[]> {

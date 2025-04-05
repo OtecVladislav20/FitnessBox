@@ -1,6 +1,6 @@
 import { defaultClasses, getModelForClass, modelOptions, prop, Ref } from '@typegoose/typegoose';
-import { UserEntity } from '../user/user.entity';
-import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity';
+import { UserEntity } from '../user/user.entity.js';
+import { FitnessBoxEntity } from '../fitness-box/fitness-box.entity.js';
 
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
@@ -8,7 +8,7 @@ export interface ReviewEntity extends defaultClasses.Base {}
 
 @modelOptions({
   schemaOptions: {
-    collection: 'review'
+    collection: 'reviews'
   }
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging

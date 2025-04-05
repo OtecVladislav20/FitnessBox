@@ -1,6 +1,6 @@
 import { DocumentType } from '@typegoose/typegoose';
-import { CreateReviewDto } from './dto/create-review.dto';
-import { ReviewEntity } from './review.entity';
+import { CreateReviewDto } from './dto/create-review.dto.js';
+import { ReviewEntity } from './review.entity.js';
 
 
 export interface ReviewService {

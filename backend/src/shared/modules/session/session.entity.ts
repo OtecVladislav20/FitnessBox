@@ -24,7 +24,7 @@ export interface SessionEntity extends defaultClasses.Base {}
 
 @modelOptions({
   schemaOptions: {
-    collection: 'session'
+    collection: 'sessions'
   }
 })
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging

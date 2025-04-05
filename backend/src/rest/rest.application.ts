@@ -8,7 +8,6 @@ import { getMongoURI } from '../shared/helpers/database.js';
 import express, { Express } from 'express';
 import { Controller } from '../shared/libs/rest/controller/controller.interface.js';
 import { ExceptionFilter } from '../shared/libs/rest/exception-filter/exception-filter.interface.js';
-import { UserModel } from '../shared/modules/user/user.entity.js';
 
 
 @injectable()
@@ -45,7 +44,7 @@ export class RestApplication {
   }
 
   private async _initControllers() {
-    this.server.use('/review', this.reviewController.router);
+    this.server.use('/reviews', this.reviewController.router);
     this.server.use('/users', this.userController.router);
   }
 
