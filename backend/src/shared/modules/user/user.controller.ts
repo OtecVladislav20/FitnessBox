@@ -13,6 +13,8 @@ import { CreateUserRequest } from './create-user-request.type.js';
 import { UserRdo } from './rdo/user.rdo.js';
 import { HttpError } from '../../libs/rest/errors/http-error.js';
 import { LoginUserRequest } from './login-user-request.type.js';
+import { AuthService } from '../auth/auth-service.interface.js';
+import { LoggedUserRdo } from './rdo/logged-user.rdo.js';
 
 
 @injectable()
@@ -21,6 +23,7 @@ export class UserController extends BaseController {
     @inject(Component.Logger) protected readonly logger: Logger,
     @inject(Component.UserService) private readonly userService: UserService,
     @inject(Component.Config) private readonly configService: Config<RestSchema>,
+    @inject(Component.AuthService) private readonly authService: AuthService,
   ) {
     super(logger);
     this.logger.info('Register routes for UserController…');
@@ -39,6 +42,11 @@ export class UserController extends BaseController {
       path: '/',
       method: HttpMethod.Get,
       handler: this.index,
+    });
+    this.addRoute({
+      path: '/login',
+      method: HttpMethod.Get,
+      handler: this.checkAuthenticate,
     });
   }
 
@@ -62,27 +70,33 @@ export class UserController extends BaseController {
 
   public async login(
     { body }: LoginUserRequest,
-    _res: Response,
+    res: Response,
   ): Promise<void> {
-    const existsUser = await this.userService.findByEmail(body.mail);
-
-    if (! existsUser) {
-      throw new HttpError(
-        StatusCodes.UNAUTHORIZED,
-        `User with email ${body.mail} not found.`,
-        'UserController',
-      );
-    }
-
-    throw new HttpError(
-      StatusCodes.NOT_IMPLEMENTED,
-      'Not implemented',
-      'UserController',
-    );
+    const user = await this.authService.verify(body);
+    const token = await this.authService.authenticate(user);
+    const responseData = fillDTO(LoggedUserRdo, {
+      mail: user.mail,
+      token,
+    });
+    this.ok(res, responseData);
   }
 
   public async index(_req: Request, res: Response) {
     const users = await this.userService.find();
     this.ok(res, fillDTO(UserRdo, users));
+  }
+
+  public async checkAuthenticate({ tokenPayload: { mail }}: Request, res: Response) {
+    const foundedUser = await this.userService.findByEmail(mail);
+
+    if (! foundedUser) {
+      throw new HttpError(
+        StatusCodes.UNAUTHORIZED,
+        'Unauthorized',
+        'UserController'
+      );
+    }
+
+    this.ok(res, fillDTO(UserRdo, foundedUser));
   }
 }

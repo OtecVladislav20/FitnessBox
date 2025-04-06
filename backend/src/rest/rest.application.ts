@@ -8,6 +8,7 @@ import { getMongoURI } from '../shared/helpers/database.js';
 import express, { Express } from 'express';
 import { Controller } from '../shared/libs/rest/controller/controller.interface.js';
 import { ExceptionFilter } from '../shared/libs/rest/exception-filter/exception-filter.interface.js';
+import { ParseTokenMiddleware } from '../shared/libs/rest/middleware/parse-token.middleware.js';
 
 
 @injectable()
@@ -19,6 +20,7 @@ export class RestApplication {
     @inject(Component.Config) private readonly config: Config<RestSchema>,
     @inject(Component.DatabaseClient) private readonly databaseClient: DatabaseClient,
     @inject(Component.ExceptionFilter) private readonly appExceptionFilter: ExceptionFilter,
+    @inject(Component.AuthExceptionFilter) private readonly authExceptionFilter: ExceptionFilter,
 
     @inject(Component.ReviewController) private readonly reviewController: Controller,
     @inject(Component.UserController) private readonly userController: Controller,
@@ -49,14 +51,19 @@ export class RestApplication {
   }
 
   private async _initMiddleware() {
+    const authenticateMiddleware = new ParseTokenMiddleware(this.config.get('JWT_SECRET'));
+
     this.server.use(express.json()); // Все запросы пытается сконвертировать в объект json
     this.server.use(
       '/upload',
       express.static(this.config.get('UPLOAD_DIRECTORY'))
     );
+
+    this.server.use(authenticateMiddleware.execute.bind(authenticateMiddleware));
   }
 
   private async _initExceptionFilters() {
+    this.server.use(this.authExceptionFilter.catch.bind(this.authExceptionFilter));
     this.server.use(this.appExceptionFilter.catch.bind(this.appExceptionFilter));
   }
 

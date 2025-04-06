@@ -4,6 +4,8 @@ export const Component = {
   Config: Symbol.for('Config'),
   DatabaseClient: Symbol.for('DatabaseClient'),
   ExceptionFilter: Symbol.for('ExceptionFilter'),
+  AuthService: Symbol.for('AuthService'),
+  AuthExceptionFilter: Symbol.for('AuthExceptionFilter'),
 
   UserService: Symbol.for('UserService'),
   UserModel: Symbol.for('UserModel'),

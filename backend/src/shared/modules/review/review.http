@@ -7,13 +7,13 @@ Content-Type: application/json
 
 ## Добавить новый отзыв
 POST http://localhost:4000/reviews HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoidGRzYWxqa2Zhc0BtYWlsLnJ1IiwiaWQiOiI2N2YyMjliZTkzNmM0MTdmYWZlMDcxNzQiLCJpYXQiOjE3NDM5MzI3MTEsImV4cCI6MTc0NDEwNTUxMX0.cxOiq-7BaFoGp1uK7-IKZ3pS2jZDyIOXrdb-Soi99Hc
 Content-Type: application/json; charset=utf-8
 
 {
-  "userId": "65d5f8a9e4b0a82b242a3b1c",
   "fitnessBoxId": "65d5f8a9e4b0a82b242a3b1d",
   "score": 10,
-  "comment": "Тестовый комментарий без спецсимволов"
+  "comment": "Тестовый коммент после вадидации"
 }
 
 ###

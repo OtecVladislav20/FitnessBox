@@ -33,6 +33,9 @@ import { AppExceptionFilter } from './shared/libs/rest/exception-filter/app-exce
 import { ExceptionFilter } from './shared/libs/rest/exception-filter/exception-filter.interface.js';
 import { UserController } from './shared/modules/user/user.controller.js';
 import { Component } from './shared/types/component.enum.js';
+import { AuthService } from './shared/modules/auth/auth-service.interface.js';
+import { DefaultAuthService } from './shared/modules/auth/default-auth.service.js';
+import { AuthExceptionFilter } from './shared/modules/auth/auth.exception-filter.js';
 
 
 async function bootstrap() {
@@ -43,6 +46,8 @@ async function bootstrap() {
   restApplicationContainer.bind<Config<RestSchema>>(Component.Config).to(RestConfig).inSingletonScope();
   restApplicationContainer.bind<DatabaseClient>(Component.DatabaseClient).to(MongoDatabaseClient).inSingletonScope();
   restApplicationContainer.bind<ExceptionFilter>(Component.ExceptionFilter).to(AppExceptionFilter).inSingletonScope();
+  restApplicationContainer.bind<AuthService>(Component.AuthService).to(DefaultAuthService).inSingletonScope();
+  restApplicationContainer.bind<ExceptionFilter>(Component.AuthExceptionFilter).to(AuthExceptionFilter).inSingletonScope();
 
   restApplicationContainer.bind<UserService>(Component.UserService).to(DefaultUserService).inSingletonScope();
   restApplicationContainer.bind<types.ModelType<UserEntity>>(Component.UserModel).toConstantValue(UserModel);
