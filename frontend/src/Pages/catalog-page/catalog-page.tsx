@@ -6,12 +6,9 @@ import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useEffect } from 'react';
 import { fetchSessions } from '../../store/action';
 import { fetchFitnessBoxesAction } from '../../store/api-actions';
-import { store } from '../../store/store';
 
 
 export default function CatalogPage(): JSX.Element {
-  store.dispatch(fetchFitnessBoxesAction());
-
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchFitnessBoxesAction());
@@ -31,11 +28,11 @@ export default function CatalogPage(): JSX.Element {
         <section className='flex catalog-block'>
           <div className='cards-fitnessbox flex'>
             {fitnessBoxes.map((box) => (
-              <FitnessBoxCard key={box?.boxId} boxId={box?.boxId} boxName={box?.name} boxAdress={box?.adress} boxScore={box?.score} boxVisited={box?.visited}/>
+              <FitnessBoxCard key={box?.id} id={box?.id} boxName={box?.name} boxAdress={box?.adress} boxScore={box?.score} boxVisited={box?.visited}/>
             ))}
           </div>
           <div className='catalog-map'>
-            <GeocodeMap/>
+            <GeocodeMap fitnessBoxes={fitnessBoxes}/>
           </div>
         </section>
       </main>

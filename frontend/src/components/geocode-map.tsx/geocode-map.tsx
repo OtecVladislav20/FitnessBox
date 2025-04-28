@@ -1,6 +1,6 @@
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
-import { fitnessBoxes } from '../../utils/fitness-boxes';
 import styled from 'styled-components';
+import { TFitnessBox } from '../../utils/fitness-boxes';
 
 
 const MapStyled = styled(Map)`
@@ -8,7 +8,11 @@ const MapStyled = styled(Map)`
   height: 100%;
 `;
 
-export default function GeocodeMap() {
+type TGeocodeMap = {
+  fitnessBoxes: TFitnessBox[];
+}
+
+export default function GeocodeMap({ fitnessBoxes }: TGeocodeMap) {
   return (
     <YMaps query={{apikey: '65d0ebaf-f042-415a-9b10-cdf7666352f0'}}>
       <MapStyled defaultState={{ center: [55.75, 37.57], zoom: 9 }}>

@@ -1,6 +1,6 @@
 import { DocumentType } from '@typegoose/typegoose';
-import { CreateFitnessBoxDto } from './dto/create-fitness-box.dto';
-import { FitnessBoxEntity } from './fitness-box.entity';
+import { CreateFitnessBoxDto } from './dto/create-fitness-box.dto.js';
+import { FitnessBoxEntity } from './fitness-box.entity.js';
 
 
 export interface FitnessBoxService {

@@ -36,6 +36,7 @@ import { Component } from './shared/types/component.enum.js';
 import { AuthService } from './shared/modules/auth/auth-service.interface.js';
 import { DefaultAuthService } from './shared/modules/auth/default-auth.service.js';
 import { AuthExceptionFilter } from './shared/modules/auth/auth.exception-filter.js';
+import { FitnessBoxController } from './shared/modules/fitness-box/fitness-box.controller.js';
 
 
 async function bootstrap() {
@@ -56,6 +57,7 @@ async function bootstrap() {
 
   restApplicationContainer.bind<FitnessBoxService>(Component.FitnessBoxService).to(DefaultFitnessBoxService).inSingletonScope();
   restApplicationContainer.bind<types.ModelType<FitnessBoxEntity>>(Component.FitnessBoxModel).toConstantValue(FitnessBoxModel);
+  restApplicationContainer.bind<Controller>(Component.FitnessBoxController).to(FitnessBoxController).inSingletonScope();
 
   restApplicationContainer.bind<PersonalWorkoutService>(Component.PersonalWorkoutService).to(DefaultPersonalWorkoutService).inSingletonScope();
   restApplicationContainer.bind<types.ModelType<PersonalWorkoutEntity>>(Component.PersonalWorkoutModel).toConstantValue(PersonalWorkoutModel);

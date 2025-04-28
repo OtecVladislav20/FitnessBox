@@ -9,22 +9,28 @@ import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
 import Error from '../error/error';
 import { postSessions } from '../../store/action';
-import { fetchFitnessBoxesAction } from '../../store/api-actions';
+import { fetchFitnessBoxAction } from '../../store/api-actions';
 
 moment.locale('ru');
 
 
 export default function BoxPage(): JSX.Element {
-  const {id} = useParams();
   const dispatch = useAppDispatch();
+  const {id} = useParams();
 
   useEffect(() => {
-    dispatch(fetchFitnessBoxesAction());
-    // dispatch(fetchSessions());
+    dispatch(fetchFitnessBoxAction(id));
   }, [dispatch]);
 
-  const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
-  const box = fitnessBoxes.find((i) => (i.boxId === id));
+  const fitnessBox = useAppSelector((state) => state.fitnessBox);
+
+  // useEffect(() => {
+  //   dispatch(fetchFitnessBoxesAction());
+  //   // dispatch(fetchSessions());
+  // }, [dispatch]);
+
+  // const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
+  // const box = fitnessBoxes.find((i) => (i.boxId === id));
 
   const sessionsAll = useAppSelector((state) => state.sessions);
   const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
@@ -58,7 +64,7 @@ export default function BoxPage(): JSX.Element {
     const obj = {
       sessionId: (Math.random() * 100).toString(),
 
-      boxId: box?.boxId,
+      boxId: fitnessBox?.id,
       userId: '1',
 
       trainerId: undefined,
@@ -78,7 +84,7 @@ export default function BoxPage(): JSX.Element {
     setActiveBookedTime([]);
   };
 
-  if (!box) {
+  if (!fitnessBox) {
     return <Error/>;
   }
   return (
@@ -108,9 +114,9 @@ export default function BoxPage(): JSX.Element {
         <section className='flex mb-50'>
           <img src="../img/FitnessBox.png" alt="Спортивный зал" />
           <div>
-            <p>{box?.name}</p>
-            <p>{box?.adress}</p>
-            <p>{box?.description}</p>
+            <p>{fitnessBox?.name}</p>
+            <p>{fitnessBox?.adress}</p>
+            <p>{fitnessBox?.description}</p>
           </div>
         </section>
 

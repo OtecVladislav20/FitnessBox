@@ -1,17 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 
 type TFitnessBoxCard = {
-  boxId: string;
+  id: string;
   boxName: string;
   boxAdress: string;
   boxScore: number;
   boxVisited: number;
 }
 
-export default function FitnessBoxCard({boxId, boxName, boxAdress, boxScore, boxVisited}: TFitnessBoxCard) {
+export default function FitnessBoxCard({id, boxName, boxAdress, boxScore, boxVisited}: TFitnessBoxCard) {
   const navigate = useNavigate();
   return(
-    <div className='card-fitnessbox flex' onClick={() => navigate(`/catalog/${boxId}`)}>
+    <div className='card-fitnessbox flex' onClick={() => navigate(`/catalog/${id}`)}>
       <img src="../img/FitnessBox.png" alt="" className='card-fitnessbox-img'/>
       <div className='card-fitnessbox-text flex'>
         <h2 className='card-fitnessbox-title'>{boxName}</h2>

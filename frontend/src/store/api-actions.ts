@@ -21,6 +21,18 @@ export const fetchFitnessBoxesAction = createAsyncThunk<void, undefined, {
   },
 );
 
+export const fetchFitnessBoxAction = createAsyncThunk<TFitnessBox, string, {
+  dispatch: TAppDispatch;
+  state: TState;
+  extra: AxiosInstance;
+}>(
+  'data/fetchFitnessBox',
+  async (id, {extra: api}) => {
+    const {data} = await api.get<TFitnessBox>(`/fitness-boxes/${id}`);
+    return data;
+  },
+);
+
 export const checkAuthAction = createAsyncThunk<void, undefined, {
   dispatch: TAppDispatch;
   state: TState;
@@ -34,9 +46,6 @@ export const checkAuthAction = createAsyncThunk<void, undefined, {
     } catch {
       dispatch(requireAuthorization(AuthorizationStatus.NoAuth));
     }
-
-    // await api.get('/users/login');
-    // dispatch(requireAuthorization(AuthorizationStatus.Auth));
   },
 );
 

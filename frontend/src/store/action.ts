@@ -5,6 +5,7 @@ import { AppRoute, AuthorizationStatus } from '../const';
 
 
 export const loadFitnessBoxes = createAction<TFitnessBox[]>('data/loadFitnessBoxes');
+export const loadFitnessBox = createAction<TFitnessBox>('data/loadFitnessBox');
 
 export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
 

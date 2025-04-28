@@ -1,5 +1,5 @@
 export type TFitnessBox = {
-  boxId: string;
+  id: string;
   name: string;
   imagePreview: string;
   idLock: string;
@@ -14,7 +14,7 @@ export type TFitnessBox = {
 
 export const fitnessBoxes: TFitnessBox[] = [
   {
-    boxId: '1',
+    id: '1',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -27,7 +27,7 @@ export const fitnessBoxes: TFitnessBox[] = [
     score: 4.5,
   },
   {
-    boxId: '2',
+    id: '2',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -40,7 +40,7 @@ export const fitnessBoxes: TFitnessBox[] = [
     score: 4.5,
   },
   {
-    boxId: '3',
+    id: '3',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -53,7 +53,7 @@ export const fitnessBoxes: TFitnessBox[] = [
     score: 4.5,
   },
   {
-    boxId: '4',
+    id: '4',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -66,7 +66,7 @@ export const fitnessBoxes: TFitnessBox[] = [
     score: 4.5,
   },
   {
-    boxId: '5',
+    id: '5',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',
@@ -79,7 +79,7 @@ export const fitnessBoxes: TFitnessBox[] = [
     score: 4.5,
   },
   {
-    boxId: '6',
+    id: '6',
     name: 'FitnessBox-1',
     imagePreview: '',
     idLock: '',

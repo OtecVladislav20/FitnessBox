@@ -13,6 +13,7 @@ export const Component = {
 
   FitnessBoxService: Symbol.for('FitnessBoxService'),
   FitnessBoxModel: Symbol.for('FitnessBoxModel'),
+  FitnessBoxController: Symbol.for('FitnessBoxController'),
 
   PersonalWorkoutService: Symbol.for('PersonalWorkoutService'),
   PersonalWorkoutModel: Symbol.for('PersonalWorkoutModel'),

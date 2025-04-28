@@ -26,6 +26,7 @@ export class RestApplication {
 
     @inject(Component.ReviewController) private readonly reviewController: Controller,
     @inject(Component.UserController) private readonly userController: Controller,
+    @inject(Component.FitnessBoxController) private readonly fitnessBoxController: Controller,
   ) {
     this.server = express();
   }
@@ -50,6 +51,7 @@ export class RestApplication {
   private async _initControllers() {
     this.server.use('/reviews', this.reviewController.router);
     this.server.use('/users', this.userController.router);
+    this.server.use('/fitness-boxes', this.fitnessBoxController.router);
   }
 
   private async _initMiddleware() {
