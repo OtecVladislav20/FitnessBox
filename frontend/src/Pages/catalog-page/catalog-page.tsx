@@ -5,13 +5,12 @@ import FitnessBoxCard from '../../components/fitness-box-card/fitness-box-card';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { useEffect } from 'react';
 import { fetchSessions } from '../../store/action';
-import { checkAuthAction, fetchFitnessBoxesAction } from '../../store/api-actions';
+import { fetchFitnessBoxesAction } from '../../store/api-actions';
 import { store } from '../../store/store';
 
 
 export default function CatalogPage(): JSX.Element {
   store.dispatch(fetchFitnessBoxesAction());
-  store.dispatch(checkAuthAction());
 
   const dispatch = useAppDispatch();
   useEffect(() => {

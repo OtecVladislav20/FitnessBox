@@ -97,6 +97,6 @@ export class UserController extends BaseController {
       );
     }
 
-    this.ok(res, fillDTO(UserRdo, foundedUser));
+    this.ok(res, fillDTO(LoggedUserRdo, foundedUser));
   }
 }

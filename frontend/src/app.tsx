@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import MainPage from './Pages/main-page/main-page';
 import { AppRoute, AuthorizationStatus } from './const';
 import SignInPage from './Pages/sign-in-page/sing-in-page';
@@ -13,12 +13,14 @@ import TrainerPage from './Pages/trainer-page/trainer-page';
 import SubscribePage from './Pages/subscribe-page/subscribe-page';
 import SessionPage from './Pages/session-page/session-page';
 import Error from './Pages/error/error';
+import HistoryRouter from './components/history-route/history-route';
+import browserHistory from './browser-history';
 
 
 export default function App(): JSX.Element {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <HistoryRouter history={browserHistory}>
         <Routes>
           <Route path={AppRoute.Main} element={<MainPage/>} />
           <Route path={AppRoute.SignIn} element={<SignInPage/>} />
@@ -75,7 +77,7 @@ export default function App(): JSX.Element {
           />
           <Route path={AppRoute.Error} element={<Error/>} />
         </Routes>
-      </BrowserRouter>
+      </HistoryRouter>
     </HelmetProvider>
   );
 }

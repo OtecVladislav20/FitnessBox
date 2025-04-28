@@ -1,6 +1,7 @@
 import axios, {AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import {getToken} from './token';
 import { StatusCodes } from 'http-status-codes';
+import {toast} from 'react-toastify';
 
 
 type DetailMessageType = {
@@ -29,8 +30,12 @@ export const createAPI = (): AxiosInstance => {
     (config: AxiosRequestConfig) => {
       const token = getToken();
 
-      if (token && config.headers) {
-        config.headers['x-token'] = token;
+      if (!config.headers) {
+        config.headers = {};
+      }
+
+      if (token) {
+        config.headers['Authorization'] = `Bearer: ${token}`;
       }
 
       return config;
@@ -42,10 +47,8 @@ export const createAPI = (): AxiosInstance => {
     (error: AxiosError<DetailMessageType>) => {
       if (error.response && shouldDisplayError(error.response)) {
         const detailMessage = (error.response.data);
-
         toast.warn(detailMessage.message);
       }
-
       throw error;
     }
   );

@@ -1,11 +1,14 @@
 import {createAction} from '@reduxjs/toolkit';
 import { TSessions } from '../utils/sessions';
 import { TFitnessBox } from '../utils/fitness-boxes';
-import { AuthorizationStatus } from '../const';
+import { AppRoute, AuthorizationStatus } from '../const';
+
 
 export const loadFitnessBoxes = createAction<TFitnessBox[]>('data/loadFitnessBoxes');
 
 export const requireAuthorization = createAction<AuthorizationStatus>('user/requireAuthorization');
+
+export const redirectToRoute = createAction<AppRoute>('screen/redirectToRoute');
 
 
 export const fetchTrainers = createAction('data/fetchTrainers');
