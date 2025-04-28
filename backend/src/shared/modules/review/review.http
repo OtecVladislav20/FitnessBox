@@ -7,13 +7,13 @@ Content-Type: application/json
 
 ## Добавить новый отзыв
 POST http://localhost:4000/reviews HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoidGRzYWxqa2Zhc0BtYWlsLnJ1IiwiaWQiOiI2N2YyMjliZTkzNmM0MTdmYWZlMDcxNzQiLCJpYXQiOjE3NDM5MzI3MTEsImV4cCI6MTc0NDEwNTUxMX0.cxOiq-7BaFoGp1uK7-IKZ3pS2jZDyIOXrdb-Soi99Hc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoicGFuYW1hcmV3MTIzQG1haWwucnUiLCJpZCI6IjY3ZjQyZGI1YWZhZjg1ZDkxZTYyNTI1ZCIsImlhdCI6MTc0NDA1NTc5NiwiZXhwIjoxNzQ0MjI4NTk2fQ.gNhqE4APXZvEzU5XX57nw1MAi0i0GCfBe-9oU8zJNhE
 Content-Type: application/json; charset=utf-8
 
 {
   "fitnessBoxId": "65d5f8a9e4b0a82b242a3b1d",
-  "score": 10,
-  "comment": "Тестовый коммент после вадидации"
+  "score": 2,
+  "comment": "Я манал этот мир"
 }
 
 ###

@@ -1,4 +1,4 @@
-const AUTH_TOKEN_KEY_NAME = 'buy-and-sell';
+const AUTH_TOKEN_KEY_NAME = 'fitness-box-token';
 
 export type Token = string;
 

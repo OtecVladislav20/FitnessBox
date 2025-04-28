@@ -1,26 +1,29 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { fetchFitnessBoxes, fetchReviews, fetchSessions, fetchTrainers, postSessions } from './action';
-import { fitnessBoxes, TFitnessBox } from '../utils/fitness-boxes';
+import { fetchReviews, fetchSessions, fetchTrainers, loadFitnessBoxes, postSessions, requireAuthorization } from './action';
+import { TFitnessBox } from '../utils/fitness-boxes';
 import { trainers, TTrainer } from '../utils/trainers';
 import { reviews, TReview } from '../utils/reviews';
 import { sessions, TSessions } from '../utils/sessions';
+import { AuthorizationStatus } from '../const';
 
 const initialState: {
   fitnessBoxes: TFitnessBox[];
   trainers: TTrainer[];
   reviews: TReview[];
   sessions: TSessions[];
+  authorizationStatus: AuthorizationStatus;
 } = {
   fitnessBoxes: [],
   trainers: [],
   reviews: [],
   sessions: [],
+  authorizationStatus: AuthorizationStatus.Unknown,
 };
 
 export const reducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(fetchFitnessBoxes, (state) => {
-      state.fitnessBoxes = fitnessBoxes;
+    .addCase(loadFitnessBoxes, (state, action) => {
+      state.fitnessBoxes = action.payload;
     })
     .addCase(fetchReviews, (state) => {
       state.reviews = reviews;
@@ -35,5 +38,8 @@ export const reducer = createReducer(initialState, (builder) => {
       action.payload.map((i) => {
         state.sessions.push(i);
       });
+    })
+    .addCase(requireAuthorization, (state, action) => {
+      state.authorizationStatus = action.payload;
     });
 });

@@ -78,7 +78,7 @@ export class UserController extends BaseController {
       mail: user.mail,
       token,
     });
-    this.ok(res, responseData);
+    this.ok(res, Object.assign(responseData, {token}));
   }
 
   public async index(_req: Request, res: Response) {

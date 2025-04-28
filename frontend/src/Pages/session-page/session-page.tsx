@@ -3,16 +3,17 @@ import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { users } from '../../utils/users';
-import { fetchFitnessBoxes, fetchTrainers } from '../../store/action';
+import { fetchTrainers } from '../../store/action';
 import { CURRENT_FLAG, filterSessions, FUTURE_FLAG, PAST_FLAG } from '../../helpers/filterSessions';
 import SessionItem from '../../components/session-item/session-item';
+import { fetchFitnessBoxesAction } from '../../store/api-actions';
 
 
 export default function SessionPage(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchFitnessBoxes());
+    dispatch(fetchFitnessBoxesAction());
     dispatch(fetchTrainers());
     // dispatch(fetchSessions()); //Когда будет BACKEND добавить. Пока что сделать action, который будем изменять состояние в сторе
   }, [dispatch]);

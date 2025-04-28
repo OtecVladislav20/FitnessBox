@@ -8,7 +8,8 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
 import Error from '../error/error';
-import { fetchFitnessBoxes, postSessions } from '../../store/action';
+import { postSessions } from '../../store/action';
+import { fetchFitnessBoxesAction } from '../../store/api-actions';
 
 moment.locale('ru');
 
@@ -18,7 +19,7 @@ export default function BoxPage(): JSX.Element {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchFitnessBoxes());
+    dispatch(fetchFitnessBoxesAction());
     // dispatch(fetchSessions());
   }, [dispatch]);
 
