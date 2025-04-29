@@ -7,9 +7,8 @@ import { BOOKED_HOUR, COUNT_DAYS_TO_BOOKED_DEFAULT } from '../../const';
 import moment from 'moment';
 import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
-import Error from '../error/error';
-import { postSessions } from '../../store/action';
-import { fetchFitnessBoxAction } from '../../store/api-actions';
+import { fetchFitnessBoxAction, fetchSessionsToBoxAction, postSessionsAction } from '../../store/api-actions';
+import { useAuth } from '../../helpers/common';
 
 moment.locale('ru');
 
@@ -17,16 +16,16 @@ moment.locale('ru');
 export default function BoxPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const {id} = useParams();
+  const { userId } = useAuth();
 
   useEffect(() => {
     dispatch(fetchFitnessBoxAction(id));
+    dispatch(fetchSessionsToBoxAction(id));
   }, [dispatch]);
 
   const fitnessBox = useAppSelector((state) => state.fitnessBox);
+  const sessionsToBox = useAppSelector((state) => state.sessionsToBox);
 
-
-  const sessionsAll = useAppSelector((state) => state.sessions);
-  const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
 
   const now = moment();
   const [currentDate, setBookedDate] = useState(now.format('MM.DD'));
@@ -34,14 +33,14 @@ export default function BoxPage(): JSX.Element {
   const lastDate = moment().subtract(1, 'day');
   const bookedDates = Array.from({ length: COUNT_DAYS_TO_BOOKED_DEFAULT }, () => lastDate.add(1, 'day').clone());
 
+  // Забронированные часы на выбранный день
   const [hoursBooked, setHoursBooked] = useState<string[]>([]);
 
   useEffect(() => {
-    const sessionsBookedDate = sessionsBoxId.filter((i) => i.time.date === currentDate);
-
+    const sessionsBookedDate = sessionsToBox.filter((i) => i.date === currentDate);
     const hours: string[] = [];
     sessionsBookedDate.map((i) => (
-      hours.push(i.time.hour)
+      hours.push(i.hour)
     ));
     setHoursBooked(hours);
   }, [currentDate]);
@@ -50,36 +49,29 @@ export default function BoxPage(): JSX.Element {
     setBookedDate(date.format('MM.DD'));
   };
 
+
   // Бронирование спортаза при нажатии на кнопку
   const [activeBookedTime, setActiveBookedTime] = useState([]);
 
-  const handleChooseActiveTime = (time: string) => {
+  const handleChooseActiveTime = (currentHour: string) => {
     const obj = {
-      sessionId: (Math.random() * 100).toString(),
-
-      boxId: fitnessBox?.id,
-      userId: '1',
-
+      fitnessBoxId: id,
+      userId: userId,
       trainerId: undefined,
       acceptWorkout: false,
-
-      time: {
-        date: currentDate,
-        hour: time,
-      },
       friend: false,
+      date: currentDate,
+      hour: currentHour,
     };
     setActiveBookedTime((e) => [...e, obj]);
   };
 
+  console.log(activeBookedTime);
+
   const handlePostSessions = () => {
-    dispatch(postSessions(activeBookedTime));
-    setActiveBookedTime([]);
+    dispatch(postSessionsAction(activeBookedTime));
   };
 
-  if (!fitnessBox) {
-    return <Error/>;
-  }
   return (
     <>
       <HeaderAuth/>

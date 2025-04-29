@@ -1,9 +1,8 @@
-import { TFitnessBox } from '../types/fitness-box.type';
+import { TFitnessBox } from '../types/fitness-box.type.js';
 
 
 export function createFitnessBox(fitnessBoxData: string): TFitnessBox {
   const [
-    boxId,
     name,
     imagePreview,
     idLock,
@@ -17,7 +16,6 @@ export function createFitnessBox(fitnessBoxData: string): TFitnessBox {
   ] = fitnessBoxData.replace('\n', '').split('\t');
 
   return {
-    boxId,
     name,
     imagePreview,
     idLock,

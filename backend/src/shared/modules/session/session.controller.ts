@@ -13,6 +13,7 @@ import { ParamUserId } from '../user/type/param-user-id.type.js';
 import { HttpError } from '../../libs/rest/errors/http-error.js';
 import { StatusCodes } from 'http-status-codes';
 import { CreateSessionRequest } from './create-session-request.type.js';
+import { CreateSessionDto } from './dto/create-session.dto.js';
 
 
 @injectable()
@@ -30,7 +31,7 @@ export class SessionController extends BaseController {
     this.addRoute({ path: '/fitness-boxes/:fitnessBoxId', method: HttpMethod.Get, handler: this.showAllFitnessBoxSessions });
     this.addRoute({ path: '/users/:userId', method: HttpMethod.Get, handler: this.showAllUserSessions });
     this.addRoute({ path: '/register', method: HttpMethod.Post, handler: this.create });
-    this.addRoute({ path: '/register-all', method: HttpMethod.Post, handler: this.createAll });
+    this.addRoute({ path: '/register-all', method: HttpMethod.Post, handler: this.createMany });
   }
 
   public async index(_req: Request, res: Response): Promise<void> {
@@ -75,21 +76,23 @@ export class SessionController extends BaseController {
     this.created(res, fillDTO(SessionRdo, result));
   }
 
-  public async createAll(
-    { body }: CreateSessionRequest,
-    res: Response,
-  ): Promise<void> {
-    const existsSession = await this.sessionService.findByDate(body.date, body.hour);
+  public async createMany(
+    { body }: Request<unknown, unknown, CreateSessionDto[]>, res: Response): Promise<void> {
+    const results = [];
 
-    if (existsSession) {
-      throw new HttpError(
-        StatusCodes.CONFLICT,
-        `Session with date «${body.date}» and hour «${body.hour}» exists.`,
-        'SessionController'
-      );
+    // Обрабатываем каждую сессию последовательно
+    for (const sessionData of body) {
+      const existsSession = await this.sessionService.findByDate(sessionData.date, sessionData.hour);
+      if (existsSession) {
+        throw new HttpError(
+          StatusCodes.CONFLICT,
+          `Session with date «${sessionData.date}» and hour «${sessionData.hour}» already exists.`,
+          'SessionController'
+        );
+      }
+      const createdSession = await this.sessionService.create(sessionData);
+      results.push(createdSession);
     }
-
-    const result = await this.sessionService.create(body);
-    this.created(res, fillDTO(SessionRdo, result));
+    this.created(res, fillDTO(SessionRdo, results));
   }
 }

@@ -4,11 +4,7 @@ export type TSessions = {
   userId: string;
   trainerId: string | undefined;
   acceptWorkout: boolean;
-  time: TTime;
   friend: boolean;
-}
-
-type TTime = {
   date: string;
   hour: string;
 }
@@ -23,10 +19,10 @@ export const sessions: TSessions[] = [
     trainerId: '1',
     acceptWorkout: true,
 
-    time: {
-      date: '03.24',
-      hour: '20',
-    },
+
+    date: '03.24',
+    hour: '20',
+
     friend: false,
   },
   {
@@ -38,10 +34,10 @@ export const sessions: TSessions[] = [
     trainerId: undefined,
     acceptWorkout: false,
 
-    time: {
-      date: '03.26',
-      hour: '16',
-    },
+
+    date: '03.26',
+    hour: '16',
+
     friend: false,
   },
   {
@@ -53,10 +49,10 @@ export const sessions: TSessions[] = [
     trainerId: undefined,
     acceptWorkout: false,
 
-    time: {
-      date: '03.26',
-      hour: '14',
-    },
+
+    date: '03.26',
+    hour: '14',
+
     friend: false,
   },
   {
@@ -68,10 +64,10 @@ export const sessions: TSessions[] = [
     trainerId: undefined,
     acceptWorkout: false,
 
-    time: {
-      date: '03.25',
-      hour: '13',
-    },
+
+    date: '03.25',
+    hour: '13',
+
     friend: false,
   },
 ];

@@ -1,5 +1,5 @@
 # Сессии
-## Получить все спортивные залы
+## Получить все сессии
 
 GET http://localhost:4000/sessions/ HTTP/1.1
 Content-Type: application/json
@@ -56,8 +56,8 @@ Content-Type: application/json
     "userId": "680e518bd6589051ec07b7b4",
     "trainerId": "1",
     "acceptWorkout": false,
-    "date": "04.30",
-    "hour": "12",
+    "date": "05.02",
+    "hour": "18",
     "friend": false
   },
   {
@@ -65,8 +65,8 @@ Content-Type: application/json
     "userId": "680e518bd6589051ec07b7b4",
     "trainerId": "1",
     "acceptWorkout": false,
-    "date": "04.30",
-    "hour": "13",
+    "date": "05.02",
+    "hour": "19",
     "friend": false
   },
   {
@@ -74,8 +74,8 @@ Content-Type: application/json
     "userId": "680e518bd6589051ec07b7b4",
     "trainerId": "1",
     "acceptWorkout": false,
-    "date": "04.30",
-    "hour": "14",
+    "date": "05.02",
+    "hour": "20",
     "friend": false
   }
 ]

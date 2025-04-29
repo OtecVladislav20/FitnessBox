@@ -7,6 +7,7 @@ import { AppRoute, AuthorizationStatus } from '../const';
 import { saveToken } from '../services/token';
 import { TUserData } from '../types/user-data';
 import { TAuthData } from '../types/auth-data';
+import { TSessions } from '../utils/sessions';
 
 
 export const fetchFitnessBoxesAction = createAsyncThunk<TFitnessBox[], undefined, {
@@ -29,6 +30,31 @@ export const fetchFitnessBoxAction = createAsyncThunk<TFitnessBox, string, {
   'data/fetchFitnessBox',
   async (id, {extra: api}) => {
     const {data} = await api.get<TFitnessBox>(`/fitness-boxes/${id}`);
+    return data;
+  },
+);
+
+export const fetchSessionsToBoxAction = createAsyncThunk<TSessions[], string, {
+  dispatch: TAppDispatch;
+  state: TState;
+  extra: AxiosInstance;
+}>(
+  'data/fetchSessionToBox',
+  async (id, {extra: api}) => {
+    const {data} = await api.get<TSessions[]>(`/sessions/fitness-boxes/${id}`);
+    return data;
+  },
+);
+
+// ПРОВЕРИТЬ РАБОТУ
+export const postSessionsAction = createAsyncThunk<TSessions[], TSessions[], {
+  dispatch: TAppDispatch;
+  state: TState;
+  extra: AxiosInstance;
+}>(
+  'data/postSessions',
+  async (sessions, {extra: api}) => {
+    const { data } = await api.post<TSessions[]>('/sessions/register-all', sessions);
     return data;
   },
 );
