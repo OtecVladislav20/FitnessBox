@@ -41,7 +41,7 @@ Content-Type: application/json
 ## Получение пользователя
 
 GET http://localhost:4000/users/login/ HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoibWFzbGFrb3YyMEBtYWlsLnJ1IiwiaWQiOiI2ODBlNTE4YmQ2NTg5MDUxZWMwN2I3YjQiLCJpYXQiOjE3NDU3NjkwMDgsImV4cCI6MTc0NTk0MTgwOH0.ktFMDzNCT3NCJuuADW8wi5UCPWWA3oD3bhv9R4u14Og
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJtYWlsIjoibWFzbGFrb3YyMEBtYWlsLnJ1IiwiaWQiOiI2ODBlNTE4YmQ2NTg5MDUxZWMwN2I3YjQiLCJpYXQiOjE3NDU5MzU0ODcsImV4cCI6MTc0NjEwODI4N30.6gbHfCNh4HNn5Wz4J5HYyv3DRKfxn-hkJgH5cM6ONjA
 Content-Type: application/json
 
 ###

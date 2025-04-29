@@ -1,14 +1,13 @@
 import { DocumentType } from '@typegoose/typegoose';
-import { CreateSessionDto } from './dto/create-session.dto';
-import { SessionEntity } from './session.entity';
+import { CreateSessionDto } from './dto/create-session.dto.js';
+import { SessionEntity } from './session.entity.js';
 
 
 export interface SessionService {
   create(dto: CreateSessionDto): Promise<DocumentType<SessionEntity>>;
-  findByUserId(userId: string): Promise<DocumentType<SessionEntity>[]>;
+  findByFitnessBoxId(findByFitnessBoxId: string): Promise<DocumentType<SessionEntity>[] | null>;
+  findByUserId(userId: string): Promise<DocumentType<SessionEntity>[] | null>;
   findById(sessionId: string): Promise<DocumentType<SessionEntity> | null>;
   find(): Promise<DocumentType<SessionEntity>[]>;
-  deleteById(sessionId: string): Promise<DocumentType<SessionEntity> | null>;
-
-  // updateById(session: string, dto: UpdateSessionDto): Promise<DocumentType<SessionEntity> | null>;
+  findByDate(date: string, hour: string): Promise<DocumentType<SessionEntity> | null>;
 }

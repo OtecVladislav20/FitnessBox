@@ -24,6 +24,7 @@ export const Component = {
 
   SessionService: Symbol.for('SessionService'),
   SessionModel: Symbol.for('SessionModel'),
+  SessionController: Symbol.for('SessionController'),
 
   TrainerService: Symbol.for('TrainerService'),
   TrainerModel: Symbol.for('TrainerModel'),

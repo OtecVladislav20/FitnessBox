@@ -4,21 +4,6 @@ import { UserEntity } from '../user/user.entity.js';
 import { TrainerEntity } from '../trainer/trainer.entity.js';
 
 
-@modelOptions({ schemaOptions: { _id: false } }) // Отключаем _id для встроенного документа
-export class TimeEntity {
-  @prop({
-    type: String,
-    required: true,
-  })
-  public date!: string;
-
-  @prop({
-    type: String,
-    required: true,
-  })
-  public hour!: string;
-}
-
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export interface SessionEntity extends defaultClasses.Base {}
 
@@ -30,31 +15,37 @@ export interface SessionEntity extends defaultClasses.Base {}
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class SessionEntity extends defaultClasses.TimeStamps {
   @prop({
+    type: String,
     ref: FitnessBoxEntity,
     required: true
   })
-  public fitnessBoxId: Ref<FitnessBoxEntity>;
+  public fitnessBoxId: string;
 
   @prop({
+    type: String,
     ref: UserEntity,
     required: true
   })
-  public userId: Ref<UserEntity>;
+  public userId: string;
 
   @prop({
+    type: String,
     ref: TrainerEntity,
-    required: true
+    default: undefined
   })
-  public trainerId: Ref<TrainerEntity>;
+  public trainerId: string;
 
   @prop({ type: Boolean, required: false, default: false })
   public acceptWorkout: boolean;
 
-  @prop({ type: TimeEntity, required: true })
-  public time: TimeEntity;
-
   @prop({ type: Boolean, required: false, default: false })
   public friend: boolean;
+
+  @prop({type: String, required: true, })
+  public date: string;
+
+  @prop({type: String, required: true, })
+  public hour: string;
 }
 
 export const SessionModel = getModelForClass(SessionEntity);

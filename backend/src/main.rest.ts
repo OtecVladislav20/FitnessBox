@@ -37,6 +37,7 @@ import { AuthService } from './shared/modules/auth/auth-service.interface.js';
 import { DefaultAuthService } from './shared/modules/auth/default-auth.service.js';
 import { AuthExceptionFilter } from './shared/modules/auth/auth.exception-filter.js';
 import { FitnessBoxController } from './shared/modules/fitness-box/fitness-box.controller.js';
+import { SessionController } from './shared/modules/session/session.controller.js';
 
 
 async function bootstrap() {
@@ -68,6 +69,7 @@ async function bootstrap() {
 
   restApplicationContainer.bind<SessionService>(Component.SessionService).to(DefaultSessionService).inSingletonScope();
   restApplicationContainer.bind<types.ModelType<SessionEntity>>(Component.SessionModel).toConstantValue(SessionModel);
+  restApplicationContainer.bind<Controller>(Component.SessionController).to(SessionController).inSingletonScope();
 
   restApplicationContainer.bind<TrainerService>(Component.TrainerService).to(DefaultTrainerService).inSingletonScope();
   restApplicationContainer.bind<types.ModelType<TrainerEntity>>(Component.TrainerModel).toConstantValue(TrainerModel);

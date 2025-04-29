@@ -24,13 +24,6 @@ export default function BoxPage(): JSX.Element {
 
   const fitnessBox = useAppSelector((state) => state.fitnessBox);
 
-  // useEffect(() => {
-  //   dispatch(fetchFitnessBoxesAction());
-  //   // dispatch(fetchSessions());
-  // }, [dispatch]);
-
-  // const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
-  // const box = fitnessBoxes.find((i) => (i.boxId === id));
 
   const sessionsAll = useAppSelector((state) => state.sessions);
   const sessionsBoxId = sessionsAll.filter((i) => (i.boxId === id));
