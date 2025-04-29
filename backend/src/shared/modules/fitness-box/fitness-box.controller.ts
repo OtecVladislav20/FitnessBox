@@ -26,9 +26,6 @@ export class FitnessBoxController extends BaseController {
       path: '/:fitnessBoxId',
       method: HttpMethod.Get,
       handler: this.show,
-      // middlewares: [
-      //   new PrivateRouteMiddleware()
-      // ]
     });
   }
 

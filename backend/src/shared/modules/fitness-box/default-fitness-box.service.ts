@@ -23,8 +23,8 @@ export class DefaultFitnessBoxService implements FitnessBoxService {
     return result;
   }
 
-  public async findById(fitnessBoxId: string): Promise<DocumentType<FitnessBoxEntity> | null> {
-    return this.fitnessBoxModel.findOne({fitnessBoxId});
+  public async findById(id: string): Promise<DocumentType<FitnessBoxEntity> | null> {
+    return this.fitnessBoxModel.findById(id); // Используйте встроенный метод
   }
 
   public async findByName(name: string): Promise<DocumentType<FitnessBoxEntity> | null> {

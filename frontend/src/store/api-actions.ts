@@ -2,22 +2,22 @@ import {AxiosInstance} from 'axios';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import { TAppDispatch, TState} from './types/state';
 import { TFitnessBox } from '../utils/fitness-boxes';
-import { loadFitnessBoxes, redirectToRoute, requireAuthorization } from './action';
+import { redirectToRoute, requireAuthorization } from './action';
 import { AppRoute, AuthorizationStatus } from '../const';
 import { saveToken } from '../services/token';
 import { TUserData } from '../types/user-data';
 import { TAuthData } from '../types/auth-data';
 
 
-export const fetchFitnessBoxesAction = createAsyncThunk<void, undefined, {
+export const fetchFitnessBoxesAction = createAsyncThunk<TFitnessBox[], undefined, {
   dispatch: TAppDispatch;
   state: TState;
   extra: AxiosInstance;
 }>(
   'data/fetchFitnessBoxes',
-  async (_arg, {dispatch, extra: api}) => {
+  async (_arg, {extra: api}) => {
     const {data} = await api.get<TFitnessBox[]>('/fitness-boxes');
-    dispatch(loadFitnessBoxes(data));
+    return data;
   },
 );
 
