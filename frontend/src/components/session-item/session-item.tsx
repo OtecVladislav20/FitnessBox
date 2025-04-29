@@ -12,7 +12,8 @@ type TSessionItem = {
 export default function SessionItem({session, fitnessBoxes, trainers}: TSessionItem): JSX.Element {
   const nowDate = moment();
 
-  const fitnessBox = fitnessBoxes.find((i) => session.boxId === i.boxId);
+  const fitnessBox = fitnessBoxes.find((i) => session.fitnessBoxId === i.id);
+
   const trainer = trainers.find((i) => session.trainerId === i.trainerId);
 
   return (
@@ -51,16 +52,16 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
                 <div className='session-indicator session-indicator-ready'></div>
               </div>
             </div>
-            {session.time.hour === nowDate.format('HH') ?
+            {session.hour === nowDate.format('HH') ?
               '' :
               <button>Отменить выбор</button>}
           </div>
         </div>}
       <div className='session-time'>
-        <p className='session-time-p'>{session.time.date}</p>
-        <p className='session-time-p'>Время: {session.time.hour}:00</p>
+        <p className='session-time-p'>{session.date}</p>
+        <p className='session-time-p'>Время: {session.hour}:00</p>
       </div>
-      {session.time.hour === nowDate.format('HH') ?
+      {session.hour === nowDate.format('HH') ?
         <button className='session-btn-open'>Открыть</button> :
         <button className='session-btn-open session-btn-change'>Перенести</button>}
     </li>

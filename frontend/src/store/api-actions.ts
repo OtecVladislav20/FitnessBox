@@ -46,6 +46,18 @@ export const fetchSessionsToBoxAction = createAsyncThunk<TSessions[], string, {
   },
 );
 
+export const fetchSessionsToUserAction = createAsyncThunk<TSessions[], string, {
+  dispatch: TAppDispatch;
+  state: TState;
+  extra: AxiosInstance;
+}>(
+  'data/fetchSessionToUser',
+  async (id, {extra: api}) => {
+    const {data} = await api.get<TSessions[]>(`/sessions/users/680e518bd6589051ec07b7b4`);
+    return data;
+  },
+);
+
 // ПРОВЕРИТЬ РАБОТУ
 export const postSessionsAction = createAsyncThunk<TSessions[], TSessions[], {
   dispatch: TAppDispatch;

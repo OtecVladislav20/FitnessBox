@@ -8,7 +8,8 @@ import moment from 'moment';
 import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
 import { fetchFitnessBoxAction, fetchSessionsToBoxAction, postSessionsAction } from '../../store/api-actions';
-import { useAuth } from '../../helpers/common';
+import { useAuth } from '../../hooks/use-auth';
+
 
 moment.locale('ru');
 
@@ -65,8 +66,6 @@ export default function BoxPage(): JSX.Element {
     };
     setActiveBookedTime((e) => [...e, obj]);
   };
-
-  console.log(activeBookedTime);
 
   const handlePostSessions = () => {
     dispatch(postSessionsAction(activeBookedTime));

@@ -1,6 +1,6 @@
 export type TSessions = {
   sessionId: string;
-  boxId: string;
+  fitnessBoxId: string;
   userId: string;
   trainerId: string | undefined;
   acceptWorkout: boolean;
@@ -13,7 +13,7 @@ export const sessions: TSessions[] = [
   {
     sessionId: '1',
 
-    boxId: '1',
+    fitnessBoxId: '1',
     userId: '1',
 
     trainerId: '1',
@@ -28,7 +28,7 @@ export const sessions: TSessions[] = [
   {
     sessionId: '2',
 
-    boxId: '1',
+    fitnessBoxId: '1',
     userId: '1',
 
     trainerId: undefined,
@@ -43,7 +43,7 @@ export const sessions: TSessions[] = [
   {
     sessionId: '3',
 
-    boxId: '1',
+    fitnessBoxId: '1',
     userId: '1',
 
     trainerId: undefined,
@@ -58,7 +58,7 @@ export const sessions: TSessions[] = [
   {
     sessionId: '4',
 
-    boxId: '1',
+    fitnessBoxId: '1',
     userId: '1',
 
     trainerId: undefined,

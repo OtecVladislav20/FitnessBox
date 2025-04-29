@@ -2,32 +2,29 @@ import { useEffect } from 'react';
 import Footer from '../../components/footer/footer';
 import HeaderAuth from '../../components/header-auth.tsx/header-auth';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import { users } from '../../utils/users';
 import { fetchTrainers } from '../../store/action';
 import { CURRENT_FLAG, filterSessions, FUTURE_FLAG, PAST_FLAG } from '../../helpers/filterSessions';
 import SessionItem from '../../components/session-item/session-item';
-import { fetchFitnessBoxesAction } from '../../store/api-actions';
+import { fetchSessionsToUserAction } from '../../store/api-actions';
+import { useAuth } from '../../hooks/use-auth';
 
 
 export default function SessionPage(): JSX.Element {
   const dispatch = useAppDispatch();
+  const { userId } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchFitnessBoxesAction());
+    dispatch(fetchSessionsToUserAction(userId));
     dispatch(fetchTrainers());
-    // dispatch(fetchSessions()); //Когда будет BACKEND добавить. Пока что сделать action, который будем изменять состояние в сторе
   }, [dispatch]);
 
   const fitnessBoxes = useAppSelector((state) => state.fitnessBoxes);
   const trainers = useAppSelector((state) => state.trainers);
-  const sessions = useAppSelector((state) => state.sessions);
+  const sessions = useAppSelector((state) => state.sessionsToUser);
 
-  const user = users.find((i) => i.userId === '1'); //Заглушка . Берем данные первого юзера
-  const userSessions = sessions.filter((i) => i.userId === user?.userId);
-
-  const currentSessions = filterSessions(userSessions, CURRENT_FLAG);
-  const futureSessions = filterSessions(userSessions, FUTURE_FLAG);
-  const pastSessions = filterSessions(userSessions, PAST_FLAG);
+  const currentSessions = filterSessions(sessions, CURRENT_FLAG);
+  const futureSessions = filterSessions(sessions, FUTURE_FLAG);
+  const pastSessions = filterSessions(sessions, PAST_FLAG);
 
 
   return (
