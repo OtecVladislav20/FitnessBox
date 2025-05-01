@@ -28,9 +28,14 @@ export class SessionEntity extends defaultClasses.TimeStamps {
   })
   public userId: string;
 
+  // @prop({
+  //   type: String,
+  //   ref: TrainerEntity,
+  //   default: undefined
+  // })
+  // public trainerId: string;
   @prop({
     type: String,
-    ref: TrainerEntity,
     default: undefined
   })
   public trainerId: string;

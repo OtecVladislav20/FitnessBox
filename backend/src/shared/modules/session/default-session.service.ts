@@ -4,6 +4,7 @@ import { SessionService } from './session-service.interface.js';
 import { SessionEntity } from './session.entity.js';
 import { CreateSessionDto } from './dto/create-session.dto.js';
 import { Component } from '../../types/component.enum.js';
+import { UpdateSessionDto } from './dto/update-session.dto.js';
 
 
 @injectable()
@@ -48,10 +49,26 @@ export class DefaultSessionService implements SessionService {
       .exec();
   }
 
+  public async findByTrainerId(trainerId: string): Promise<DocumentType<SessionEntity>[] | null> {
+    return this.sessionModel
+      .find({trainerId})
+      .populate(['fitnessBoxId'])
+      .populate(['userId'])
+      .exec();
+  }
+
+
   public async findByDate(date: string, hour: string): Promise<DocumentType<SessionEntity> | null> {
     return this.sessionModel.findOne({date: date, hour: hour})
       .populate(['fitnessBoxId'])
       .populate(['userId'])
+      .exec();
+  }
+
+  public async updateById(sessionId: string, dto: UpdateSessionDto): Promise<DocumentType<SessionEntity> | null> {
+    return this.sessionModel
+      .findByIdAndUpdate(sessionId, dto, {new: true})
+      .populate(['userId', 'trainerId', 'fitnessBoxId'])
       .exec();
   }
 }

@@ -1,9 +1,19 @@
+import { useEffect } from 'react';
 import Footer from '../../../components/footer/footer';
 import HeaderTrainer from '../../../components/Trainer/header-trainer/header-trainer';
 import SessionBlockTrainer from '../../../components/Trainer/session-block-trainer/session-block-trainer';
+import { useAppDispatch, useAppSelector } from '../../../hooks/hooks';
+import { fetchSessionsToTrainerAction } from '../../../store/api-actions';
 
 
 export default function TrainerSessionPage(): JSX.Element {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchSessionsToTrainerAction('1'));
+  }, [dispatch]);
+  const sessionToTrainer = useAppSelector((state) => state.sessionsToTrainer);
+
+
   return (
     <>
       <HeaderTrainer/>
@@ -28,9 +38,9 @@ export default function TrainerSessionPage(): JSX.Element {
         </section>
 
         <section className='flex session-blocks-trainer'>
-          <SessionBlockTrainer/>
-          <SessionBlockTrainer/>
-          <SessionBlockTrainer/>
+          {sessionToTrainer?.map((i) => (
+            <SessionBlockTrainer key={i.id} id={i.id} userId={i.userId} fitnessBoxId={i.fitnessBoxId} trainerId={i.trainerId} ptCount={3}date={i.date} hour={i.hour}/>
+          ))}
         </section>
       </main>
       <Footer/>

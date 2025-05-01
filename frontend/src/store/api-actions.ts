@@ -7,7 +7,7 @@ import { AppRoute, AuthorizationStatus } from '../const';
 import { saveToken } from '../services/token';
 import { TUserData } from '../types/user-data';
 import { TAuthData } from '../types/auth-data';
-import { TSessions } from '../utils/sessions';
+import UpdateSessionDto, { TSessions, TSessionsUpdate } from '../utils/sessions';
 
 
 export const fetchFitnessBoxesAction = createAsyncThunk<TFitnessBox[], undefined, {
@@ -55,6 +55,30 @@ export const fetchSessionsToUserAction = createAsyncThunk<TSessions[], string, {
   async (id, {extra: api}) => {
     const {data} = await api.get<TSessions[]>(`/sessions/users/680e518bd6589051ec07b7b4`);
     return data;
+  },
+);
+
+export const fetchSessionsToTrainerAction = createAsyncThunk<TSessions[], string, {
+  dispatch: TAppDispatch;
+  state: TState;
+  extra: AxiosInstance;
+}>(
+  'data/fetchSessionToTrainer',
+  async (id, {extra: api}) => {
+    const {data} = await api.get<TSessions[]>(`/sessions/trainers/1`);
+    return data;
+  },
+);
+
+export const patchSessionAction = createAsyncThunk<void, TSessionsUpdate, {
+    dispatch: TAppDispatch;
+    state: TState;
+    extra: AxiosInstance;
+}>(
+  'data/updateSession',
+  async (sessionData, {dispatch, extra: api}) => {
+    await api.patch<UpdateSessionDto>(`/sessions/${sessionData.id}`, sessionData);
+    await dispatch(fetchSessionsToTrainerAction('1'));
   },
 );
 

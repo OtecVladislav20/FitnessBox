@@ -14,6 +14,8 @@ import { HttpError } from '../../libs/rest/errors/http-error.js';
 import { StatusCodes } from 'http-status-codes';
 import { CreateSessionRequest } from './create-session-request.type.js';
 import { CreateSessionDto } from './dto/create-session.dto.js';
+import { UpdateSessionDto } from './dto/update-session.dto.js';
+import { ParamTrainerId } from '../trainer/type/param-trainer-id.type.js';
 
 
 @injectable()
@@ -30,8 +32,10 @@ export class SessionController extends BaseController {
     this.addRoute({ path: '/:sessionId', method: HttpMethod.Get, handler: this.show });
     this.addRoute({ path: '/fitness-boxes/:fitnessBoxId', method: HttpMethod.Get, handler: this.showAllFitnessBoxSessions });
     this.addRoute({ path: '/users/:userId', method: HttpMethod.Get, handler: this.showAllUserSessions });
+    this.addRoute({ path: '/trainers/:trainerId', method: HttpMethod.Get, handler: this.showAllTrainerSessions });
     this.addRoute({ path: '/register', method: HttpMethod.Post, handler: this.create });
     this.addRoute({ path: '/register-all', method: HttpMethod.Post, handler: this.createMany });
+    this.addRoute({ path: '/:sessionId', method: HttpMethod.Patch, handler: this.update });
   }
 
   public async index(_req: Request, res: Response): Promise<void> {
@@ -55,6 +59,12 @@ export class SessionController extends BaseController {
   public async showAllUserSessions({ params}: Request<ParamUserId>, res: Response): Promise<void> {
     const { userId } = params;
     const sessions = await this.sessionService.findByUserId(userId);
+    this.ok(res, fillDTO(SessionRdo, sessions));
+  }
+
+  public async showAllTrainerSessions({ params}: Request<ParamTrainerId>, res: Response): Promise<void> {
+    const { trainerId } = params;
+    const sessions = await this.sessionService.findByTrainerId(trainerId);
     this.ok(res, fillDTO(SessionRdo, sessions));
   }
 
@@ -95,4 +105,10 @@ export class SessionController extends BaseController {
     }
     this.created(res, fillDTO(SessionRdo, results));
   }
+
+  public async update({ body, params }: Request<ParamSessionId, unknown, UpdateSessionDto>, res: Response): Promise<void> {
+    const updatedSession = await this.sessionService.updateById(params.sessionId, body);
+    this.ok(res, fillDTO(SessionRdo, updatedSession));
+  }
+
 }

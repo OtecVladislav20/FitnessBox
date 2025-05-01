@@ -1,5 +1,5 @@
 export type TSessions = {
-  sessionId: string;
+  id: string;
   fitnessBoxId: string;
   userId: string;
   trainerId: string | undefined;
@@ -9,9 +9,28 @@ export type TSessions = {
   hour: string;
 }
 
+export type TSessionsUpdate = {
+  id: string;
+  boxId?: string;
+  trainerId?: string | undefined;
+  acceptWorkout?: boolean;
+  friend?: boolean;
+  date?: string;
+  hour?: string;
+}
+
+export default class UpdateSessionDto {
+  public boxId?: string;
+  public trainerId?: string | undefined;
+  public acceptWorkout?: boolean;
+  public friend?: boolean;
+  public date?: string;
+  public hour?: string;
+}
+
 export const sessions: TSessions[] = [
   {
-    sessionId: '1',
+    id: '1',
 
     fitnessBoxId: '1',
     userId: '1',
@@ -26,7 +45,7 @@ export const sessions: TSessions[] = [
     friend: false,
   },
   {
-    sessionId: '2',
+    id: '2',
 
     fitnessBoxId: '1',
     userId: '1',
@@ -41,7 +60,7 @@ export const sessions: TSessions[] = [
     friend: false,
   },
   {
-    sessionId: '3',
+    id: '3',
 
     fitnessBoxId: '1',
     userId: '1',
@@ -56,7 +75,7 @@ export const sessions: TSessions[] = [
     friend: false,
   },
   {
-    sessionId: '4',
+    id: '4',
 
     fitnessBoxId: '1',
     userId: '1',

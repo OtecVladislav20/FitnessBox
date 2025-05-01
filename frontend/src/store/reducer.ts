@@ -5,7 +5,7 @@ import { trainers, TTrainer } from '../utils/trainers';
 import { reviews, TReview } from '../utils/reviews';
 import { TSessions } from '../utils/sessions';
 import { AuthorizationStatus } from '../const';
-import { fetchFitnessBoxAction, fetchFitnessBoxesAction, fetchSessionsToBoxAction, fetchSessionsToUserAction } from './api-actions';
+import { fetchFitnessBoxAction, fetchFitnessBoxesAction, fetchSessionsToBoxAction, fetchSessionsToTrainerAction, fetchSessionsToUserAction } from './api-actions';
 
 
 const initialState: {
@@ -13,6 +13,7 @@ const initialState: {
   fitnessBox: TFitnessBox;
   sessionsToBox: TSessions[];
   sessionsToUser: TSessions[];
+  sessionsToTrainer: TSessions[];
 
   trainers: TTrainer[];
   reviews: TReview[];
@@ -23,6 +24,7 @@ const initialState: {
   fitnessBox: {} as TFitnessBox,
   sessionsToBox: [],
   sessionsToUser: [],
+  sessionsToTrainer: [],
 
   trainers: [],
   reviews: [],
@@ -43,6 +45,9 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(fetchSessionsToUserAction.fulfilled, (state, action) => {
       state.sessionsToUser = action.payload;
+    })
+    .addCase(fetchSessionsToTrainerAction.fulfilled, (state, action) => {
+      state.sessionsToTrainer = action.payload;
     })
 
 
