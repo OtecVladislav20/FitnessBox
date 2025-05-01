@@ -4,6 +4,7 @@ export enum AppRoute {
   LogIn = '/login',
   Code = '/code',
 
+  // Пользователь
   Session = '/session',
   Catalog = '/catalog',
   Box = '/catalog/:id',
@@ -11,6 +12,8 @@ export enum AppRoute {
   Trainer = '/trainers/:id',
   Subcribe = '/subcribe',
 
+  // Тренер
+  TrainerSession = '/trainer-session',
   Error = '*',
 }
 

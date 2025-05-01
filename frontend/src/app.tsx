@@ -15,6 +15,7 @@ import SessionPage from './Pages/session-page/session-page';
 import Error from './Pages/error/error';
 import HistoryRouter from './components/history-route/history-route';
 import browserHistory from './browser-history';
+import TrainerSessionPage from './Pages/Trainer/trainer-session-page/trainer-session-page';
 
 
 export default function App(): JSX.Element {
@@ -22,6 +23,9 @@ export default function App(): JSX.Element {
     <HelmetProvider>
       <HistoryRouter history={browserHistory}>
         <Routes>
+          <Route path={AppRoute.TrainerSession} element={<TrainerSessionPage/>} />
+
+
           <Route path={AppRoute.Main} element={<MainPage/>} />
           <Route path={AppRoute.SignIn} element={<SignInPage/>} />
           <Route path={AppRoute.LogIn} element={<LogInPage/>} />

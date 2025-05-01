@@ -58,7 +58,6 @@ export const fetchSessionsToUserAction = createAsyncThunk<TSessions[], string, {
   },
 );
 
-// ПРОВЕРИТЬ РАБОТУ
 export const postSessionsAction = createAsyncThunk<TSessions[], TSessions[], {
   dispatch: TAppDispatch;
   state: TState;

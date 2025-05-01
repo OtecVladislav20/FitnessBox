@@ -731,7 +731,7 @@ button {
 
 .player-wrapper {
     position: relative;
-    padding-top: 56.25%; 
+    padding-top: 56.25%;
 }
 .react-player {
     position: absolute;
@@ -1313,6 +1313,7 @@ button {
 .my-session {
     padding: 30px 200px;
     background-color: #202F39;
+    min-height: 40vh;
 }
 .session {
     height: 126px;
@@ -1325,4 +1326,129 @@ button {
 }
 .session:last-child {
     margin-bottom: 0px;
+}
+
+
+.toggle-title {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0;
+}
+
+.filter-btn-trainer-wrapper {
+  margin-right: 100px;
+}
+.filter-btn-trainer-wrapper:last-child {
+  margin-right: 0;
+}
+
+.filter-btn {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+  color: #fff;
+
+  background-color: #E06C20;
+  padding: 5px 20px;
+  border-radius: 8px;
+  border: none;
+  margin-right: 20px;
+}
+
+.input-search {
+  border-radius: 8px;
+  border: 3px solid #E06C20;
+  background-color: transparent;
+  padding: 5px 10px;
+  font-size: 24px;
+  margin-right: 10px;
+  width: 350px;
+}
+.input-search[type=text]::placeholder {
+	font-size: 24px;
+  color: #fff;
+}
+
+.filter-trainer {
+  margin-bottom: 50px;
+}
+
+.filter-btn-search-wrapper {
+  background-color: transparent;
+  border: none;
+}
+.filter-btn-search {
+  background-color: transparent;
+}
+
+.search-trainer {
+  margin-bottom: 30px;
+}
+
+.session-block-trainer {
+  background-color: #20282E;
+  /* width: 720px; */
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
+  padding: 15px;
+  width: fit-content;
+}
+
+.session-block-text {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0;
+  color: #fff;
+}
+
+.session-block-text-wrapper {
+  margin-right: 50px;
+}
+.session-block-text-wrapper:last-child {
+  margin-right: 0px;
+}
+
+.session-block-btn {
+  border-radius: 8px;
+  width: 50%;
+  background-color: #BD4848;
+  border: none;
+  padding: 10px;
+  margin-right: 15px;
+
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+}
+.session-block-btn:last-child {
+  margin-right: 0;
+}
+.session-block-btn--active {
+  background-color: #60B663;
+}
+
+.session-block-info {
+  margin-bottom: 30px;
+}
+
+.session-block-info-wrapper {
+  margin-right: 15px;
+}
+
+.catalog-map-trainer-block {
+  height: 162px;
+  width: 220px;
+}
+
+.session-blocks-trainer {
+  flex-wrap: wrap;
+  gap: 30px;
 }
