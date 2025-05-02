@@ -61,7 +61,7 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
         <p className='session-time-p'>{session.date}</p>
         <p className='session-time-p'>Время: {session.hour}:00</p>
       </div>
-      {session.hour === nowDate.format('HH') ?
+      {session.hour === nowDate.format('HH') && session.date === nowDate.format('MM.DD') ?
         <button className='session-btn-open'>Открыть</button> :
         <button className='session-btn-open session-btn-change'>Перенести</button>}
     </li>

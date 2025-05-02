@@ -31,7 +31,7 @@ export default function TrainerSessionPage(): JSX.Element {
         </section>
 
         <section className='flex search-trainer'>
-          <input type="text" placeholder='Поиск' className='input-search'/>
+          <input type="text" placeholder='Поиск' className='input-search input-catalog'/>
           <button className='filter-btn-search-wrapper'>
             <img src="../img/filter.svg" alt="Фильтер" className='filter-btn-search'/>
           </button>

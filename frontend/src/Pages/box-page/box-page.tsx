@@ -9,6 +9,9 @@ import 'moment/locale/ru';
 import BookedTimeButton from '../../components/booked-time-button/booked-time-button';
 import { fetchFitnessBoxAction, fetchSessionsToBoxAction, postSessionsAction } from '../../store/api-actions';
 import { useAuth } from '../../hooks/use-auth';
+import '@splidejs/react-splide/css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 
 
 moment.locale('ru');
@@ -58,7 +61,7 @@ export default function BoxPage(): JSX.Element {
     const obj = {
       fitnessBoxId: id,
       userId: userId,
-      trainerId: undefined,
+      trainerId: '1',
       acceptWorkout: false,
       friend: false,
       date: currentDate,
@@ -134,10 +137,97 @@ export default function BoxPage(): JSX.Element {
           </div>
         </section>
 
-        <section>
-          <div></div>
-          <div></div>
-        </section>
+        <div>
+          <Splide
+            options={ {
+              autoStart: true,
+              arrows: false,
+              pagination: false,
+              drag   : 'free',
+              type: 'loop',
+              focus  : 'center',
+              gap: '50px',
+              perPage: 3,
+              autoScroll: {
+                speed: 1,
+              },
+            } }
+            extensions={{ AutoScroll }}
+          >
+            <SplideSlide>
+              <div className='slide-item'>
+                <div className='flex slide-title-wrapper'>
+                  <div>
+                    <p className='slide-text mb-10'>Владислав</p>
+                    <div>
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                    </div>
+                  </div>
+                  <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                </div>
+                <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+              </div>
+            </SplideSlide>
+            <SplideSlide>
+              <div className='slide-item'>
+                <div className='flex slide-title-wrapper'>
+                  <div>
+                    <p className='slide-text mb-10'>Владислав</p>
+                    <div>
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                    </div>
+                  </div>
+                  <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                </div>
+                <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+              </div>
+            </SplideSlide>
+            <SplideSlide>
+              <div className='slide-item'>
+                <div className='flex slide-title-wrapper'>
+                  <div>
+                    <p className='slide-text mb-10'>Владислав</p>
+                    <div>
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                    </div>
+                  </div>
+                  <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                </div>
+                <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+              </div>
+            </SplideSlide>
+            <SplideSlide>
+              <div className='slide-item'>
+                <div className='flex slide-title-wrapper'>
+                  <div>
+                    <p className='slide-text mb-10'>Владислав</p>
+                    <div>
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                      <img src="../img/Star.svg" alt="" />
+                    </div>
+                  </div>
+                  <img src="../img/ya_symbol.svg" alt="Яндекс" className='slider-logo'/>
+                </div>
+                <p className='slide-text'>Тренер поможет добиться тебе желаемого результата, составит индивидуальную программу и план питания, покажет технику упражнений и поможет сохранить мотивацию и регульярноть тренировок!</p>
+              </div>
+            </SplideSlide>
+          </Splide>
+        </div>
       </main>
       <Footer/>
     </>

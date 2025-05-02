@@ -243,10 +243,28 @@
     width: 300px;
     border-radius: 20px;
     background-color: #E06C20;
-    background-image: url('../../../public/img/achivments-1.png');
 
     margin-right: 30px;
     margin-bottom: 30px;
+}
+
+.achivment-block-1 {
+  background-image: url('../../../public/img/achivments-1.png');
+}
+.achivment-block-2 {
+  background-image: url('../../../public/img/achivments-2.png');
+}
+.achivment-block-3 {
+  background-image: url('../../../public/img/achivments-3.png');
+}
+.achivment-block-4 {
+  background-image: url('../../../public/img/achivments-4.png');
+}
+.achivment-block-5 {
+  background-image: url('../../../public/img/achivments-5.png');
+}
+.achivment-block-6 {
+  background-image: url('../../../public/img/achivments-6.png');
 }
 
 .achivments-text-wrapper {
@@ -427,7 +445,6 @@ input::placeholder {
 .password-block {
     flex-direction: column;
     align-items: end;
-    margin-bottom: 50px;
 }
 
 .form-btn {
@@ -811,7 +828,8 @@ button {
 }
 .card-fitnessbox-btns {
     padding: 10px;
-    padding-right: 25px;
+    padding-top: 15px;
+    padding-right: 15px;
     flex-direction: column;
     align-items: end;
     justify-content: space-between;
@@ -834,9 +852,18 @@ button {
     margin: 0;
 }
 
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
 .catalog {
     background-color: #202F39;
     padding: 50px 200px;
+    min-height: 40vh;
 }
 .catalog-wrapper {
     height: 700px;
@@ -1145,15 +1172,7 @@ button {
     padding: 0px 200px;
     padding-bottom: 50px;
     background-color: #202F39;
-}
-
-.booked-date {
-    /* width: 100%; */
-    /* overflow-x: scroll; */
-}
-
-.booked-date-wrapper {
-    /* width: 120%; */
+    min-height: 50vh;
 }
 
 .booked-time {
@@ -1451,4 +1470,31 @@ button {
 .session-blocks-trainer {
   flex-wrap: wrap;
   gap: 30px;
+}
+
+
+.checkbox {
+  background-color: transparent;
+  border: 3px solid #E06C20;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.checkbox-wrapper {
+  margin-bottom: 50px;
+}
+
+.input-catalog {
+  width: 240px;
+  height: 24px;
+}
+
+.btn-reset {
+  background-color: transparent;
+  border: none;
+}
+
+.star-score {
+  height: 15px;
+  margin-right: 5px;
+  padding-top: 3px;
 }

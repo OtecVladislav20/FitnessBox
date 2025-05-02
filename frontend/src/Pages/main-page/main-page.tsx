@@ -52,9 +52,10 @@ export default function MainPage(): JSX.Element {
                 <h2 className='hero-h2'>Тренируйся в полном комфорте</h2>
               </div>
               <div className='hero-text-block'>
-                <p className='hero-p'>Выбери BOX</p>
-                <p className='hero-p'>Выбери BOX</p>
-                <p className='hero-p'>Выбери BOX</p>
+                <p className='hero-p'>1. Зарегистрируйся</p>
+                <p className='hero-p'>2. Забронируй спортзал</p>
+                <p className='hero-p'>3. Оплати </p>
+                <p className='hero-p'>4. Открой дверь и занимайся! </p>
               </div>
               <div className='flex hero-btns'>
                 <button className='hero-btn'>Выбрать BOX</button>
@@ -91,13 +92,13 @@ export default function MainPage(): JSX.Element {
               <img src="../img/target-img1.png" alt="" />
             </SplideSlide>
             <SplideSlide>
-              <img src="../img/target-img1.png" alt="" />
+              <img src="../img/target-img2.png" alt="" />
             </SplideSlide>
             <SplideSlide>
               <img src="../img/target-img1.png" alt="" />
             </SplideSlide>
             <SplideSlide>
-              <img src="../img/target-img1.png" alt="" />
+              <img src="../img/target-img2.png" alt="" />
             </SplideSlide>
           </Splide>
         </section>
@@ -107,37 +108,37 @@ export default function MainPage(): JSX.Element {
             <h2 className='h2-title'>Сделай шаг в сторону комфорта!</h2>
           </div>
           <div className='achivments-wrapper flex'>
-            <div className='achivment-block'>
+            <div className='achivment-block achivment-block-1'>
               <img src="" alt="" />
               <div className='achivments-text-wrapper flex'>
                 <p className='achivments-text'>Доступно 24 часа в сутки</p>
               </div>
             </div>
-            <div className='achivment-block'>
+            <div className='achivment-block achivment-block-2'>
               <img src="" alt="" />
               <div className='achivments-text-wrapper flex'>
                 <p className='achivments-text'>Занимайся индивидуально</p>
               </div>
             </div>
-            <div className='achivment-block'>
+            <div className='achivment-block achivment-block-3'>
               <img src="" alt="" />
               <div className='achivments-text-wrapper flex'>
                 <p className='achivments-text'>Плати только при использовании</p>
               </div>
             </div>
-            <div className='achivment-block'>
+            <div className='achivment-block achivment-block-4'>
               <img src="" alt="" />
               <div className='achivments-text-wrapper flex'>
                 <p className='achivments-text'>Тренажеры для всех групп мышц</p>
               </div>
             </div>
-            <div className='achivment-block'>
+            <div className='achivment-block achivment-block-5'>
               <img src="" alt="" />
               <div className='achivments-text-wrapper flex'>
                 <p className='achivments-text'>Персональныйе тренировки</p>
               </div>
             </div>
-            <div className='achivment-block'>
+            <div className='achivment-block achivment-block-6'>
               <img src="" alt="" />
               <div className='achivments-text-wrapper flex'>
                 <p className='achivments-text'>Простота использования</p>
@@ -248,7 +249,7 @@ export default function MainPage(): JSX.Element {
                 <img src="../img/start-2.png" alt="" />
               </div>
               <div className='start-number flex'>
-                <p className='start-number-text'>1</p>
+                <p className='start-number-text'>2</p>
               </div>
             </div>
             <div className='start-block flex'>
@@ -257,7 +258,7 @@ export default function MainPage(): JSX.Element {
                 <img src="../img/start-2.png" alt="" />
               </div>
               <div className='start-number flex'>
-                <p className='start-number-text'>1</p>
+                <p className='start-number-text'>3</p>
               </div>
             </div>
             <div className='start-block flex'>
@@ -266,7 +267,7 @@ export default function MainPage(): JSX.Element {
                 <img src="../img/start-2.png" alt="" />
               </div>
               <div className='start-number flex'>
-                <p className='start-number-text'>1</p>
+                <p className='start-number-text'>4</p>
               </div>
             </div>
             <div className='start-block flex'>
@@ -275,7 +276,7 @@ export default function MainPage(): JSX.Element {
                 <img src="../img/start-2.png" alt="" />
               </div>
               <div className='start-number flex'>
-                <p className='start-number-text'>1</p>
+                <p className='start-number-text'>5</p>
               </div>
             </div>
             <div className='start-block flex'>
@@ -284,7 +285,7 @@ export default function MainPage(): JSX.Element {
                 <img src="../img/start-2.png" alt="" />
               </div>
               <div className='start-number flex'>
-                <p className='start-number-text'>1</p>
+                <p className='start-number-text'>6</p>
               </div>
             </div>
           </div>

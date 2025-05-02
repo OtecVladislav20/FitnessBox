@@ -19,9 +19,9 @@ export default function CatalogPage(): JSX.Element {
     <>
       <HeaderAuth/>
       <main className='catalog'>
-        <section>
-          <input type="text" placeholder='Поиск'/>
-          <button>Избранное</button>
+        <section className='mb-30'>
+          <input type="text" placeholder='Поиск' className='input-search input-catalog'/>
+          <button className='filter-btn'>Избранное</button>
         </section>
         <section className='flex catalog-block'>
           <div className='cards-fitnessbox flex'>

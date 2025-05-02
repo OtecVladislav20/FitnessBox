@@ -19,11 +19,11 @@ export default function FitnessBoxCard({id, boxName, boxAdress, boxScore, boxVis
         <p className='card-fitnessbox-p'>Количество посещений: {boxVisited}</p>
       </div>
       <div className='card-fitnessbox-btns flex'>
-        <button>
-          <img src="../img/Star.svg" alt="" />
+        <button className='btn-reset'>
+          <img src="../img/heart-def.svg" alt="" />
         </button>
-        <div>
-          <img src="" alt="" />
+        <div className='flex'>
+          <img src="../img/white-star.svg" alt="" className='star-score'/>
           <p className='card-fitnessbox-p'>{boxScore}</p>
         </div>
       </div>

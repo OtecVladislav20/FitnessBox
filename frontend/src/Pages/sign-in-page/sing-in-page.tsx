@@ -3,6 +3,7 @@ import { AppRoute } from '../../const';
 import { useAppDispatch } from '../../hooks/hooks';
 import { FormEvent, useRef } from 'react';
 import { loginAction } from '../../store/api-actions';
+import Dropdown from '../../components/select-dropdown-menu/select-dropdown-menu';
 
 
 export default function SignInPage(): JSX.Element {
@@ -26,9 +27,9 @@ export default function SignInPage(): JSX.Element {
     <main className="signin-wrapper flex">
       <form action="" className="formSignIn flex" onSubmit={handleSubmit}>
         <img src="../img/logoFitnessBox.svg" alt="Logo" className="form-logo"/>
-        <input type="text" className="form-input" placeholder="Клиент"/>
+        <Dropdown/>
         <input type="email" className="form-input" placeholder="Электронная почта" ref={loginRef}/>
-        <div className="flex password-block">
+        <div className="flex password-block mb-50">
           <input type="password" className="form-input" placeholder="Пароль" ref={passwordRef}/>
           <button className="form-btn-text">Забыли пароль?</button>
         </div>
