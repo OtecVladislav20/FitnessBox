@@ -93,17 +93,35 @@ export default function BoxPage(): JSX.Element {
               <BookedTimeButton key={i.hour} hour={i.hour} price={i.price} hoursBooked={hoursBooked} handleChooseActiveTime={handleChooseActiveTime}/>
             ))}
           </div>
-          <div className='booked-payment'>
-            <button onClick={() => handlePostSessions()}>Оплатить</button>
+          <div className='flex booked-payment'>
+            <div>
+              <div>
+                <p className='booked-payment-count'>Вам доступно еще <b>2/6 бронирований</b></p>
+                <div className='flex'>
+                  <p className='booked-payment-sub-text'>Увеличить кол-во бронирований</p>
+                  <button className='btn-reset'>
+                    <img src="../img/plus.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <p className='price-text'>............................................................</p>
+            <div>
+              <p className='price-text'>Итог: <b>350 руб</b></p>
+              <button className='booked-payment-btn' onClick={() => handlePostSessions()}>Оплатить</button>
+            </div>
           </div>
         </section>
 
         <section className='flex mb-50'>
-          <img src="../img/FitnessBox.png" alt="Спортивный зал" />
+          <img src="../img/FitnessBox.png" alt="Спортивный зал" className='box-page-preview-img'/>
           <div>
-            <p>{fitnessBox?.name}</p>
-            <p>{fitnessBox?.adress}</p>
-            <p>{fitnessBox?.description}</p>
+            <div className='flex'>
+              <p className='box-page-name'>{fitnessBox?.name}</p>
+              <p className='box-page-name'>{fitnessBox?.adress}</p>
+            </div>
+            <p className='box-page-text'>{fitnessBox?.description}</p>
+            <p className='box-page-text'>{fitnessBox?.description}</p>
           </div>
         </section>
 
@@ -146,8 +164,7 @@ export default function BoxPage(): JSX.Element {
               drag   : 'free',
               type: 'loop',
               focus  : 'center',
-              gap: '50px',
-              perPage: 3,
+              perPage: 2,
               autoScroll: {
                 speed: 1,
               },

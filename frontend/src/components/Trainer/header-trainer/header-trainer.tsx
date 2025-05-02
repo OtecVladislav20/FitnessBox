@@ -12,7 +12,7 @@ export default function HeaderTrainer(): JSX.Element {
       <nav className='flex'>
         <Link to={AppRoute.TrainerSession} className='nav-link'>Тренировки</Link>
         <Link to={AppRoute.TrainerSession} className='nav-link'>Расписание</Link>
-        <Link to={AppRoute.TrainerSession} className='nav-link'>Клиентки</Link>
+        <Link to={AppRoute.TrainerSession} className='nav-link'>Клиенты</Link>
       </nav>
       <div className='flex'>
         <p>Беру новые заказы</p>

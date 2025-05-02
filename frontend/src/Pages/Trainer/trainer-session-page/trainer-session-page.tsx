@@ -20,11 +20,11 @@ export default function TrainerSessionPage(): JSX.Element {
       <main className='my-session'>
         <section className='flex filter-trainer'>
           <div className='filter-btn-trainer-wrapper'>
-            <button className='filter-btn'>Новые заявки</button>
+            <button className='filter-btn filter-btn--active'>Новые заявки</button>
             <button className='filter-btn'>Одобренные заявки</button>
           </div>
           <div className='filter-btn-trainer'>
-            <button className='filter-btn'>Блоки</button>
+            <button className='filter-btn filter-btn--active'>Блоки</button>
             <button className='filter-btn'>Расположение</button>
             <button className='filter-btn'>График</button>
           </div>

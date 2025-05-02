@@ -1093,6 +1093,21 @@ button {
     border-radius: 20px;
 }
 
+.booked-payment-btn {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #E06C20;
+
+  color: #fff;
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0;
+}
+
 .trainer-block-bottom {
     gap: 30px;
 }
@@ -1183,6 +1198,7 @@ button {
     row-gap: 20px;
     column-gap: 5px;
     margin-right: 30px;
+    border-radius: 20px;
 }
 
 .booked-btn {
@@ -1252,8 +1268,14 @@ button {
 
 .booked-payment {
     background-color: #20282E;
-    height: 500px;
+    /* height: 460px; */
+    height: 250px;
     width: 100%;
+    border-radius: 20px;
+    padding: 20px;
+
+    flex-direction: column;
+    justify-content: space-between;
 }
 .session-btn-open {
     height: 100%;
@@ -1285,6 +1307,7 @@ button {
     width: 330px;
     border-radius: 20px;
     background-color: #E06C20;
+    justify-content: space-between;
 }
 .session-box-img {
     height: 100%;
@@ -1497,4 +1520,108 @@ button {
   height: 15px;
   margin-right: 5px;
   padding-top: 3px;
+}
+
+.box-page-name {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  color: #fff;
+  margin: 0;
+  margin-right: 25px;
+}
+.box-page-name:last-child {
+  margin: 0;
+}
+.box-page-text {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  color: #fff;
+  margin: 0;
+}
+
+.box-page-preview-img {
+  margin-right: 30px;
+  width: 400px;
+  border-radius: 20px;
+}
+
+.price-text {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  color: #fff;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.booked-payment-count {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  color: #fff;
+  margin: 0;
+}
+
+.booked-payment-sub-text {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.my-session-title {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  color: #fff;
+  margin: 0;
+}
+
+.show-on-map {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
+
+  background-color: #60B663;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.my-session-fitness-box-wrapper {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.delete-chose {
+  font-family: 'Alumni Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #fff;
+  margin: 0;
+
+  background-color: #BD4848;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.filter-btn--active {
+  background-color: #20282E;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 1);
 }

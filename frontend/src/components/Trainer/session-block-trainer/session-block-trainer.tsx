@@ -26,18 +26,21 @@ export default function SessionBlockTrainer({id, userId, fitnessBoxId, trainerId
     dispatch(patchSessionAction(sessionData));
   };
 
+  const fitnessBox = [];
+  fitnessBox.push(fitnessBoxes[0]);
+
   return (
     <div className='flex session-block-trainer'>
       <div className='session-block-info-wrapper'>
         <div className='flex session-block-info'>
           <div className="session-block-text-wrapper">
-            <p className="session-block-text">{userId[name]}</p>
-            <p className="session-block-text">фываывфаывфа</p>
+            <p className="session-block-text">Маслаков Владислав Денисович</p>
+            <p className="session-block-text">8-906-800-68-08</p>
             <p className="session-block-text">Осталось еще: {ptCount} тренировки</p>
           </div>
           <div className="session-block-text-wrapper">
-            <p className="session-block-text">{fitnessBoxId[id]}</p>
-            <p className="session-block-text">ыфваыфваыф</p>
+            <p className="session-block-text">FitnessBox-1</p>
+            <p className="session-block-text">Менделеева 11</p>
             <p className="session-block-text">{date}  {hour}</p>
           </div>
         </div>
@@ -47,7 +50,7 @@ export default function SessionBlockTrainer({id, userId, fitnessBoxId, trainerId
         </div>
       </div>
       <div className='catalog-map-trainer-block'>
-        {/* <GeocodeMap fitnessBoxes={fitnessBoxes}/> */}
+        <GeocodeMap fitnessBoxes={fitnessBox}/>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import moment from 'moment';
 import { TFitnessBox } from '../../utils/fitness-boxes';
 import { TSessions } from '../../utils/sessions';
 import { TTrainer } from '../../utils/trainers';
+import Drop from './drop';
+
 
 type TSessionItem = {
   session: TSessions;
@@ -13,24 +15,23 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
   const nowDate = moment();
 
   const fitnessBox = fitnessBoxes.find((i) => session.fitnessBoxId === i.id);
-
   const trainer = trainers.find((i) => session.trainerId === i.trainerId);
 
   return (
     <li className='session flex'>
       <div className='session-box-wrapper flex'>
         <img src="../img/FitnessBox.png" alt="" className='session-box-img'/>
-        <div>
+        <div className='flex my-session-fitness-box-wrapper'>
           <div>
-            <p className='session-text'>{fitnessBox?.name}</p>
-            <p className='session-text'>{fitnessBox?.adress}</p>
+            <p className='session-text'>FitnessBox-1</p>
+            <p className='session-text'>Менделеева 11</p>
           </div>
-          <button>Показать на карте</button>
+          <button className='show-on-map'>Показать на карте</button>
         </div>
       </div>
-      {session.trainerId === undefined ?
+      {session.trainerId === undefined || session.trainerId === '0' ?
         <div className='session-box-wrapper flex'>
-          <img src="../img/trainer-img.png" alt="" className='session-box-img'/>
+          <img src="../img/trainer-empty.png" alt="" className='session-box-img'/>
           <div className='session-wrapper flex'>
             <div className='session-text-wrapper flex'>
               <p className='session-text'>Тренер не выбран</p>
@@ -40,7 +41,7 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
                   <div className='session-indicator session-indicator-waiting'></div>}
               </div>
             </div>
-            <button>Выбрать тренера</button>
+            <Drop/>
           </div>
         </div> :
         <div className='session-box-wrapper flex'>
@@ -54,7 +55,7 @@ export default function SessionItem({session, fitnessBoxes, trainers}: TSessionI
             </div>
             {session.hour === nowDate.format('HH') ?
               '' :
-              <button>Отменить выбор</button>}
+              <button className='delete-chose'>Отменить выбор</button>}
           </div>
         </div>}
       <div className='session-time'>

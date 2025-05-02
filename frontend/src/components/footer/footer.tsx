@@ -32,10 +32,10 @@ export default function Footer() {
         <div className='footer-contacts flex'>
           <h3 className='footer-title'>Приложения</h3>
           <a href="">
-            <img src="" alt="" />
+            <img src="../img/mobile1.png" alt="" />
           </a>
           <a href="">
-            <img src="" alt="" />
+            <img src="../img/mobile2.png" alt="" />
           </a>
         </div>
       </div>
